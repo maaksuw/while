@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="basics">
+        <h1>WHILE-ohjelmoinnin perusteet</h1>
+        <p>
+        WHILE-kieli on yksinkertainen ohjelmointikieli. WHILE-kieli on yhtä ilmaisuvoimainen kuin Turingin kone, ja minkä tahansa Turingin koneen voi muuttaa WHILE-ohjelmaksi ja toisin päin. WHILE-kieltä lähellä olevia muita kieliä ovat LOOP-kieli ja GO TO-kieli, joista GO TO-kieli on yhtä ilmaisuvoimainen kuin WHILE-kieli, mutta LOOP-kieli on aidosti heikompi. Ackermann-funktio on esimerkki funktiosta, joka voidaan laskea WHILE-ohjelmalla, mutta ei LOOP-ohjelmalla. Kaikki nämä kolme kieltä ovat määritelmiltään yksinkertaisia ja ne muodostavat sillan Turingin koneiden ja modernien ohjelmointikielten välille. Modernien ohjelmointikielten syntaksit helpottavat monimutkaisempien ohjelmien kirjoittamista, kun taas yksinkertaisesta määrittelystä on hyötyä, jos halutaan esimerkiksi todistaa väitteitä kaikille ohjelmille. On mielenkiintoista huomata, kuinka yksinkertaisilla säännöillä voidaan edelleen ohjelmoida periaatteessa mitä vain.
+        WHILE-ohjelma on määritelty seuraavasti:
+        </p>
+        <p>
+        WHILE-ohjelma on funktio f: (N_0)^k -> N_0, eli WHILE-ohjelma saa parametrinaan äärellisen määrän luonnollisia lukuja ja palauttaa vastauksena yhden luonnollisen luvun. Nolla lasketaan tässä mukaan luonnollisiin lukuihin.
+        Muuttuja saa alustettaessaan arvon nolla.
+        Olkoon a ja b muuttujia ja c luonnollinen luku.
+        </p>
+        <ul>
+        <li>a := b + c on WHILE-ohjelma. Muuttujaan a arvoksi asetetaan muuttujan b ja luvun c summa.</li>
+        <li>
+        a := b - c on WHILE-ohjelma. - -operaatio on nimeltään "moonus" ja kyseessä on vähennyslasku, jonka tulos ei voi mennä negatiiviseksi. Jos arvo b - c on negatiivinen, a saa arvon nolla.
+        </li>
+        <li>
+        Jos P_1 ja P_2 ovat WHILE-ohjelmia, niin P_1; P_2 on WHILE-ohjelma.
+        </li>
+        <li>
+        Jos P on WHILE-ohjelma, niin WHILE a /= 0 DO P END on WHILE-ohjelma. Jos muuttujan a arvo on eri suuri kuin nolla, suoritetaan ohjelma P, ja muuten lopetetaan. Tätä toistetaan, kunnes muuttuja a saa arvon nolla.
+        </li>
+        </ul>
+        <p>
+        Pitänee kirjoittaa tänne vielä miltä tehtävissä halutaan tarkalleen WHILE-ohjelman näyttävän. Laitetaan tänne myös esimerkkiohjelma.
+        </p>
+    </div>
+{% endblock %}

@@ -1,9 +1,13 @@
 # TODO
-* Suunnittele sovelluksen rakenne
-* Aloita toteuttaminen WHILE-ohjelmoinnista kertovasta sivusta
-* Luo tehtävälista ja tehtäväsivut
-* Mahdollista käyttäjätunnuksen luominen ja sisäänkirjautuminen
-* Syötteen tarkistaminen ja simuloiminen
-* Ratkaisun näyttäminen käyttäjälle
-* Statistiikkaa tehtävistä
-* Käyttäjien etsiminen
+- [x] Suunnittele sivujen rakenne
+- [x] Toteuta sivupohjan luonnosversio
+- [x] Mahdollista käyttäjätunnuksen luominen ja sisäänkirjautuminen
+- [ ] Toteuta kirjautumistietojen validointi
+- [ ] Suunnittele tehtäviä
+- [ ] Toteuta tehtäväsivut ja ratkaisun lähettäminen
+- [ ] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
+- [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
+
+- [ ] Toteuta profiilisivu
+- [ ] Mahdollista muiden käyttäjien etsiminen
+- [ ] Muiden käyttäjien lisääminen kaverilistalle
