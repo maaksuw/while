@@ -18,6 +18,10 @@ def index():
 def basics():
     return render_template("basics.html")
 
+@app.route("/profile/<string:username>")
+def profile(username):
+    return render_template("profile.html", username=username)
+
 # Autentikaatiot
 
 @app.route("/signin")
@@ -38,7 +42,7 @@ def signinpost():
         db.session.commit()
     else:
         return render_template("register.html", error="Käyttäjänimi on jo varattu.")
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/login")
 def loginget():
@@ -68,6 +72,10 @@ def logout():
 
 # Tehtävät
 
+@app.route("/instructions")
+def instructions():
+    return render_template("instructions.html")
+
 @app.route("/exercises")
 def exercises():
     return render_template("exercises.html")
@@ -83,3 +91,31 @@ def exercise2():
 @app.route("/exercise3")
 def exercise3():
     return render_template("exercise3.html")
+
+@app.route("/exercise4")
+def exercise4():
+    return render_template("exercise4.html")
+
+@app.route("/exercise5")
+def exercise5():
+    return render_template("exercise5.html")
+
+@app.route("/exercise6")
+def exercise6():
+    return render_template("exercise6.html")
+
+@app.route("/exercise7")
+def exercise7():
+    return render_template("exercise7.html")
+
+@app.route("/exercise8")
+def exercise8():
+    return render_template("exercise8.html")
+
+@app.route("/exercise9")
+def exercise9():
+    return render_template("exercise9.html")
+
+@app.route("/exercise10")
+def exercise10():
+    return render_template("exercise10.html")
