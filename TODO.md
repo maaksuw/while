@@ -5,7 +5,7 @@
 - [x] Toteuta kirjautumistietojen validointi
 - [x] Julkaise sovellus Herokussa
 - [x] Suunnittele tehtäviä
-- [ ] Toteuta tehtäväsivut ja ratkaisun lähettäminen
+- [x] Toteuta tehtäväsivut ja ratkaisun lähettäminen
 - [ ] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
 - [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Siisti koodi ja repositorio

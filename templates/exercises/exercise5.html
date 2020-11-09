@@ -4,5 +4,10 @@
     <div class="container">
         <p><a href="/exercises">Tehtavalista</a></p>
         <p>Tehtävänanto tänne.</p>
+        <form action="/login" method="POST">
+            <textarea name="answer" rows="10" cols="50" maxlength="10000"></textarea>
+            <p>
+            <button type="submit">Lähetä</button>
+        </form>
     </div>
 {% endblock %}
