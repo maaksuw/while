@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>
     
     <body>
@@ -17,13 +16,17 @@
                         <li class="nav-item"><a class="nav-link" href="/">Etusivu</a></li>
                         <li class="nav-item"><a class="nav-link" href="/basics">Mikä ihmeen WHILE-ohjelmointi?</a></li>
                         
-                        <div class="dropdown">
-                            <button class="dropbtn">Tehtävät</button>
-                            <div class="dropdown-content">
-                            <a href="/instructions">Ohjeet</a>
-                            <a href="/exercises">Tehtävälista</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </div>
+                        </li>
                         
                         {% if session.username %}
                         <li class="nav-item"><a href="/profile/{{ session.username }}">{{ session.username }}</a>
