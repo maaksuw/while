@@ -7,6 +7,7 @@
     </head>
     
     <body>
+    
         <title>Johdatus WHILE-ohjelmointiin</title>
         <header>
             <div class="container">
@@ -15,33 +16,42 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="/">Etusivu</a></li>
                         <li class="nav-item"><a class="nav-link" href="/basics">Mikä ihmeen WHILE-ohjelmointi?</a></li>
-                        
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown">
+                            Tehtävät
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/instructions">Ohjeet</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/exercises">Tehtävälista</a>
                             </div>
                         </li>
                         
-                        {% if session.username %}
-                        <li class="nav-item"><a href="/profile/{{ session.username }}">{{ session.username }}</a>
-                        <li class="nav-item"><a class="button" href="/logout">Kirjaudu ulos</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="button" href="/signin">Luo käyttäjätunnus</a></li>
-                        <li class="nav-item"><a class="button" href="/login">Kirjaudu sisään</a></li>
-                        {% endif %}
                     </ul>
+                    {% if session.username %}
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-light mr-sm-2" href="/profile/{{ session.username }}">{{ session.username }}</a>
+                        <a class="btn btn-light my-2 my-sm-0" href="/logout" role="button">Kirjaudu ulos</a>
+                    </div>
+                    {% else %}
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-primary mr-sm-2" href="/signin" role="button">Luo käyttäjätunnus</a>
+                        <a class="btn btn-light my-2 my-sm-0" href="/login" role="button">Kirjaudu sisään</a>
+                    </div>
+                    {% endif %}
                 </nav>
             </div>
         </header>
+        
         <div class="container">
             {% block content %}
             {% endblock %}
         </div>
+        
+        <script 
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
     </body>
 </html>
