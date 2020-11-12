@@ -22,6 +22,10 @@ def exercise(id):
 @app.route("/exercise/<int:id>", methods=["POST"])
 def exercisesubmit(id):
     answer = request.form["answer"]
+    #simulator.isWHILEprogram(answer)
     #Käsittele vastaus täällä!
-    simulator.parse(answer)
+    #if(simulator.iswhileprogram(answer)):
+       #simulator.simulate()
+    #else:
+        ##Annettu vastaus ei ole kelvollinen while-ohjelma
     return "jotain"

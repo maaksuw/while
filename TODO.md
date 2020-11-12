@@ -15,3 +15,4 @@
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
 - [ ] Muuta username rivi uniikiksi
+- [ ] Päivitä schema!

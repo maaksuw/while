@@ -1,7 +1,7 @@
 from flask import Flask
 from werkzeug.security import check_password_hash, generate_password_hash
 from db import db
-import re
+import re # Poista tämä, tai siirrä salasanan ja käyttäjätunnuksen validoinnit tänne.
 
 def getPassword(username):
     sql = "SELECT password FROM users WHERE username=:username"
