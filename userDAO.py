@@ -13,13 +13,14 @@ def createNewUser(username, password):
     sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
     db.session.execute(sql, {"username":username, "password":hash_value})
     db.session.commit()
-    
-def invalidUsername(username):
-    if len(username) < 3: return True
-    return False
 
-def invalidPassword(password):
-    if len(password) < 8: return True
-    regex = re.compile("([a-zA-Z]|[öäå]|[ÖÄÅ])*[0-9]([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])*")
-    if regex.fullmatch(password) == None: return True
-    return False
+def getExercise(id):
+    sql = "SELECT heading, description FROM exercises WHERE id=:id"
+    result = db.session.execute(sql, {"id":id})
+    exercise = result.fetchone()
+    return (exercise[0], exercise[1])
+
+def getExercisesByTopic(topic):
+    sql = "SELECT id, heading FROM exercises WHERE topic=:topic"
+    result = db.session.execute(sql, {"topic":topic})
+    return result.fetchall()

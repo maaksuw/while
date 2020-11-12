@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="exercises">
+        <h1>Tehtävät</h1>
+        
+        <p>Laskutoimitukset</p>
+        {% for exercise in topic1 %}
+        <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
+        {% endfor %}
+        
+        <p>Muita jännyyksiä, suunnitellaan hamassa tulevaisuudessa, mutta olkoon nyt testauksen vuoksi.</p>
+        {% for exercise in topic2 %}
+        <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
+        {% endfor %}
+    </div>
+{% endblock %}

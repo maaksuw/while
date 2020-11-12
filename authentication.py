@@ -14,11 +14,11 @@ def signinget():
 @app.route("/register", methods=["POST"])
 def signinpost():
     username = request.form["username"]
-    if userDAO.invalidUsername(username):
+    if invalidUsername(username):
         return render_template("register.html", usernameError="Käyttäjänimen tulee olla vähintään 3 merkkiä pitkä.")
     if userDAO.getPassword(username) == None:
         password = request.form["password"]
-        if userDAO.invalidPassword(password):
+        if invalidPassword(password):
             return render_template("register.html", passwordError="Salasanan tulee olla vähintään 8 merkkiä pitkä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero.")
         userDAO.createNewUser(username, password)
     else:
@@ -47,3 +47,13 @@ def loginpost():
 def logout():
     del session["username"]
     return redirect("/")
+
+def invalidUsername(username):
+    if len(username) < 3: return True
+    return False
+
+def invalidPassword(password):
+    if len(password) < 8: return True
+    regex = re.compile("([a-zA-Z]|[öäå]|[ÖÄÅ])*[0-9]([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])*")
+    if regex.fullmatch(password) == None: return True
+    return False
