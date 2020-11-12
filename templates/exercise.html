@@ -4,11 +4,10 @@
     <div class="container">
         <p><a href="/exerciselist">Tehtavalista</a></p>
         <p>{{ description }}</p>
-        <form action="/login" method="POST">
+        <form action="/exercise/{{ id }}" method="POST">
             <textarea name="answer" rows="10" cols="50" maxlength="10000"></textarea>
             <p>
             <button type="submit">Lähetä</button>
-            <input type="hidden" name="id" value="{{ id }}">
         </form>
     </div>
 {% endblock %}

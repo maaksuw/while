@@ -1,8 +1,8 @@
 from flask import Flask
 from flask import render_template, request, redirect
 from app import app
-import simulator
 import userDAO
+import simulator
 
 @app.route("/exerciselist")
 def exerciselist():
@@ -22,4 +22,6 @@ def exercise(id):
 @app.route("/exercise/<int:id>", methods=["POST"])
 def exercisesubmit(id):
     answer = request.form["answer"]
+    #Käsittele vastaus täällä!
+    simulator.parse(answer)
     return "jotain"
