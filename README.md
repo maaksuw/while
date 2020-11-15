@@ -15,4 +15,19 @@ Sovelluksella pitäisi olla nyt toimiva sivupohja oleellisten toimintojen osalta
 
 Tällä hetkellä työstän sitä, että tehtävien tarkistaminen (onko WHILE-ohjelma) ja simuloiminen saadaan toimimaan alusta loppuun. Parserin pitäisi toimia, mutta sitä ei ole vielä kovin paljon testattu. Seuraavaksi toteutan simuloinnin ja teen muutaman tehtävän valmiiksi, niin että niille voi tehdä testit ja pääsen kunnolla kokeilemaan, eihän parseriin ja simulaattoriin ole jäänyt bugeja. Kun tehtävien käsittely ja simulointi onnistuu oikein, kirjoitan sivustolle paremmat tekstit ja ohjeet siihen, miten tehtäviä lähetetään. Tämän jälkeen alan tekemään varmaan profiili-sivuja ja piilotan tehtävien lähettämisen muilta kuin kirjautuneilta käyttäjiltä.
 
-Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Jos tehtävään yrittää lähettää jotain tekstiä tehtäväsivulta, niin palvelimelta pitäisi tulla aina vastaus "jotain". Jos vastauksena tulee jokin virheviesti, niin minulle voi ilmoittaa!
+### Update:
+Ehdin tässä vielä illalla tehdä simuloinnista luonnosversion valmiiksi. Vein muutokset myös Herokuun ja kokeilin, miten ohjelma siellä toimii. Tällä hetkellä, jos ensimmäiseen tehtävään lähettää jotain pitäisi voida saada seuraavat vastaukset:
+* Jos sovelluksen ensimmäinen rivi ei ole   input: x1, x2;   tulee Internal Server Error.
+* Ohjelma odottaa, että se saa kaksi input-muuttujaa, ja niiden arvoiksi asetetaan 8 ja 13. Jos ohjelman syntaksi on oikea, sovellus kertoo mitä ohjelman suorituksen loputtua ans-nimisessä muuttujassa on arvona.
+Syntaksia ei kerrota vielä missään, mutta se seuraa läheisesti Javan-syntaksia. Tässä nopea esimerkki:  
+input: x1, x2;  
+a = x1 + 0;  
+while (a != 0) {  
+    x2 = x2 + 1;  
+    a = a - 1;  
+}  
+ans = x2 + 0;  
+* Jos syntaksi ei ole oikein, sovelluksen pitäisi kertoa tämä. Poikkeuksena tosiaan ensimmäinen input-rivi.
+Luonnoksessa on vielä paljon tekemättömiä asioita, joten se toimii vielä hyvin epävakaasti. Halusin kuitenkin kokeilla hieman, että ensimmäinen versio toimii!
+
+Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Jos sovellus antaa jossain kohtaa virheviestin, niin minulle voi ilmoittaa!
