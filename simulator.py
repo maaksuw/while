@@ -16,20 +16,19 @@ def isWHILEprogram(program):
     global error
     error = False
     program = removewhitespace(program)
-    print(program)
+    #print(program)
     commands = [0]*len(program)
     variables = {}
     variables["ans"] = 0
     cnt = 1
-    handlefirstrow(program, variables)
+    readinputvariables(program, variables)
     parsewhile(1, commands, program, variables)
     if error: 
-        print("Ohjelmassa on virhe!")
-        return False
-    print(commands)
-    return True
+        return (False, None, None)
+    #print(commands)
+    return (True, commands, len(variables))
 
-def handlefirstrow(program, variables):
+def readinputvariables(program, variables):
     global cnt
     firstrow = program[0]
     inputvars = firstrow[firstrow.index(":") + 1 : len(firstrow) - 1]
@@ -39,7 +38,6 @@ def handlefirstrow(program, variables):
     dots.append(len(inputvars))
     for i in range(1, len(dots)):
         varname = inputvars[dots[i - 1] + 1 : dots[i]]
-        print("input variable:",varname)
         variables[varname] = cnt
         cnt += 1
         
@@ -53,11 +51,8 @@ def parsewhile(ind, commands, program, variables):
     type3 = re.compile("while[(]" + variablename + "[!][=]0[)][{]")
     type4 = re.compile("[}]")
     while (ind < n):
-        print(ind)
         kasky = program[ind]
-        if ind == 6: print(kasky)
         if(type12.fullmatch(kasky)):
-            if ind == 6: print(1, 2)
             firstvar = kasky[ : kasky.index("=")]
             secondvar = 0
             plus = False
@@ -86,19 +81,47 @@ def parsewhile(ind, commands, program, variables):
             if var not in variables:
                 variables[var] = cnt
                 cnt += 1
-            commands[ind] = (2, variables[var], finalind + 1)
-            commands[finalind] = (3, ind)
+            commands[ind] = (3, variables[var], finalind + 1)
+            commands[finalind] = (4, ind)
             ind = finalind
         elif(type4.fullmatch(kasky)):
             return ind
-        else:
-            #Ohjelma ei ole kelvollinen, lopetetaan
-            #Keksitään jokin siistempi tapa myöhemmin
+        else: #Keksitään jokin siistempi tapa myöhemmin
             error = True
             return -1
         ind += 1
         
         
-def simulate():
-    #TODO
-    return False
+def simulate(commands, cnt):
+    ### Testinä 8 ja 13, tehdään kunnolla myöhemmin
+    input = (8, 13)
+    #output = 21
+    ###
+    pc = 1
+    variables = [0]*cnt
+    cnt = 1
+    for i in input:
+        variables[cnt] = i
+        cnt += 1
+    print(variables)
+    n = len(commands)
+    while(pc < n):
+        command = commands[pc]
+        print(command)
+        if command[0] == 1:
+            variables[command[1]] = variables[command[2]] + command[3]
+        elif command[0] == 2:
+            value = variables[command[2]] - command[3]
+            if value < 0: variables[command[1]] = 0 
+            else: variables[command[1]] = value
+        elif command[0] == 3:
+            if variables[command[1]] == 0:
+                pc = command[2]
+                continue
+        elif command[0] == 4:
+            pc = command[1]
+            continue
+        pc += 1
+    print(variables[0])
+    #return variables[0] == output
+    return variables[0]

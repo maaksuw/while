@@ -17,15 +17,19 @@ def exerciselist():
 @app.route("/exercise/<int:id>")
 def exercise(id):
     exercise = userDAO.getExercise(id)
-    return render_template("exercise.html", id=id, heading=exercise[0], description=exercise[1])
+    return render_template("exercise.html", id=id, heading=exercise[0], description=exercise[1], error="")
 
 @app.route("/exercise/<int:id>", methods=["POST"])
 def exercisesubmit(id):
     answer = request.form["answer"]
-    print(simulator.isWHILEprogram(answer))
-    #Käsittele vastaus täällä!
-    #if(simulator.iswhileprogram(answer)):
-       #simulator.simulate()
-    #else:
-        ##Annettu vastaus ei ole kelvollinen while-ohjelma
-    return "jotain"
+    parseresult = simulator.isWHILEprogram(answer)
+    if(parseresult[0]):
+        #print(parseresult[1])
+        testspassed = simulator.simulate(parseresult[1], parseresult[2])
+        #if testspassed:
+            #return render_template("result.html", result="Ohjelma toimii oikein!", id=id)
+        #else:
+            #return render_template("result.html", result="Ohjelma antoi väärän vastauksen.", id=id)
+        return render_template("result.html", result=testspassed, id=id)
+    else:
+        return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai annettu oikeassa syntaksissa.", id=id)

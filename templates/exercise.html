@@ -4,6 +4,7 @@
     <div class="container">
         <p><a href="/exerciselist">Tehtavalista</a></p>
         <p>{{ description }}</p>
+        <small class="form-text text-danger">{{ error }}</small>
         <form action="/exercise/{{ id }}" method="POST">
             <textarea name="answer" rows="10" cols="50" maxlength="10000"></textarea>
             <p>
