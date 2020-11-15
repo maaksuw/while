@@ -7,9 +7,12 @@ PDF, jossa kerrotaan WHILE-kielestä: [Theory of Computer Science - LOOP- and WH
 
 Linkki sovellukseen [Johdatus WHILE-ohjelmointiin](https://whileohjelmointi.herokuapp.com).
 
-## Tilannekatsaus: välipalautus 2
-Sovelluksella pitäisi olla nyt toimiva sivupohja oleellisten toimintojen osalta. Kaikki tällä hetkellä olemassa olevat sivut ja linkit pitäisi toimia myös Herokussa, mutta jos siellä tulee ongelmia, niin korjaan ne pikimmiten. Sivut ovat vielä todella sekaisin ja asettelut eivät ole kohdallaan ja kaikki tekstit ovat vielä placeholdereita. Aion keskittyä ulkoasun suunnitteluun ja viilaamiseen hieman myöhemmin kurssilla, joten toivottavasti tämä ei haittaa. Tehtävien vastaanottamisen ja tarkistamisen logiikka on aloitettu ja sen loppuun tekeminen on seuraavana asialistalla. Parseri pitää vielä koodata loppuun ja tämän jälkeen simuloinnin ei pitäisi olla vaikea toteuttaa. Kun tehtävien käsittely ja simulointi onnistuu oikein, kirjoitan paremmat tekstit ja lisään suunnitellut tehtävät sivulle ja lisään testit. Tämän jälkeen alan tekemään varmaan profiili-sivuja.
-Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Tehtävien lähettäminen ei toimi Herokussa olevassa versiossa.
-
 Projektin nimi tulee mahdollisesti muuttumaan vielä harjoitustyön edetessä.
 Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
+
+## Tilannekatsaus: välipalautus 2
+Sovelluksella pitäisi olla nyt toimiva sivupohja oleellisten toimintojen osalta. Kaikki tällä hetkellä olemassa olevat sivut ja linkit pitäisi toimia myös Herokussa, mutta jos siellä tulee ongelmia, niin korjaan ne pikimmiten! Sivut ovat vielä todella sekaisin ja asettelut eivät ole kohdallaan ja kaikki tekstit ovat toistaiseksi placeholdereita,että sain suunniteltua sivupohjan. Erityisesti WHILE-ohjelmoinnista kertova sivu on vielä monimutkainen ja huono. Viilailen ulkoasua sitten hieman myöhemmin!
+
+Tällä hetkellä työstän sitä, että tehtävien tarkistaminen (onko WHILE-ohjelma) ja simuloiminen saadaan toimimaan alusta loppuun. Parserin pitäisi toimia, mutta sitä ei ole vielä kovin paljon testattu. Seuraavaksi toteutan simuloinnin ja teen muutaman tehtävän valmiiksi, niin että niille voi tehdä testit ja pääsen kunnolla kokeilemaan, eihän parseriin ja simulaattoriin ole jäänyt bugeja. Kun tehtävien käsittely ja simulointi onnistuu oikein, kirjoitan sivustolle paremmat tekstit ja ohjeet siihen, miten tehtäviä lähetetään. Tämän jälkeen alan tekemään varmaan profiili-sivuja ja piilotan tehtävien lähettämisen muilta kuin kirjautuneilta käyttäjiltä.
+
+Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Jos tehtävään yrittää lähettää jotain tekstiä tehtäväsivulta, niin palvelimelta pitäisi tulla aina vastaus "jotain". Jos vastauksena tulee jokin virheviesti, niin minulle voi ilmoittaa!
