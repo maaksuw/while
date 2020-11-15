@@ -22,7 +22,7 @@ def exercise(id):
 @app.route("/exercise/<int:id>", methods=["POST"])
 def exercisesubmit(id):
     answer = request.form["answer"]
-    #simulator.isWHILEprogram(answer)
+    print(simulator.isWHILEprogram(answer))
     #Käsittele vastaus täällä!
     #if(simulator.iswhileprogram(answer)):
        #simulator.simulate()
