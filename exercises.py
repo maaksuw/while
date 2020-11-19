@@ -22,10 +22,11 @@ def exercise(id):
 @app.route("/exercise/<int:id>", methods=["POST"])
 def exercisesubmit(id):
     answer = request.form["answer"]
-    parseresult = simulator.isWHILEprogram(answer)
-    if(parseresult[0]):
-        #print(parseresult[1])
-        testspassed = simulator.simulate(parseresult[1], parseresult[2])
+    isWHILEprogram = simulator.is_WHILEprogram(answer)
+    if(isWHILEprogram[0]):
+        commands = isWHILEprogram[1]
+        variable_cnt = isWHILEprogram[2]
+        testspassed = simulator.simulate(commands, variable_cnt)
         #if testspassed:
             #return render_template("result.html", result="Ohjelma toimii oikein!", id=id)
         #else:

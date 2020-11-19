@@ -1,9 +1,14 @@
 import re
 
-cnt = 0
 error = False
 
-def removewhitespace(program):
+variablename = "[a-zA-Z]([a-zA-Z]|[0-9])*"
+firstrow = re.compile("input:(" + variablename + ",)*" + variablename + ";")
+plusmoonus = re.compile(variablename + "=" + variablename + "[+-]([0-9])*;")
+whilecmd = re.compile("while[(]" + variablename + "[!][=]0[)][{]")
+endbracket = re.compile("[}]")
+
+def remove_whitespace(program):
     ans = []
     lines = program.splitlines()
     for line in lines:
@@ -11,72 +16,56 @@ def removewhitespace(program):
         if line != "": ans.append(line)
     return ans
         
-def isWHILEprogram(program):
-    global cnt
+def is_WHILEprogram(program):
     global error
     error = False
-    program = removewhitespace(program)
-    #print(program)
+    program = remove_whitespace(program)
     commands = [0]*len(program)
     variables = {}
     variables["ans"] = 0
     cnt = 1
-    readinputvariables(program, variables)
-    parsewhile(1, commands, program, variables)
-    if error: 
+    if read_input(program, variables, cnt):
+        parse_WHILEprogram(1, program, variables, cnt, commands)
+        if not error:
+            return (True, commands, len(variables))
+        else:
+            return (False, None, None)
+    else:
         return (False, None, None)
-    #print(commands)
-    return (True, commands, len(variables))
 
-def readinputvariables(program, variables):
-    global cnt
-    firstrow = program[0]
-    inputvars = firstrow[firstrow.index(":") + 1 : len(firstrow) - 1]
-    dots = [-1]
-    for i in range(len(inputvars)):
-        if inputvars[i] == ",": dots.append(i)
-    dots.append(len(inputvars))
-    for i in range(1, len(dots)):
-        varname = inputvars[dots[i - 1] + 1 : dots[i]]
-        variables[varname] = cnt
-        cnt += 1
+def read_input(program, variables, cnt):
+    global firstrow
+    inputrow = program[0]
+    if firstrow.fullmatch(inputrow):
+        inputvars = inputrow[inputrow.index(":") + 1 : len(inputrow) - 1]
+        dots = [-1]
+        for i in range(len(inputvars)):
+            if inputvars[i] == ",": dots.append(i)
+        dots.append(len(inputvars))
+        for i in range(1, len(dots)):
+            varname = inputvars[dots[i - 1] + 1 : dots[i]]
+            variables[varname] = cnt
+            cnt += 1
+        return True
+    return False
         
-def parsewhile(ind, commands, program, variables):
-    global cnt
+def parse_WHILEprogram(ind, program, variables, cnt, commands):
+    
     global error
-    if error: return -1
+    global variablename
+    global plusmoonus
+    global whilecmd
+    global endbracket
+    
     n = len(program)
-    variablename = "[a-zA-Z]([a-zA-Z]|[0-9])*"
-    type12 = re.compile(variablename + "=" + variablename + "[+-]([0-9])*;")
-    type3 = re.compile("while[(]" + variablename + "[!][=]0[)][{]")
-    type4 = re.compile("[}]")
     while (ind < n):
         kasky = program[ind]
-        if(type12.fullmatch(kasky)):
-            firstvar = kasky[ : kasky.index("=")]
-            secondvar = 0
-            plus = False
-            moonus = False
-            if "+" in kasky:
-                secondvar = kasky[len(firstvar) + 1 : kasky.index("+")]
-                plus = True
-            if "-" in kasky:
-                secondvar = kasky[len(firstvar) + 1 : kasky.index("-")]
-                moonus = True
-            constant = kasky[len(firstvar) + len(secondvar) + 2 : len(kasky) - 1]
-            if firstvar not in variables:
-                variables[firstvar] = cnt
-                cnt += 1
-            if secondvar not in variables:
-                variables[secondvar] = cnt
-                cnt += 1
-            if plus: 
-                commands[ind] = (1, variables[firstvar], variables[secondvar], int(constant))
-            if moonus: 
-                commands[ind] = (2, variables[firstvar], variables[secondvar], int(constant))
-        elif(type3.fullmatch(kasky)):
-            finalind = parsewhile(ind + 1, commands, program, variables)
-            if error: return -1
+        if(plusmoonus.fullmatch(kasky)):
+            cnt = parse_assignment(kasky, variables, cnt, commands, ind)
+        elif(whilecmd.fullmatch(kasky)):
+            finalind = parse_WHILEprogram(ind + 1, program, variables, cnt, commands)
+            if error: 
+                return
             var = kasky[kasky.index("(") + 1 : kasky.index("!")]
             if var not in variables:
                 variables[var] = cnt
@@ -84,12 +73,36 @@ def parsewhile(ind, commands, program, variables):
             commands[ind] = (3, variables[var], finalind + 1)
             commands[finalind] = (4, ind)
             ind = finalind
-        elif(type4.fullmatch(kasky)):
+        elif(endbracket.fullmatch(kasky)):
             return ind
-        else: #Keksitään jokin siistempi tapa myöhemmin
+        else:
             error = True
-            return -1
+            return
         ind += 1
+        
+def parse_assignment(kasky, variables, cnt, commands, ind):
+    firstvar = kasky[ : kasky.index("=")]
+    secondvar = 0
+    plus = False
+    moonus = False
+    if "+" in kasky:
+        secondvar = kasky[len(firstvar) + 1 : kasky.index("+")]
+        plus = True
+    if "-" in kasky:
+        secondvar = kasky[len(firstvar) + 1 : kasky.index("-")]
+        moonus = True
+    constant = kasky[len(firstvar) + len(secondvar) + 2 : len(kasky) - 1]
+    if firstvar not in variables:
+        variables[firstvar] = cnt
+        cnt += 1
+    if secondvar not in variables:
+        variables[secondvar] = cnt
+        cnt += 1
+    if plus: 
+        commands[ind] = (1, variables[firstvar], variables[secondvar], int(constant))
+    if moonus: 
+        commands[ind] = (2, variables[firstvar], variables[secondvar], int(constant))
+    return cnt
         
         
 def simulate(commands, cnt):
