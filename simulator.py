@@ -112,15 +112,14 @@ def simulate(commands, cnt):
     ###
     pc = 1
     variables = [0]*cnt
-    cnt = 1
-    for i in input:
-        variables[cnt] = i
-        cnt += 1
+    var = 1
+    for input_value in input:
+        variables[var] = input_value
+        var += 1
     print(variables)
     n = len(commands)
     while(pc < n):
         command = commands[pc]
-        print(command)
         if command[0] == 1:
             variables[command[1]] = variables[command[2]] + command[3]
         elif command[0] == 2:
@@ -135,6 +134,5 @@ def simulate(commands, cnt):
             pc = command[1]
             continue
         pc += 1
-    print(variables[0])
     #return variables[0] == output
     return variables[0]

@@ -26,11 +26,19 @@ def exercisesubmit(id):
     if(isWHILEprogram[0]):
         commands = isWHILEprogram[1]
         variable_cnt = isWHILEprogram[2]
-        testspassed = simulator.simulate(commands, variable_cnt)
+        tests_passed = simulator.simulate(commands, variable_cnt)
         #if testspassed:
             #return render_template("result.html", result="Ohjelma toimii oikein!", id=id)
         #else:
             #return render_template("result.html", result="Ohjelma antoi väärän vastauksen.", id=id)
-        return render_template("result.html", result=testspassed, id=id)
+        return render_template("result.html", result=tests_passed, id=id)
     else:
-        return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai annettu oikeassa syntaksissa.", id=id)
+        return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa.", id=id)
+    
+@app.route("/newexercise")
+def createnewexercise():
+    return render_template("newexercise.html", headingError="", descriptionError="")
+
+@app.route("/newexercise", methods=["POST"])
+def savenewexercise():
+    return redirect("/exerciselist")

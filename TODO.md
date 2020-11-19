@@ -10,9 +10,8 @@
 - [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Siisti koodi ja repositorio
 
+- [ ] Piilota tehtävät kirjautumattomilta
+- [ ] Luo eri käyttäjäroolit
 - [ ] Toteuta profiilisivu
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
-
-- [ ] Muuta username rivi uniikiksi
-- [ ] Päivitä schema!
