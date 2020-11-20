@@ -4,7 +4,6 @@ from os import getenv
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app
 import userDAO
-import re #Mieti tätä myöhemmin.
 
 app.secret_key = getenv("SECRET_KEY")
 
@@ -15,14 +14,12 @@ def signinget():
 @app.route("/register", methods=["POST"])
 def signinpost():
     username = request.form["username"]
-    if invalidUsername(username):
+    if userDAO.invalidUsername(username):
         return render_template("register.html", usernameError="Käyttäjänimen tulee olla vähintään 3 merkkiä pitkä.")
-    if userDAO.getPassword(username) == None:
-        password = request.form["password"]
-        if invalidPassword(password):
-            return render_template("register.html", passwordError="Salasanan tulee olla vähintään 8 merkkiä pitkä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero.")
-        userDAO.createNewUser(username, password)
-    else:
+    password = request.form["password"]
+    if userDAO.invalidPassword(password):
+        return render_template("register.html", passwordError="Salasanan tulee olla vähintään 8 merkkiä pitkä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero.")
+    if not userDAO.createNewUser(username, password):
         return render_template("register.html", usernameError="Käyttäjänimi on jo varattu.")
     return redirect("/login")
 
@@ -49,12 +46,4 @@ def logout():
     del session["username"]
     return redirect("/")
 
-def invalidUsername(username):
-    if len(username) < 3: return True
-    return False
 
-def invalidPassword(password):
-    if len(password) < 8: return True
-    regex = re.compile("([a-zA-Z]|[öäå]|[ÖÄÅ])*[0-9]([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])*")
-    if regex.fullmatch(password) == None: return True
-    return False

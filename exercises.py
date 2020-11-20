@@ -36,9 +36,30 @@ def exercisesubmit(id):
         return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa.", id=id)
     
 @app.route("/newexercise")
-def createnewexercise():
-    return render_template("newexercise.html", headingError="", descriptionError="")
+def fill_in_new_exercise():
+    return render_template("newexercise.html")
 
 @app.route("/newexercise", methods=["POST"])
-def savenewexercise():
+def submit_new_exercise():
+    heading = request.form["heading"]
+    if not heading:
+        return render_template("newexercise.html", headingError="Otsikko ei saa olla tyhjä.")
+    description = request.form["description"]
+    if not description:
+        return render_template("newexercise.html", descriptionError="Tehtävänanto ei saa olla tyhjä.")
+    topic = request.form["topic"]
+    if not topic or not topic.isnumeric():
+        return render_template("newexercise.html", topicError="Aihealue pitää määritellä ja se pitää olla numero.")
+    topic = int(topic)
+    tests = request.form["tests"]
+    create_new_exercise(heading, description, topic, tests)
     return redirect("/exerciselist")
+
+def create_new_exercise(heading, description, topic, tests):
+    exercise_id = userDAO.createNewExercise(heading, description, topic)
+    lines = tests.splitlines()
+    for i in range(len(lines)):
+        if i%2 == 0:
+            input = lines[i]
+            output = int(lines[i+1])
+            userDAO.createNewTest(exercise_id, input, output)

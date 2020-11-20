@@ -3,12 +3,12 @@
     <div class="exercises">
         <h1>Tehtävät</h1>
         
-        <p>Laskutoimitukset</p>
+        <p>1. Laskutoimitukset</p>
         {% for exercise in topic1 %}
         <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
         {% endfor %}
         
-        <p>Muita jännyyksiä, suunnitellaan hamassa tulevaisuudessa, mutta olkoon nyt testauksen vuoksi.</p>
+        <p>2. Muita jännyyksiä, suunnitellaan hamassa tulevaisuudessa, mutta olkoon nyt testauksen vuoksi.</p>
         {% for exercise in topic2 %}
         <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
         {% endfor %}

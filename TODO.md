@@ -15,3 +15,5 @@
 - [ ] Toteuta profiilisivu
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
+
+- [ ] Parsi tehtävänanto ennen tietokantaan laittamista.
