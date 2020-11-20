@@ -3,6 +3,7 @@ import messages
 
 error = False
 error_msg = ""
+cnt = 0
 
 variablename = "[a-zA-Z]([a-zA-Z]|[0-9])*"
 firstrow = re.compile("input:(" + variablename + ",)*" + variablename + ";")
@@ -10,7 +11,7 @@ plusmoonus = re.compile(variablename + "=" + variablename + "[+-]([0-9])*;")
 whilecmd = re.compile("while[(]" + variablename + "[!][=]0[)][{]")
 endbracket = re.compile("[}]")
 
-max_steplimit = 100000
+max_steplimit = 1000000
 
 def remove_whitespace(program):
     ans = []
@@ -23,6 +24,7 @@ def remove_whitespace(program):
 def is_WHILEprogram(program):
     global error
     global error_msg
+    global cnt
     error = False
     error_msg = ""
     program = remove_whitespace(program)
@@ -30,14 +32,15 @@ def is_WHILEprogram(program):
     variables = {}
     variables["ans"] = 0
     cnt = 1
-    if read_input(program, variables, cnt):
-        parse_WHILEprogram(1, program, variables, cnt, commands, 0)
+    if read_input(program, variables):
+        parse_WHILEprogram(1, program, variables, commands, 0)
         if not error:
             return (True, commands, len(variables))
     return (False, error_msg)
 
-def read_input(program, variables, cnt):
+def read_input(program, variables):
     global firstrow
+    global cnt
     inputrow = program[0]
     if not firstrow.fullmatch(inputrow):
         raise_error(inputrow)
@@ -54,21 +57,22 @@ def read_input(program, variables, cnt):
     return True
     
         
-def parse_WHILEprogram(ind, program, variables, cnt, commands, level):
+def parse_WHILEprogram(ind, program, variables, commands, level):
     
     global error
     global variablename
     global plusmoonus
     global whilecmd
     global endbracket
+    global cnt
     
     n = len(program)
     while (ind < n):
         cmd = program[ind]
         if(plusmoonus.fullmatch(cmd)):
-            cnt = parse_assignment(cmd, variables, cnt, commands, ind)
+            parse_assignment(cmd, variables, commands, ind)
         elif(whilecmd.fullmatch(cmd)):
-            finalind = parse_WHILEprogram(ind + 1, program, variables, cnt, commands, level + 1)
+            finalind = parse_WHILEprogram(ind + 1, program, variables, commands, level + 1)
             if error: 
                 return
             if finalind == -1:
@@ -98,7 +102,8 @@ def raise_error(message):
     error = True
     error_msg = message
         
-def parse_assignment(cmd, variables, cnt, commands, ind):
+def parse_assignment(cmd, variables, commands, ind):
+    global cnt
     firstvar = cmd[ : cmd.index("=")]
     secondvar = 0
     plus = False
@@ -120,7 +125,6 @@ def parse_assignment(cmd, variables, cnt, commands, ind):
         commands[ind] = (1, variables[firstvar], variables[secondvar], int(constant))
     if moonus: 
         commands[ind] = (2, variables[firstvar], variables[secondvar], int(constant))
-    return cnt
         
         
 def test(commands, variable_cnt, tests):
