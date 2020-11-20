@@ -24,13 +24,24 @@ def exercisesubmit(id):
         variable_cnt = isWHILEprogram[2]
         tests = userDAO.getTests(id)
         tests_passed = simulator.test(commands, variable_cnt, tests)
-        if tests_passed:
+        if tests_passed == True:
             return render_template("result.html", result="Onneksi olkoon, ohjelma toimii oikein!", id=id)
         else:
-            return render_template("result.html", result="Ohjelma antoi väärän vastauksen.", id=id)
-        return render_template("result.html", result=tests_passed, id=id)
+            input = tests_passed[0]
+            correct_output = tests_passed[1]
+            user_output = tests_passed[2]
+            result="Ohjelma antoi väärän vastauksen."
+            message = []
+            message.append("Ohjelmasi antoi syötteellä " + input + " tuloksen " + str(user_output) + ".")
+            message.append("Oikea tulos oli " + str(correct_output) + ".")
+            return render_template("result.html", result=result, message=message, id=id)
     else:
-        return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa.", id=id)
+        error_cmd = isWHILEprogram[1]
+        result = "Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa." 
+        message = []
+        message.append("Seuraava rivi antoi virheen. ")
+        message.append(error_cmd)
+        return render_template("result.html", result=result, message=message, id=id)
     
 @app.route("/newexercise")
 def fill_in_new_exercise():

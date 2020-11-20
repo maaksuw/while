@@ -2,5 +2,8 @@
 {% block content %}
     <a href="/exerciselist">Tehtävälista</a>
     <a href="/exercise/{{ id }}">Takaisin tehtävään</a>
-    <p>{{ result }}</p>
+    <h3>{{ result }}</h3>
+    {% for row in message %}
+        <p>{{ row }}</p>
+    {% endfor %}
 {% endblock %}

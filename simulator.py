@@ -1,6 +1,7 @@
 import re
 
 error = False
+error_cmd = ""
 
 variablename = "[a-zA-Z]([a-zA-Z]|[0-9])*"
 firstrow = re.compile("input:(" + variablename + ",)*" + variablename + ";")
@@ -18,7 +19,9 @@ def remove_whitespace(program):
         
 def is_WHILEprogram(program):
     global error
+    global error_cmd
     error = False
+    error_cmd = ""
     program = remove_whitespace(program)
     commands = [0]*len(program)
     variables = {}
@@ -29,29 +32,33 @@ def is_WHILEprogram(program):
         if not error:
             return (True, commands, len(variables))
         else:
-            return (False, None, None)
+            return (False, error_cmd, None)
     else:
-        return (False, None, None)
+        return (False, error_cmd, None)
 
 def read_input(program, variables, cnt):
     global firstrow
+    global error_cmd
     inputrow = program[0]
-    if firstrow.fullmatch(inputrow):
-        inputvars = inputrow[inputrow.index(":") + 1 : len(inputrow) - 1]
-        dots = [-1]
-        for i in range(len(inputvars)):
-            if inputvars[i] == ",": dots.append(i)
-        dots.append(len(inputvars))
-        for i in range(1, len(dots)):
-            varname = inputvars[dots[i - 1] + 1 : dots[i]]
-            variables[varname] = cnt
-            cnt += 1
-        return True
-    return False
+    if not firstrow.fullmatch(inputrow):
+        error_cmd = inputrow
+        return False
+    inputvars = inputrow[inputrow.index(":") + 1 : len(inputrow) - 1]
+    dots = [-1]
+    for i in range(len(inputvars)):
+        if inputvars[i] == ",": dots.append(i)
+    dots.append(len(inputvars))
+    for i in range(1, len(dots)):
+        varname = inputvars[dots[i - 1] + 1 : dots[i]]
+        variables[varname] = cnt
+        cnt += 1
+    return True
+    
         
 def parse_WHILEprogram(ind, program, variables, cnt, commands):
     
     global error
+    global error_cmd
     global variablename
     global plusmoonus
     global whilecmd
@@ -77,6 +84,7 @@ def parse_WHILEprogram(ind, program, variables, cnt, commands):
             return ind
         else:
             error = True
+            error_cmd = kasky
             return
         ind += 1
         
@@ -108,18 +116,17 @@ def parse_assignment(kasky, variables, cnt, commands, ind):
 def test(commands, variable_cnt, tests):
     for test in tests:
         input_string = test[0]
-        print("input_string", input_string)
         output = test[1]
         input_list = input_string.split()
         input = []
         for number in input_list:
             input.append(int(number))
-        print("input", input)
-        if not simulate(commands, variable_cnt, input, output):
-            return False
+        result = simulate(commands, variable_cnt, input)
+        if result != output:
+            return (input_string, output, result)
     return True
 
-def simulate(commands, variable_cnt, input, output):
+def simulate(commands, variable_cnt, input):
     pc = 1
     variables = [0]*variable_cnt
     var = 1
@@ -143,4 +150,4 @@ def simulate(commands, variable_cnt, input, output):
             pc = command[1]
             continue
         pc += 1
-    return variables[0] == output
+    return variables[0]
