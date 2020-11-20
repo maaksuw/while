@@ -3,6 +3,7 @@ from flask import render_template, request, redirect
 from app import app
 import userDAO
 import simulator
+import messages
 
 @app.route("/exerciselist")
 def exerciselist():
@@ -20,29 +21,37 @@ def exercisesubmit(id):
     answer = request.form["answer"]
     isWHILEprogram = simulator.is_WHILEprogram(answer)
     if(isWHILEprogram[0]):
-        commands = isWHILEprogram[1]
-        variable_cnt = isWHILEprogram[2]
-        tests = userDAO.getTests(id)
-        tests_passed = simulator.test(commands, variable_cnt, tests)
-        if tests_passed == True:
-            return render_template("result.html", result="Onneksi olkoon, ohjelma toimii oikein!", id=id)
-        else:
-            input = tests_passed[0]
-            correct_output = tests_passed[1]
-            user_output = tests_passed[2]
-            result="Ohjelma antoi väärän vastauksen."
-            message = []
-            message.append("Ohjelmasi antoi syötteellä " + input + " tuloksen " + str(user_output) + ".")
-            message.append("Oikea tulos oli " + str(correct_output) + ".")
-            return render_template("result.html", result=result, message=message, id=id)
+        return handle_testing(isWHILEprogram, id)
     else:
-        error_cmd = isWHILEprogram[1]
-        message = []
-        result = "Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa." 
-        if error_cmd != "Kaarisulje puuttuu.":
-            message.append("Seuraava rivi antoi virheen. ")
-        message.append(error_cmd)
+        return handle_parse_error(isWHILEprogram, id)
+    
+def handle_testing(parsed_program, id):
+    commands = parsed_program[1]
+    variable_cnt = parsed_program[2]
+    tests = userDAO.getTests(id)
+    tests_passed = simulator.test(commands, variable_cnt, tests)
+    if tests_passed == True:
+        return render_template("result.html", result=messages.successful_submission(), id=id)
+    else:
+        result=messages.wrong_answer()
+        message = ""
+        if tests_passed[0] == 1:
+            message = tests_passed[1]
+        elif tests_passed[0] == 2:
+            input = tests_passed[1]
+            correct_output = tests_passed[2]
+            user_output = tests_passed[3]
+            message = messages.explain_incorrect_answer(input, str(user_output), str(correct_output))
         return render_template("result.html", result=result, message=message, id=id)
+    
+def handle_parse_error(what_went_wrong, id):
+    error = what_went_wrong[1]
+    message = ""
+    result = messages.not_WHILEprogram()
+    if error != messages.bracket_missing():
+        message = "Seuraava rivi antoi virheen.\n"
+    message += error
+    return render_template("result.html", result=result, message=message, id=id)
     
 @app.route("/newexercise")
 def fill_in_new_exercise():
@@ -52,13 +61,13 @@ def fill_in_new_exercise():
 def submit_new_exercise():
     heading = request.form["heading"]
     if not heading:
-        return render_template("newexercise.html", headingError="Otsikko ei saa olla tyhjä.")
+        return render_template("newexercise.html", headingError=messages.empty_heading())
     description = request.form["description"]
     if not description:
-        return render_template("newexercise.html", descriptionError="Tehtävänanto ei saa olla tyhjä.")
+        return render_template("newexercise.html", descriptionError=messages.empty_description())
     topic = request.form["topic"]
     if not topic or not topic.isnumeric():
-        return render_template("newexercise.html", topicError="Aihealue pitää määritellä ja se pitää olla numero.")
+        return render_template("newexercise.html", topicError=messages.invalid_topic())
     topic = int(topic)
     tests = request.form["tests"]
     create_new_exercise(heading, description, topic, tests)
