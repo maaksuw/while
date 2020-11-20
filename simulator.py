@@ -28,7 +28,7 @@ def is_WHILEprogram(program):
     variables["ans"] = 0
     cnt = 1
     if read_input(program, variables, cnt):
-        parse_WHILEprogram(1, program, variables, cnt, commands)
+        parse_WHILEprogram(1, program, variables, cnt, commands, 0)
         if not error:
             return (True, commands, len(variables))
         else:
@@ -55,10 +55,9 @@ def read_input(program, variables, cnt):
     return True
     
         
-def parse_WHILEprogram(ind, program, variables, cnt, commands):
+def parse_WHILEprogram(ind, program, variables, cnt, commands, level):
     
     global error
-    global error_cmd
     global variablename
     global plusmoonus
     global whilecmd
@@ -66,40 +65,52 @@ def parse_WHILEprogram(ind, program, variables, cnt, commands):
     
     n = len(program)
     while (ind < n):
-        kasky = program[ind]
-        if(plusmoonus.fullmatch(kasky)):
-            cnt = parse_assignment(kasky, variables, cnt, commands, ind)
-        elif(whilecmd.fullmatch(kasky)):
-            finalind = parse_WHILEprogram(ind + 1, program, variables, cnt, commands)
+        cmd = program[ind]
+        if(plusmoonus.fullmatch(cmd)):
+            cnt = parse_assignment(cmd, variables, cnt, commands, ind)
+        elif(whilecmd.fullmatch(cmd)):
+            finalind = parse_WHILEprogram(ind + 1, program, variables, cnt, commands, level + 1)
             if error: 
                 return
-            var = kasky[kasky.index("(") + 1 : kasky.index("!")]
+            if finalind == -1:
+                raise_error("Kaarisulje puuttuu.")
+                return
+            var = cmd[cmd.index("(") + 1 : cmd.index("!")]
             if var not in variables:
                 variables[var] = cnt
                 cnt += 1
             commands[ind] = (3, variables[var], finalind + 1)
             commands[finalind] = (4, ind)
             ind = finalind
-        elif(endbracket.fullmatch(kasky)):
+        elif(endbracket.fullmatch(cmd)):
+            if level == 0:
+                raise_error(cmd)
+                return
             return ind
         else:
-            error = True
-            error_cmd = kasky
+            raise_error(cmd)
             return
         ind += 1
+    return -1
+
+def raise_error(message):
+    global error
+    global error_cmd
+    error = True
+    error_cmd = message
         
-def parse_assignment(kasky, variables, cnt, commands, ind):
-    firstvar = kasky[ : kasky.index("=")]
+def parse_assignment(cmd, variables, cnt, commands, ind):
+    firstvar = cmd[ : cmd.index("=")]
     secondvar = 0
     plus = False
     moonus = False
-    if "+" in kasky:
-        secondvar = kasky[len(firstvar) + 1 : kasky.index("+")]
+    if "+" in cmd:
+        secondvar = cmd[len(firstvar) + 1 : cmd.index("+")]
         plus = True
-    if "-" in kasky:
-        secondvar = kasky[len(firstvar) + 1 : kasky.index("-")]
+    if "-" in cmd:
+        secondvar = cmd[len(firstvar) + 1 : cmd.index("-")]
         moonus = True
-    constant = kasky[len(firstvar) + len(secondvar) + 2 : len(kasky) - 1]
+    constant = cmd[len(firstvar) + len(secondvar) + 2 : len(cmd) - 1]
     if firstvar not in variables:
         variables[firstvar] = cnt
         cnt += 1

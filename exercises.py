@@ -37,9 +37,10 @@ def exercisesubmit(id):
             return render_template("result.html", result=result, message=message, id=id)
     else:
         error_cmd = isWHILEprogram[1]
-        result = "Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa." 
         message = []
-        message.append("Seuraava rivi antoi virheen. ")
+        result = "Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa." 
+        if error_cmd != "Kaarisulje puuttuu.":
+            message.append("Seuraava rivi antoi virheen. ")
         message.append(error_cmd)
         return render_template("result.html", result=result, message=message, id=id)
     

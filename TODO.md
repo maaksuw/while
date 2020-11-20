@@ -16,4 +16,4 @@
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
-- [ ] Parsi tehtävänanto ennen tietokantaan laittamista.
+- [x] KORJAA BUGI: Ohjelma hajoaa jos käyttäjän syötteessä ei ole oikeaa määrää sulkuja.
