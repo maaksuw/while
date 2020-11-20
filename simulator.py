@@ -105,18 +105,27 @@ def parse_assignment(kasky, variables, cnt, commands, ind):
     return cnt
         
         
-def simulate(commands, cnt):
-    ### Testinä 8 ja 13, tehdään kunnolla myöhemmin
-    input = (8, 13)
-    #output = 21
-    ###
+def test(commands, variable_cnt, tests):
+    for test in tests:
+        input_string = test[0]
+        print("input_string", input_string)
+        output = test[1]
+        input_list = input_string.split()
+        input = []
+        for number in input_list:
+            input.append(int(number))
+        print("input", input)
+        if not simulate(commands, variable_cnt, input, output):
+            return False
+    return True
+
+def simulate(commands, variable_cnt, input, output):
     pc = 1
-    variables = [0]*cnt
+    variables = [0]*variable_cnt
     var = 1
     for input_value in input:
         variables[var] = input_value
         var += 1
-    print(variables)
     n = len(commands)
     while(pc < n):
         command = commands[pc]
@@ -134,5 +143,4 @@ def simulate(commands, cnt):
             pc = command[1]
             continue
         pc += 1
-    #return variables[0] == output
-    return variables[0]
+    return variables[0] == output

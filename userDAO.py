@@ -40,6 +40,11 @@ def createNewTest(exercise_id, input, output):
     sql = "INSERT INTO tests (exercise_id, input, output) VALUES (:exercise_id, :input, :output)"
     db.session.execute(sql, {"exercise_id":exercise_id, "input":input, "output":output})
     db.session.commit()
+    
+def getTests(exercise_id):
+    sql = "SELECT input, output FROM tests WHERE exercise_id=:exercise_id"
+    result = db.session.execute(sql, {"exercise_id":exercise_id})
+    return result.fetchall()
 
 def invalidUsername(username):
     if len(username) < 3: return True

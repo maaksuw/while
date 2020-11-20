@@ -7,11 +7,7 @@ import simulator
 @app.route("/exerciselist")
 def exerciselist():
     topic1 = userDAO.getExercisesByTopic(1)
-    for t in topic1:
-        print(t)
     topic2 = userDAO.getExercisesByTopic(2)
-    for t in topic2:
-        print(t)
     return render_template("exercises.html", topic1=topic1, topic2=topic2)
 
 @app.route("/exercise/<int:id>")
@@ -26,11 +22,12 @@ def exercisesubmit(id):
     if(isWHILEprogram[0]):
         commands = isWHILEprogram[1]
         variable_cnt = isWHILEprogram[2]
-        tests_passed = simulator.simulate(commands, variable_cnt)
-        #if testspassed:
-            #return render_template("result.html", result="Ohjelma toimii oikein!", id=id)
-        #else:
-            #return render_template("result.html", result="Ohjelma antoi väärän vastauksen.", id=id)
+        tests = userDAO.getTests(id)
+        tests_passed = simulator.test(commands, variable_cnt, tests)
+        if tests_passed:
+            return render_template("result.html", result="Onneksi olkoon, ohjelma toimii oikein!", id=id)
+        else:
+            return render_template("result.html", result="Ohjelma antoi väärän vastauksen.", id=id)
         return render_template("result.html", result=tests_passed, id=id)
     else:
         return render_template("result.html", result="Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa.", id=id)
