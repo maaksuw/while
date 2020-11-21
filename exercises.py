@@ -60,12 +60,12 @@ def fill_in_new_exercise():
 @app.route("/newexercise", methods=["POST"])
 def submit_new_exercise():
     heading = request.form["heading"]
+    description = request.form["description"]
+    topic = request.form["topic"]
     if not heading:
         return render_template("newexercise.html", headingError=messages.empty_heading())
-    description = request.form["description"]
     if not description:
         return render_template("newexercise.html", descriptionError=messages.empty_description())
-    topic = request.form["topic"]
     if not topic or not topic.isnumeric():
         return render_template("newexercise.html", topicError=messages.invalid_topic())
     topic = int(topic)
@@ -81,3 +81,23 @@ def create_new_exercise(heading, description, topic, tests):
             input = lines[i]
             output = int(lines[i+1])
             userDAO.createNewTest(exercise_id, input, output)
+
+@app.route("/modifyexercise/<int:id>")
+def modify_exercise(id):
+    exercise = userDAO.getExercise(id) 
+    return render_template("modifyexercise.html", id=id, current_heading=exercise[0], current_description=exercise[1], current_topic=exercise[2])
+
+@app.route("/modifyexercise/<int:id>", methods=["POST"])
+def modify_exercise2(id):
+    heading = request.form["heading"]
+    description = request.form["description"]
+    topic = request.form["topic"]
+    if not heading:
+        return render_template("modifyexercise.html", headingError=messages.empty_heading(), id=id)
+    if not description:
+        return render_template("modifyexercise.html", descriptionError=messages.empty_description(), id=id)
+    if not topic or not topic.isnumeric():
+        return render_template("modifyexercise.html", topicError=messages.invalid_topic(), id=id)
+    topic = int(topic)
+    userDAO.update_exercise(heading, description, topic, id)
+    return redirect("/exercise/" + str(id))
