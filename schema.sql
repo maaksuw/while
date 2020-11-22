@@ -8,7 +8,8 @@ CREATE TABLE exercises (
     id SERIAL PRIMARY KEY,
     heading TEXT,
     description TEXT,
-    topic INTEGER
+    topic INTEGER,
+    input_size INTEGER
 );
 
 CREATE TABLE tests (

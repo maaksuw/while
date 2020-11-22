@@ -6,14 +6,13 @@
 - [x] Julkaise sovellus Herokussa
 - [x] Suunnittele tehtäviä
 - [x] Toteuta tehtäväsivut ja ratkaisun lähettäminen
-- [ ] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
+- [x] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
 - [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Siisti koodi ja repositorio
 
 - [ ] Piilota tehtävät kirjautumattomilta
 - [ ] Luo eri käyttäjäroolit
+- [ ] Tallenna tietoja käyttäjien lähetyksistä
 - [ ] Toteuta profiilisivu
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
-
-- [x] KORJAA BUGI: Ohjelma hajoaa jos käyttäjän syötteessä ei ole oikeaa määrää sulkuja.

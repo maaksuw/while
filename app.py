@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 import authentication
 import exercises
+import submissions
 
 @app.route("/")
 def index():

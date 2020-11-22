@@ -4,6 +4,7 @@ from os import getenv
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app
 import userDAO
+import messages
 
 app.secret_key = getenv("SECRET_KEY")
 
@@ -15,29 +16,29 @@ def signinget():
 def signinpost():
     username = request.form["username"]
     if userDAO.invalidUsername(username):
-        return render_template("register.html", usernameError="Käyttäjänimen tulee olla vähintään 3 merkkiä pitkä.")
+        return render_template("register.html", usernameError=messages.invalid_username())
     password = request.form["password"]
     if userDAO.invalidPassword(password):
-        return render_template("register.html", passwordError="Salasanan tulee olla vähintään 8 merkkiä pitkä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero.")
-    if not userDAO.createNewUser(username, password):
-        return render_template("register.html", usernameError="Käyttäjänimi on jo varattu.")
+        return render_template("register.html", passwordError=messages.invalid_password())
+    if not userDAO.create_user(username, password):
+        return render_template("register.html", usernameError=messages.username_taken())
     return redirect("/login")
 
 @app.route("/login")
 def loginget():
-    return render_template("login.html", usernameError="", passwordError="")
+    return render_template("login.html")
 
 @app.route("/login", methods=["POST"])
 def loginpost():
     username = request.form["username"]
     password = request.form["password"]  
-    actualPassword = userDAO.getPassword(username)
+    actualPassword = userDAO.get_password(username)
     if actualPassword == None:
-        return render_template("login.html", usernameError="Käyttäjänimi on väärin.")
+        return render_template("login.html", error=messages.wrong_credentials())
     else:
         hash_value = actualPassword[0]
         if not check_password_hash(hash_value, password):
-            return render_template("login.html", passwordError="Salasana on väärin.")
+            return render_template("login.html", error=messages.wrong_credentials())
     session["username"] = username
     return redirect("/")
 
@@ -45,5 +46,3 @@ def loginpost():
 def logout():
     del session["username"]
     return redirect("/")
-
-
