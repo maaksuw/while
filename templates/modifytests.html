@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Muokkaa testejä</h1>
+    <a href="/modifyexercise/{{ id }}">Muokkaa tehtävää</a>
+    {% for test in tests %}
+    <form action="/modifyexercise/{{ id }}/tests" method="POST">
+        <div class="form-group">
+            <label>Input: </label>
+            <input class="form-control" type="text" name="input" value="{{ test[0] }}">
+            <label>Output: </label>
+            <input class="form-control" type="text" name="output" value="{{ test[1] }}">
+            <button type="submit" class="btn btn-primary" name="modbutton" value="modify">Tallenna muutokset</button>
+            <button type="submit" class="btn btn-primary" name="modbutton" value="delete">Poista testi</button>
+            <input type="hidden" name="id" value="{{ test[2] }}">
+        </div>
+    </form>
+    {% endfor %}
+    <h4>Lisää uusi testi</h4>
+    <form action="/modifyexercise/{{ id }}/tests" method="POST">
+        <div class="form-group">
+            <label>Input: </label>
+            <input class="form-control" type="text" name="input">
+            <label>Output: </label>
+            <input class="form-control" type="text" name="output">
+            <button type="submit" class="btn btn-primary" name="modbutton" value="new">Lisää</button>
+        </div>
+    </form>
+{% endblock %}

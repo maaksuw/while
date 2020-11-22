@@ -23,4 +23,7 @@ def empty_decription():
     return "Tehtävänanto ei saa olla tyhjä."
 
 def invalid_topic():
-    return "Aihealue pitää määritellä ja se pitää olla numero."
+    return "Aihealue pitää määritellä ja sen pitää olla numero."
+
+def invalid_input_size():
+    return "Syötteen koko pitää määritellä ja sen pitää olla numero"
