@@ -25,6 +25,11 @@ def update_exercise(heading, description, topic, input_size, id):
     sql = "UPDATE exercises SET heading=:heading, description=:description, topic=:topic, input_size=:input_size WHERE id=:id"
     db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size, "id":id})
     db.session.commit()    
+
+def get_input_size(id):
+    sql = "SELECT input_size FROM exercises WHERE id=:id"
+    result = db.session.execute(sql, {"id":id})
+    return result.fetchone()[0]
     
 def create_test(exercise_id, input, output):
     sql = "INSERT INTO tests (exercise_id, input, output) VALUES (:exercise_id, :input, :output)"
@@ -32,14 +37,9 @@ def create_test(exercise_id, input, output):
     db.session.commit()
     
 def get_tests(exercise_id):
-    sql = "SELECT input, output, id FROM tests WHERE exercise_id=:exercise_id"
+    sql = "SELECT input, output, id FROM tests WHERE exercise_id=:exercise_id ORDER BY id"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
     return result.fetchall()
-
-def get_input_size(id):
-    sql = "SELECT input_size FROM exercises WHERE id=:id"
-    result = db.session.execute(sql, {"id":id})
-    return result.fetchone()[0]
     
 def update_test(input, output, id):
     sql = "UPDATE tests SET input=:input, output=:output WHERE id=:id"

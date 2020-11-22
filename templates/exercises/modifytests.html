@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>Muokkaa testejä</h1>
+    <h2>{{ heading }}</h2>
     <a href="/modifyexercise/{{ id }}">Muokkaa tehtävää</a>
     {% for test in tests %}
     <form action="/modifyexercise/{{ id }}/tests" method="POST">

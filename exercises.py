@@ -78,10 +78,10 @@ def modify_exercise(id):
     exerciseDAO.update_exercise(heading, description, topic, input_size, id)
     return redirect("/exercise/" + str(id))
 
-@app.route("/modifyexercise/<int:id>/tests")
-def list_tests(id):
+@app.route("/modifyexercise/<int:id>/<string:heading>/tests")
+def list_tests(id, heading):
     tests = exerciseDAO.get_tests(id)
-    return render_template("exercises/modifytests.html", id=id, tests=tests)
+    return render_template("exercises/modifytests.html", id=id, tests=tests, heading=heading)
 
 @app.route("/modifyexercise/<int:id>/tests", methods=["POST"])
 def modify_test(id):
