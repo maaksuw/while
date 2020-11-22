@@ -52,7 +52,7 @@ def create_new_exercise(heading, description, topic, input_size, tests):
 def create_new_test(exercise_id, input, output, input_size):
     if messages.input_formatter().fullmatch(input) and output.isnumeric() and len(input.split()) == input_size:
         output = int(output)
-        exerciseDAO.create_test(exercise_id, input, output, input_size)
+        exerciseDAO.create_test(exercise_id, input, output)
 
 @app.route("/modifyexercise/<int:id>")
 def show_modify_exercise(id):
@@ -71,9 +71,10 @@ def modify_exercise(id):
         return render_template("exercises/modifyexercise.html", descriptionError=messages.empty_description(), id=id)
     if not topic or not topic.isnumeric():
         return render_template("exercises/modifyexercise.html", topicError=messages.invalid_topic(), id=id)
-    topic = int(topic)
     if not input_size or not input_size.isnumeric():
         return render_template("exercises/modifyexercise.html", inputError=messages.invalid_input_size(), id=id)
+    topic = int(topic)
+    input_size = int(input_size)
     exerciseDAO.update_exercise(heading, description, topic, input_size, id)
     return redirect("/exercise/" + str(id))
 
