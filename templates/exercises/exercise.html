@@ -8,7 +8,9 @@
         <form action="/exercise/{{ id }}" method="POST">
             <textarea name="answer" rows="10" cols="50" maxlength="10000"></textarea>
             <p>
+            {% if session.username %}
             <button type="submit">Lähetä</button>
+            {% endif %}
         </form>
     </div>
 {% endblock %}

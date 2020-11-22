@@ -9,8 +9,7 @@
 - [x] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
 - [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Siisti koodi ja repositorio
-
-- [ ] Piilota tehtävät kirjautumattomilta
+- [x] Piilota tehtävät kirjautumattomilta
 - [ ] Luo eri käyttäjäroolit
 - [ ] Tallenna tietoja käyttäjien lähetyksistä
 - [ ] Toteuta profiilisivu
