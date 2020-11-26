@@ -46,3 +46,6 @@ def loginpost():
 def logout():
     del session["username"]
     return redirect("/")
+
+def get_session():
+    return session

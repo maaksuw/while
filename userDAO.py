@@ -17,6 +17,11 @@ def create_user(username, password):
         return True
     except:
         return False
+    
+def get_user_id(username):
+    sql = "SELECT id FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username":username})
+    return result.fetchone()[0]
 
 def invalidUsername(username):
     if len(username) < 3: return True

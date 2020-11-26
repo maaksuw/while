@@ -2,7 +2,8 @@
 {% block content %}
     <h1>{{ heading }}</h1>
     <div class="container">
-        <p><a href="/exerciselist">Tehtävälista</a></p>
+        <a href="/exerciselist">Tehtävälista</a>
+        <a href="/submissions/{{ id }}">Omat lähetykset</a>
         <p style="white-space: pre-line">{{ description }}</p>
         <small class="form-text text-danger">{{ error }}</small>
         <form action="/exercise/{{ id }}" method="POST">

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>{{ heading }}</h1>
+    <div class="container">
+        <a href="/exerciselist">Tehtävälista</a>
+        <a href="/exercise/{{ id }}">Takaisin tehtävään</a>
+        <h3>Lähetykset tänne</h3>
+    </div>
+{% endblock %}
