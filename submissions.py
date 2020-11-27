@@ -96,4 +96,4 @@ def post_comment(id):
     username = get_username()
     comment = request.form["comment"]
     submissionDAO.post_comment(username, comment, id)
-    return redirect("/comments/" + str(id))
+    return redirect("/comments/" + str(id) + "/normal")
