@@ -26,8 +26,7 @@ def handle_testing(submission, parsed_program, id):
     if tests_passed == True:
         #Successful submission OK
         save_submission(submission, id, "OK")
-        solved = get_solved(id)
-        return redirect("/comments/" + str(id))
+        return redirect("/comments/" + str(id) + "/congratulations")
     else:
         solved = get_solved(id)
         result=messages.wrong_answer()
@@ -62,12 +61,15 @@ def save_submission(submission, exercise_id, verdict):
     
 def get_solved(id):
     username = get_username()
+    if username == None:
+        return False
     return submissionDAO.is_exercise_solved(username, id)
 
 def get_username():
     session = authentication.get_session()
-    username = session["username"]
-    return username
+    if "username" in session:
+        return session["username"]
+    return None
     
 @app.route("/submissions/<int:id>")
 def show_submissions(id):
@@ -77,14 +79,16 @@ def show_submissions(id):
     submissions = submissionDAO.get_submissions_by_user_id_and_exercise_id(username, id)
     return render_template("exercises/submissions.html", id=id, submissions=submissions, solved=solved, heading=heading)
 
-@app.route("/comments/<int:id>")
-def show_comments(id):
+@app.route("/comments/<int:id>/<string:message>")
+def show_comments(id, message):
     heading = exerciseDAO.get_heading(id)
     solved = get_solved(id)
     successful_submissions = submissionDAO.get_successful_submissions_count(id)
     all_submissions = submissionDAO.get_all_submissions_count(id)
     newest_submission_date = submissionDAO.get_newest_submission_time(id)
     comments = submissionDAO.get_comments(id)
+    if message != "normal":
+        return render_template("exercises/after.html", id=id, solved=solved, heading=heading, successful_submissions=successful_submissions, all_submissions=all_submissions, newest_submission_date=newest_submission_date, comments=comments, message=messages.successful_submission())
     return render_template("exercises/after.html", id=id, solved=solved, heading=heading, successful_submissions=successful_submissions, all_submissions=all_submissions, newest_submission_date=newest_submission_date, comments=comments)
 
 @app.route("/comments/<int:id>", methods=["POST"])
