@@ -27,7 +27,7 @@ def handle_testing(submission, parsed_program, id):
         #Successful submission OK
         save_submission(submission, id, "OK")
         solved = get_solved(id)
-        return render_template("exercises/after.html", message=messages.successful_submission(), id=id, solved=solved, heading=heading)
+        return redirect("/comments/" + str(id))
     else:
         solved = get_solved(id)
         result=messages.wrong_answer()

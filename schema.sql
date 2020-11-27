@@ -18,3 +18,20 @@ CREATE TABLE tests (
     input TEXT,
     output INTEGER
 );
+
+CREATE TABLE submissions (
+	id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES users,
+	submission TEXT,
+	exercise_id INTEGER REFERENCES exercises,
+	date TIMESTAMP,
+	verdict TEXT
+);
+
+CREATE TABLE comments (
+	id SERIAL PRIMARY KEY,
+	comment TEXT,
+	username TEXT,
+	date TIMESTAMP,
+	exercise_id INTEGER REFERENCES exercises
+);
