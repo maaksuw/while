@@ -13,6 +13,11 @@ def get_exercises_by_topic_order_by_heading(topic):
     result = db.session.execute(sql, {"topic":topic})
     return result.fetchall()
 
+def get_heading(id):
+    sql = "SELECT heading FROM exercises WHERE id=:id"
+    result = db.session.execute(sql, {"id":id})
+    return result.fetchone()[0]
+
 def create_exercise(heading, description, topic, input_size):
     sql = "INSERT INTO exercises (heading, description, topic, input_size) VALUES (:heading, :description, :topic, :input_size) RETURNING id"
     result = db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size})

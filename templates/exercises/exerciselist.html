@@ -10,7 +10,8 @@
         
         <p>2. Muita jännyyksiä, suunnitellaan hamassa tulevaisuudessa, mutta olkoon nyt testauksen vuoksi.</p>
         {% for exercise in topic2 %}
-        <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
+        <p><a href="/exercise/{{ exercise[1] }}"> {{ exercise[1] }} </a></p>
         {% endfor %}
+        
     </div>
 {% endblock %}

@@ -11,13 +11,6 @@
         <a href="/comments/{{ id }}">Kommentit</a>
         {% endif %}
     </div>
-    <div class="container">
-        <h3>Omat lähetykset</h3>
-        {% for submission in submissions %}
-        <p>{{ submission[1].strftime("%Y-%m-%d %H:%M:%S") }}</p>
-        <p>{{ submission[2] }}</p>
-        <p style="white-space: pre-wrap">{{ submission[0] }}</p>
-        <br>
-        {% endfor %}
-    </div>
+    <h3>{{ result }}</h3>
+    <p style="white-space: pre-line">{{ message }}</p>
 {% endblock %}

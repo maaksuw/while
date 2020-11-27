@@ -1,9 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>{{ heading }}</h1>
-    <div class="container">
+    <div class="menu">
         <a href="/exerciselist">Tehtävälista</a>
+        {% if session.username %}
         <a href="/submissions/{{ id }}">Omat lähetykset</a>
+        {% endif %}
+        {% if solved %}
+        <a href="/comments/{{ id }}">Kommentit</a>
+        {% endif %}
+    </div>
+    <div class="container">
         <p style="white-space: pre-line">{{ description }}</p>
         <small class="form-text text-danger">{{ error }}</small>
         <form action="/exercise/{{ id }}" method="POST">
