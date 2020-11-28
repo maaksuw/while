@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="instructions">
+        <h2>Tulostaulukko</h2>
+        <p>Käyttäjänimi | Ratkaistuja tehtäviä</p>
+        {% for entry in leaderboard %}
+        <p>{{ entry[0] }} | {{ entry[1] }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

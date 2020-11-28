@@ -6,6 +6,7 @@ app = Flask(__name__)
 import authentication
 import exercises
 import submissions
+import submissionDAO
 
 @app.route("/")
 def index():
@@ -22,3 +23,8 @@ def profile(username):
 @app.route("/instructions")
 def instructions():
     return render_template("instructions.html")
+
+@app.route("/leaderboard")
+def leaderoard():
+    leaderboard = submissionDAO.get_leaderboard()
+    return render_template("leaderboard.html", leaderboard=leaderboard)

@@ -51,3 +51,8 @@ def get_comments(exercise_id):
     sql = "SELECT comment, username, date FROM comments WHERE exercise_id=:exercise_id ORDER BY date DESC"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
     return result.fetchall()
+
+def get_leaderboard():
+    sql = "SELECT U.username, COUNT(DISTINCT S.exercise_id) result FROM users U, submissions S WHERE U.id=S.user_id AND S.verdict = 'OK' GROUP BY U.id ORDER BY result DESC;"
+    result = db.session.execute(sql)
+    return result.fetchall()
