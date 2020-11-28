@@ -26,7 +26,7 @@ def submit_new_exercise():
     heading = request.form["heading"]
     description = request.form["description"]
     topic = request.form["topic"]
-    input_size = request.form["input"]
+    input_size = request.form["input_size"]
     if not heading:
         return render_template("exercises/admin/newexercise.html", headingError=messages.empty_heading())
     if not description:
