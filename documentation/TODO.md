@@ -23,4 +23,4 @@
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
-- [ ] Korjaa aika oikealle vyöhykkeelle
+- [x] Korjaa aika oikealle vyöhykkeelle

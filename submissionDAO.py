@@ -5,7 +5,7 @@ import userDAO
 
 def save_submission(username, submission, exercise_id, verdict):
     user_id = userDAO.get_user_id(username)
-    sql = "INSERT INTO submissions (user_id, submission, exercise_id, date, verdict) VALUES (:user_id, :submission, :exercise_id, NOW(), :verdict)"
+    sql = "INSERT INTO submissions (user_id, submission, exercise_id, date, verdict) VALUES (:user_id, :submission, :exercise_id, NOW() AT TIME ZONE 'EET', :verdict)"
     db.session.execute(sql, {"user_id":user_id, "submission":submission, "exercise_id":exercise_id, "verdict":verdict})
     db.session.commit()
     
@@ -43,7 +43,7 @@ def get_newest_submission_time(exercise_id):
     return newest
 
 def post_comment(username, comment, exercise_id):
-    sql = "INSERT INTO comments (comment, username, exercise_id, date) VALUES (:comment, :username, :exercise_id, NOW())"
+    sql = "INSERT INTO comments (comment, username, exercise_id, date) VALUES (:comment, :username, :exercise_id, NOW() AT TIME ZONE 'EET')"
     db.session.execute(sql, {"comment":comment, "username":username, "exercise_id":exercise_id})
     db.session.commit()
 
