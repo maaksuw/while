@@ -7,20 +7,23 @@
 - [x] Suunnittele tehtäviä
 - [x] Toteuta tehtäväsivut ja ratkaisun lähettäminen
 - [x] Toteuta logiikka käyttäjän ohjelman tarkistamiseen ja simuloimiseen
-- [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Siisti koodi ja repositorio
 - [x] Piilota tehtävät kirjautumattomilta
 - [x] Toteuta tehtävien muokkaaminen ohjelman kautta
 - [x] Toteuta uuden tehtävän lisääminen ohjelman kautta
 - [x] Toteuta testien muokkaaminen ja lisääminen ohjelman kautta
-- [ ] Luo eri käyttäjäroolit
 - [x] Tallenna tietoja käyttäjien lähetyksistä ja tee "Omat lähetykset"-sivu
 - [x] Luo tehtävän ratkaisemisen jälkeinen sivu
-- [ ] Luo Leaderboard-sivu
+- [x] Luo tuloslistaus-sivu
 - [ ] Toteuta profiilisivu
-- [ ] Toteuta siistimpi ulkoasu
-
+- [ ] Toteuta parempi ulkoasu
+- [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
+- [ ] Luo eri käyttäjäroolit, tavallinen ja admin
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
-- [x] Korjaa aika oikealle vyöhykkeelle
+- [ ] Korjaa CSRF-haavoittuvuudet
+- [ ] Mieti järkevä keino järjestää tehtävät listassa
+- [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella
+- [ ] Piilota Tuloslista-sivu kirjautumattomilta
+- [ ] Toteuta default 404/403-error sivu, joka näytetään huonojen pyyntöjen jälkeen

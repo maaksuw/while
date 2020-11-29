@@ -4,55 +4,63 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="overrides.css">
     </head>
     
     <body>
     
         <title>Johdatus WHILE-ohjelmointiin</title>
-        <header>
-            <div class="container">
-                <h1 class="logo">Johdatus WHILE-ohjelmointiin</h1>
-                <nav class="navbar navbar-expand-sm navbar-light">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="/">Etusivu</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/basics">Mikä ihmeen WHILE-ohjelmointi?</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown">
-                            Tehtävät
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/instructions">Ohjeet</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/exerciselist">Tehtävälista</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/leaderboard">Tuloslista</a>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                    {% if session.username %}
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-light mr-sm-2" href="/profile/{{ session.username }}">{{ session.username }}</a>
-                        <a class="btn btn-light my-2 my-sm-0" href="/logout" role="button">Kirjaudu ulos</a>
-                    </div>
-                    {% else %}
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-primary mr-sm-2" href="/signin" role="button">Luo käyttäjätunnus</a>
-                        <a class="btn btn-light my-2 my-sm-0" href="/login" role="button">Kirjaudu sisään</a>
-                    </div>
-                    {% endif %}
-                </nav>
-            </div>
-        </header>
         
-        <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-sm py-4 justify-content-end" style="background-color: #ffa200;">
+            <div class="collapse navbar-collapse">
+                <a class="navbar-brand pl-3" href="/" style="color: #000000; font-size: 50px; font-family: Lucida Console, Courier, monospace;">
+                Johdatus WHILE-ohjelmointiin
+                </a>
+                <ul class="navbar-nav pl-4">
+                    <li class="nav-item"><a class="nav-link" href="/basics" style="color: #363636; font-size: 20px;">
+                    Mikä ihmeen WHILE-ohjelmointi?</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" style="color: #363636; font-size: 20px;">
+                        Tehtävät
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/instructions">Ohjeet</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/exerciselist">Tehtävälista</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/leaderboard">Tuloslista</a>
+                        </div>
+                    </li>
+                </ul>
+                {% if session.username %}
+                <div class="btn-group pl-5" role="group">
+                    <a class="btn btn-light mr-sm-2" href="/profile/{{ session.username }}" style="background-color: #d1d1d1; border-color: #d1d1d1;">
+                    {{ session.username }}
+                    </a>
+                    <a class="btn btn-light my-2 my-sm-0" href="/logout" role="button" style="background-color: #666666; border-color: #666666;">
+                    Kirjaudu ulos
+                    </a>
+                </div>
+                {% else %}
+                <div class="btn-group pl-5" role="group">
+                    <a class="btn btn-light mr-sm-2" href="/signin" role="button">Luo käyttäjätunnus</a>
+                    <a class="btn my-2 my-sm-0" href="/login" role="button" style="background-color: #666666; border-color: #666666;">Kirjaudu sisään</a>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+        
+        <div class="container py-4">
             {% block content %}
             {% endblock %}
         </div>
         
         <script 
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
     </body>
