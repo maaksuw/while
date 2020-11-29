@@ -1,30 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="basics">
-        <h1>WHILE-ohjelmoinnin perusteet</h1>
-        <p>
-        WHILE-kieli on yksinkertainen ohjelmointikieli. WHILE-kieli on yhtä ilmaisuvoimainen kuin Turingin kone, ja minkä tahansa Turingin koneen voi muuttaa WHILE-ohjelmaksi ja toisin päin. WHILE-kieltä lähellä olevia muita kieliä ovat LOOP-kieli ja GO TO-kieli, joista GO TO-kieli on yhtä ilmaisuvoimainen kuin WHILE-kieli, mutta LOOP-kieli on aidosti heikompi. Ackermann-funktio on esimerkki funktiosta, joka voidaan laskea WHILE-ohjelmalla, mutta ei LOOP-ohjelmalla. Kaikki nämä kolme kieltä ovat määritelmiltään yksinkertaisia ja ne muodostavat sillan Turingin koneiden ja modernien ohjelmointikielten välille. Modernien ohjelmointikielten syntaksit helpottavat monimutkaisempien ohjelmien kirjoittamista, kun taas yksinkertaisesta määrittelystä on hyötyä, jos halutaan esimerkiksi todistaa väitteitä kaikille ohjelmille. On mielenkiintoista huomata, kuinka yksinkertaisilla säännöillä voidaan edelleen ohjelmoida periaatteessa mitä vain.
-        WHILE-ohjelma on määritelty seuraavasti:
+        <h1 style="padding: 1em 1em; text-align: center;">WHILE-ohjelmoinnin perusteet</h1>
+        <p style="font-size: 20px;">
+        WHILE-kieli on yksinkertainen, Turingin täydellinen ohjelmointikieli. WHILE-kieli ei ole käytännön ohjelmointikieli, vaan laskennallisuusteorian työkalu, mutta kielellä on teoriassa mahdollista ohjelmoida mitä vain, mitä esimerkiksi Pythonilla tai Javalla on mahdollista ohjelmoida.
         </p>
-        <p>
-        WHILE-ohjelma on funktio f: (N_0)^k -> N_0, eli WHILE-ohjelma saa parametrinaan äärellisen määrän luonnollisia lukuja ja palauttaa vastauksena yhden luonnollisen luvun. Nolla lasketaan tässä mukaan luonnollisiin lukuihin.
-        Muuttuja saa alustettaessaan arvon nolla.
-        Olkoon a ja b muuttujia ja c luonnollinen luku.
+        <p style="font-size: 20px;">
+        WHILE-ohjelma saa parametrina äärellisen määrän luonnollisia lukuja, ja se palauttaa vastauksena yhden luonnollisen luvun. Luonnollisilla luvuilla tarkoitetaan kaikkia positiivisia kokonaislukuja sekä nollaa. WHILE-ohjelmassa on kolme mahdollista operaatiota:
         </p>
-        <ul>
-        <li>a := b + c on WHILE-ohjelma. Muuttujaan a arvoksi asetetaan muuttujan b ja luvun c summa.</li>
+        <ul style="font-size: 20px;">
+        <li>Muuttujaan a asetetaan muuttujan b arvon ja jonkin luonnollisen luvun summa.</li>
+        <code style="color: #ffa200;">a = b + 2;</code>
+        <li>Muuttujaan a asetetaan muuttujan b arvon ja jonkin luonnollisen luvun erotus. Mikäli erotuksen arvo on negatiivinen, muuttujaan a asetetaan arvo nolla.</li>
+        <code style="color: #ffa200;">a = b - 3;</code>
         <li>
-        a := b - c on WHILE-ohjelma. - -operaatio on nimeltään "moonus" ja kyseessä on vähennyslasku, jonka tulos ei voi mennä negatiiviseksi. Jos arvo b - c on negatiivinen, a saa arvon nolla.
+        Monista nykyaikaisista ohjelmointikielistä tuttu while-silmukka, jossa toistetaan jotain ohjelman osaa kunnes ehtolause ei ole enää tosi. WHILE-ohjelmissa ehtolause on muotoa <em>muuttuja a on erisuuri kuin nolla</em>. Annettua ohjelman osaa siis toistetaan kunnes silmukkamuuttujan arvo ei ole nolla.
         </li>
-        <li>
-        Jos P_1 ja P_2 ovat WHILE-ohjelmia, niin P_1; P_2 on WHILE-ohjelma.
-        </li>
-        <li>
-        Jos P on WHILE-ohjelma, niin WHILE a /= 0 DO P END on WHILE-ohjelma. Jos muuttujan a arvo on eri suuri kuin nolla, suoritetaan ohjelma P, ja muuten lopetetaan. Tätä toistetaan, kunnes muuttuja a saa arvon nolla.
-        </li>
+        <pre><code style="color: #ffa200;">
+while (a != 0) {
+    toistettava ohjelman osa
+}</code></pre>
         </ul>
-        <p>
-        Ohjeet, miten tehtävä palautetaan ja missä muodossa, löytyvät sivulta <a href="/instructions">Ohjeet</a>.
+        <p style="font-size: 20px;">
+        Ohjeet tehtävien palauttamiseen ja ensimmäisen ohjelman kirjoittamiseen löytyvät sivulta <a href="/instructions" style="color: #666666;">Ohjeet</a>.
         </p>
-    </div>
+        <h2 style="padding: 1em 1em; text-align: center;">Historiaa</h2>
+        <p style="font-size: 20px;">WHILE-kielellä on läheinen sukulainen, LOOP-kieli. LOOP-ohjelma on muuten samanlainen kuin WHILE-ohjelma, mutta while-silmukan sijasta käytössä on loop-silmukka, joka muistuttaa modernien ohjelmointikielien for-silmukkaa. Molemmat kielet ovat määritelmiltään yksinkertaisia ja ne muodostavat sillan Turingin koneiden ja modernien ohjelmointikielten välille. Modernien ohjelmointikielten syntaksit helpottavat monimutkaisten ohjelmien kirjoittamista, kun taas yksinkertaisesta määrittelystä on hyötyä, jos halutaan esimerkiksi todistaa väitteitä kaikille ohjelmille. LOOP-kieli on kuitenkin ilmaisuvoimaltaan aidosti heikompi, kuin WHILE-kieli.</p>
+        <p style="font-size: 20px;">1900-luvun alussa kehiteltiin erilaisia laskennan malleja, joista yksi oli Turingin kone. Yksi ehdokas Turingin koneen kanssa ekvivalentiksi laskennan malliksi oli primitiivisrekursiiviset funktiot, jotka muistuttavat LOOP-ohjelmia. Wilhelm Ackermann kuitenkin löysi Turing-laskettavan funktion, joka ei ollut primitiivisrekursiivinen. Funktio nimettiin Ackermannin mukaan. Primitiivisrekursiivisista funktioista pystyttiin tekemään Turing täydellisiä lisäämällä mukaan μ-operaattori, jonka voidaan ajatella vastaavan while-silmukkaa. Tällaisia funktiota kutsutaan μ-rekursiivisiksi. Ackermann-funktio on esimerkki funktiosta, joka voidaan laskea WHILE-ohjelmalla, mutta ei LOOP-ohjelmalla. Ackermann-funktio on tunnettu sen valtavasta kasvunopeudesta, ja LOOP-ohjelmilla on vaikeuksia käsitellä niin nopeasti kasvavia funktioita.
+        </p>
 {% endblock %}
