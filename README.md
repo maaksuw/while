@@ -15,6 +15,8 @@ Iso osa oleellisista toiminnallisuuksista pitäisi olla nyt käytettävissä ja 
 
 Sovelluksessa ei ole vielä erikseen admin-käyttäjää, mutta sivuilla on "piilotettuna" ylläpitäjälle tarkoitettuja sivuja, joissa voi muokata tehtävää, tehdä uuden tehtävän ja lisätä, muokata ja poistaa tehtävän testejä. Nämä on tarkoitus suojata ennen loppupalautusta, kunhan olen saanut tehtyä käyttäjille roolit. Koodista näkee mitkä sivujen osoitteet ovat. Arvostaisin kuitenkin tietenkin kovasti, jos vertaisarvioitaessa tehtäviä ei mentäisi poistamaan tai lisäämään tai muokkaamaan ja samoin testejä. Kaikkien näiden toiminnallisuuksien pitäisi olla kunnossa ja toimia odotetulla tavalla.
 
+4 ensimmäistä tehtävää on testattu OK, mutta uudemmissa tehtävissä on vielä epävarmuutta testien sopivuudesta, joten jos näissä on jotain virhettä, niin niitä tullaan korjaamaan ja viilaamaan tässä piakkoin.
+
 Seuraavaksi sovellukseen on tarkoitus toteuttaa lisää tehtäviä, TODO-listassa mainitut virheet pitää korjata, ulkoasu pitää siistiä ja tämän jälkeen toteutan eri käyttäjäroolit ja alan tekemään profiilisivua ja käyttäjien hakutoiminnallisuutta.
 
 Jos sovelluksessa tulee vastaan virheitä, joita ei ole mainittu TODO-listassa, niin ilmoittakaa ihmeessä minulle! Automaattisia testejä ei ole, joten aina välillä jotain saattaa hajota huomaamatta.
