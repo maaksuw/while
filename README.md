@@ -18,5 +18,3 @@ Sovelluksessa ei ole vielä erikseen admin-käyttäjää, mutta sivuilla on "pii
 Seuraavaksi sovellukseen on tarkoitus toteuttaa lisää tehtäviä, TODO-listassa mainitut virheet pitää korjata, ulkoasu pitää siistiä ja tämän jälkeen toteutan eri käyttäjäroolit ja alan tekemään profiilisivua ja käyttäjien hakutoiminnallisuutta.
 
 Jos sovelluksessa tulee vastaan virheitä, joita ei ole mainittu TODO-listassa, niin ilmoittakaa ihmeessä minulle! Automaattisia testejä ei ole, joten aina välillä jotain saattaa hajota huomaamatta.
-
-Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Jos sovellus antaa jossain kohtaa virheviestin, niin minulle voi ilmoittaa!
