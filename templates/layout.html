@@ -16,7 +16,7 @@
                 <a class="navbar-brand pl-3" href="/" style="color: #000000; font-size: 50px; font-family: Lucida Console, Courier, monospace;">
                 Johdatus WHILE-ohjelmointiin
                 </a>
-                <ul class="navbar-nav pl-4">
+                <ul class="navbar-nav pl-4 mr-auto">
                     <li class="nav-item"><a class="nav-link" href="/basics" style="color: #363636; font-size: 20px;">
                     Mikä ihmeen WHILE-ohjelmointi?</a>
                     </li>
@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 {% if session.username %}
-                <div class="btn-group pl-5" role="group">
+                <div class="btn-group px-3" role="group">
                     <a class="btn btn-light mr-sm-2" href="/profile/{{ session.username }}" style="background-color: #d1d1d1; border-color: #d1d1d1;">
                     {{ session.username }}
                     </a>
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 {% else %}
-                <div class="btn-group pl-5" role="group">
+                <div class="btn-group px-3" role="group">
                     <a class="btn btn-light mr-sm-2" href="/signin" role="button">Luo käyttäjätunnus</a>
                     <a class="btn my-2 my-sm-0" href="/login" role="button" style="background-color: #666666; border-color: #666666;">Kirjaudu sisään</a>
                 </div>

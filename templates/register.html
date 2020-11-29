@@ -1,17 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Luo uusi käyttäjätunnus</h1>
+    <h2>Luo uusi käyttäjätunnus</h2>
     <form action="/register" method="POST">
-        <div class="form-group">
-            <label>Käyttäjätunnus</label>
-            <input class="form-control" type="text" name="username">
-            <small class="form-text text-danger">{{ usernameError }}</small>
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <label>Käyttäjätunnus</label>
+                <input class="form-control" type="text" name="username">
+                <small class="form-text text-danger">{{ usernameError }}</small>
+            </div>
         </div>
-        <div class="form-group">
-            <label>Salasana</label>
-            <input class="form-control" type="password" name="password">
-            <small class="form-text text-danger">{{ passwordError }}</small>
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label>Salasana</label>
+                <input class="form-control" type="password" name="password">
+                <small class="form-text text-danger">{{ passwordError }}</small>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Valmis</button>
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label>Vahvista salasana</label>
+                <input class="form-control" type="password" name="confirm_password">
+                <small class="form-text text-danger">{{ confirm_password_error }}</small>
+            </div>
+        </div>
+        <button type="submit" class="btn" style="background-color: #666666; border-color: #666666;">Valmis</button>
     </form>
 {% endblock %}
