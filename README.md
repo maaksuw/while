@@ -10,24 +10,13 @@ Linkki sovellukseen [Johdatus WHILE-ohjelmointiin](https://whileohjelmointi.hero
 Projektin nimi tulee mahdollisesti muuttumaan vielä harjoitustyön edetessä.
 Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
 
-## Tilannekatsaus: välipalautus 2
-Sovelluksella pitäisi olla nyt toimiva sivupohja oleellisten toimintojen osalta. Kaikki tällä hetkellä olemassa olevat sivut ja linkit pitäisi toimia myös Herokussa, mutta jos siellä tulee ongelmia, niin korjaan ne pikimmiten! Sivut ovat vielä todella sekaisin ja asettelut eivät ole kohdallaan ja kaikki tekstit ovat toistaiseksi placeholdereita,että sain suunniteltua sivupohjan. Erityisesti WHILE-ohjelmoinnista kertova sivu on vielä monimutkainen ja huono. Viilailen ulkoasua sitten hieman myöhemmin!
+## Tilannekatsaus: välipalautus 3
+Iso osa oleellisista toiminnallisuuksista pitäisi olla nyt käytettävissä ja toimia Herokussa. Repon documentation-kansiossa on TODO-lista, johon olen kirjoittanut tällä hetkellä tiedossa olevia virheitä ja puutteita, sekä mitä ainakin on vielä suunnitteilla tehdä. Lyhyesti, käyttäjätunnuksen tekemisen ja sisään kirjautumisen pitäisi toimia, tehtävään pitäisi voida lähettää vastaus ja sivuilla pitäisi olla ohjeet siihen, miten ratkaisu lähetetään johonkin tehtävään. Etusivu, perusteet- ja ohjeet sivut ovat ainoat, jotka on siistitty ja muissa on vielä tekemistä. Sovelluksen pitäisi antaa käyttäjälle palautetta, jos ratkaisu ei toimi ja kertoa jotain siitä, miksi ratkaisu on väärin. Kun tehtävän saa onnistuneesti tehtyä, pääsee kommentti-sivulle, jossa näkee tehtävän ratkaisseiden käyttäjien määrän sekä voi lähettää kommenttia tehtävään. Sivuilla on myös leaderboard-sivu, joka on tarkoitus piilottaa kirjautumattomilta, mutta on nyt toistaiseksi vielä koko maailman katseltavana.
 
-Tällä hetkellä työstän sitä, että tehtävien tarkistaminen (onko WHILE-ohjelma) ja simuloiminen saadaan toimimaan alusta loppuun. Parserin pitäisi toimia, mutta sitä ei ole vielä kovin paljon testattu. Seuraavaksi toteutan simuloinnin ja teen muutaman tehtävän valmiiksi, niin että niille voi tehdä testit ja pääsen kunnolla kokeilemaan, eihän parseriin ja simulaattoriin ole jäänyt bugeja. Kun tehtävien käsittely ja simulointi onnistuu oikein, kirjoitan sivustolle paremmat tekstit ja ohjeet siihen, miten tehtäviä lähetetään. Tämän jälkeen alan tekemään varmaan profiili-sivuja ja piilotan tehtävien lähettämisen muilta kuin kirjautuneilta käyttäjiltä.
+Sovelluksessa ei ole vielä erikseen admin-käyttäjää, mutta sivuilla on "piilotettuna" ylläpitäjälle tarkoitettuja sivuja, joissa voi muokata tehtävää, tehdä uuden tehtävän ja lisätä, muokata ja poistaa tehtävän testejä. Nämä on tarkoitus suojata ennen loppupalautusta, kunhan olen saanut tehtyä käyttäjille roolit. Koodista näkee mitkä sivujen osoitteet ovat. Arvostaisin kuitenkin tietenkin kovasti, jos vertaisarvioitaessa tehtäviä ei mentäisi poistamaan tai lisäämään tai muokkaamaan ja samoin testejä. Kaikkien näiden toiminnallisuuksien pitäisi olla kunnossa ja toimia odotetulla tavalla.
 
-### Update:
-Ehdin tässä vielä illalla tehdä simuloinnista luonnosversion valmiiksi. Vein muutokset myös Herokuun ja kokeilin, miten ohjelma siellä toimii. Tällä hetkellä, jos ensimmäiseen tehtävään lähettää jotain pitäisi voida saada seuraavat vastaukset:
-* Jos sovelluksen ensimmäinen rivi ei ole   input: x1, x2;   tulee Internal Server Error.
-* Ohjelma odottaa, että se saa kaksi input-muuttujaa, ja niiden arvoiksi asetetaan 8 ja 13. Jos ohjelman syntaksi on oikea, sovellus kertoo mitä ohjelman suorituksen loputtua ans-nimisessä muuttujassa on arvona.
-Syntaksia ei kerrota vielä missään, mutta se seuraa läheisesti Javan-syntaksia. Tässä nopea esimerkki:  
-input: x1, x2;  
-a = x1 + 0;  
-while (a != 0) {  
-    x2 = x2 + 1;  
-    a = a - 1;  
-}  
-ans = x2 + 0;  
-* Jos syntaksi ei ole oikein, sovelluksen pitäisi kertoa tämä. Poikkeuksena tosiaan ensimmäinen input-rivi.
-Luonnoksessa on vielä paljon tekemättömiä asioita, joten se toimii vielä hyvin epävakaasti. Halusin kuitenkin kokeilla hieman, että ensimmäinen versio toimii!
+Seuraavaksi sovellukseen on tarkoitus toteuttaa lisää tehtäviä, TODO-listassa mainitut virheet pitää korjata, ulkoasu pitää siistiä ja tämän jälkeen toteutan eri käyttäjäroolit ja alan tekemään profiilisivua ja käyttäjien hakutoiminnallisuutta.
+
+Jos sovelluksessa tulee vastaan virheitä, joita ei ole mainittu TODO-listassa, niin ilmoittakaa ihmeessä minulle! Automaattisia testejä ei ole, joten aina välillä jotain saattaa hajota huomaamatta.
 
 Sovelluksen linkki on tuossa yläpuolella ja siellä pitäisi olla mahdollista luoda käyttäjätunnus, sekä kirjautua sisään. Tällä hetkellä tehtävien lähettäminen on mahdollista kenelle vain, joten käyttäjätunnuksesta ei vielä ole mitään iloa. Jos sovellus antaa jossain kohtaa virheviestin, niin minulle voi ilmoittaa!
