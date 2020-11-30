@@ -1,36 +1,46 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ heading }}</h1>
-    <div class="menu">
-        <a href="/exerciselist">Tehtävälista</a>
-        <a href="/exercise/{{ id }}">Takaisin tehtävään</a>
+    <h1 style="padding: 1em 1em; text-align: center;">{{ heading }}</h1>
+    <div class="container" style="font-size: 20px;">
+        <a href="/exerciselist" href="/exerciselist" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em;">
+        Tehtävälista
+        </a>
+        <a href="/exercise/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Takaisin tehtävään
+        </a>
         {% if session.username %}
-        <a href="/submissions/{{ id }}">Omat lähetykset</a>
+        <a href="/submissions/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Omat lähetykset
+        </a>
         {% endif %}
         {% if solved %}
-        <a href="/comments/{{ id }}/normal">Kommentit</a>
+        <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kommentit
+        </a>
         {% endif %}
     </div>
-    <div class="container">
+    <div class="container" style="padding: 20px; font-size: 20px;">
         <h3>{{ message }}</h3>
-        <label>Tehtävän ratkaisseet käyttäjät / tehtävää yrittäneet käyttäjät:</label>
+        <label><b>Tehtävän ratkaisseet käyttäjät / tehtävää yrittäneet käyttäjät:</b></label>
         <p>{{ successful_submissions }}/{{ all_submissions }}</p>
-        <label>Viimeisin lähetys vastaanotettu:</label>
+        <label><b>Viimeisin lähetys vastaanotettu:</b></label>
         <p>{{ newest_submission_date.strftime("%Y-%m-%d %H:%M:%S") }}</p>
     </div>
-    <div class="comments">
+    <hr class="rounded">
+    <div class="comments" style="padding: 20px; font-size: 20px;">
         <h3>Kommentit</h3>
         {% for comment in comments %}
-        <p>{{ comment[1] }} at {{ comment[2].strftime("%Y-%m-%d %H:%M:%S") }}</p>
-        <p>{{ comment[0] }}</p>
-        <br>
+        <div style="font-size: 20px; background-color: #ebebeb; padding: 1em 1em; border-radius: .5em; margin: 20px 0px;">
+            <p><b>{{ comment[1] }}</b> at {{ comment[2].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+            <p>{{ comment[0] }}</p>
+        </div>
         {% endfor %}
         <form action="/comments/{{ id }}" method="POST">
             <div class="form-group">
-                <h5>Uusi kommentti</h5>
+                <h4>Uusi kommentti</h4>
                 <textarea name="comment" rows="5" cols="50" maxlength="500"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Lähetä</button>
+            <button type="submit" class="btn" style="background-color: #666666; border-color: #666666;">Lähetä</button>
         </form>
     </div>
 {% endblock %}

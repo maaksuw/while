@@ -22,6 +22,7 @@
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
+- [ ] Korjaa Internal Server Error, jos käyttäjä antaa väärän määrän syötemuuttujia
 - [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
 - [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella

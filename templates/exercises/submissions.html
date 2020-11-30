@@ -1,22 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ heading }}</h1>
-    <div class="menu">
-        <a href="/exerciselist">Tehtävälista</a>
-        <a href="/exercise/{{ id }}">Takaisin tehtävään</a>
+    <h1 style="padding: 1em 1em; text-align: center;">{{ heading }}</h1>
+    <div class="container" style="font-size: 20px;">
+        <a href="/exerciselist" href="/exerciselist" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em;">
+        Tehtävälista
+        </a>
+        <a href="/exercise/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Takaisin tehtävään
+        </a>
         {% if session.username %}
-        <a href="/submissions/{{ id }}">Omat lähetykset</a>
+        <a href="/submissions/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Omat lähetykset
+        </a>
         {% endif %}
         {% if solved %}
-        <a href="/comments/{{ id }}/normal">Kommentit</a>
+        <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kommentit
+        </a>
         {% endif %}
     </div>
-    <div class="container">
-        <h3>Omat lähetykset</h3>
+    <div class="container" style="padding: 20px; font-size: 20px;">
         {% for submission in submissions %}
         <p>{{ submission[1].strftime("%Y-%m-%d %H:%M:%S") }}</p>
-        <p>{{ submission[2] }}</p>
-        <p style="white-space: pre-wrap">{{ submission[0] }}</p>
+        <p><b>{{ submission[2] }}</b></p>
+        <pre><code style="color: #ffa200;">{{ submission[0] }}</code></pre>
+        <hr class="rounded">
         <br>
         {% endfor %}
     </div>

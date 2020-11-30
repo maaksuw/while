@@ -1,16 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ heading }}</h1>
-    <div class="menu">
-        <a href="/exerciselist">Tehtävälista</a>
-        <a href="/exercise/{{ id }}">Takaisin tehtävään</a>
+    <h1 style="padding: 1em 1em; text-align: center;">{{ heading }}</h1>
+    <div class="container" style="font-size: 20px;">
+        <a href="/exerciselist" href="/exerciselist" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em;">
+        Tehtävälista
+        </a>
+        <a href="/exercise/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Takaisin tehtävään
+        </a>
         {% if session.username %}
-        <a href="/submissions/{{ id }}">Omat lähetykset</a>
+        <a href="/submissions/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Omat lähetykset
+        </a>
         {% endif %}
         {% if solved %}
-        <a href="/comments/{{ id }}/normal">Kommentit</a>
+        <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kommentit
+        </a>
         {% endif %}
     </div>
-    <h3>{{ result }}</h3>
-    <p style="white-space: pre-line">{{ message }}</p>
+    <h3 style="padding: 20px 10px;">{{ result }}</h3>
+    <p style="white-space: pre-line; font-size: 20px; padding-left: 10px;">{{ message }}</p>
 {% endblock %}
