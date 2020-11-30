@@ -5,7 +5,6 @@
     <h4>Syötteen lukeminen</h4>
     <p style="font-size: 20px;">Ohjelman ensimmäisellä rivillä tulee määritellä syötemuuttujien nimet pilkulla erotettuna seuraavaan tyyliin:
     <br><code style="color: #ffa200;">input: x, y;</code></p>
-    
     <p style="font-size: 20px;">Syötemuuttujien nimet saa itse päättää, joten voit käyttää eri nimiä kuin tehtävänannossa on käytetty. Oleellista on vain parametrien määrä ja se, että nimet ovat kelvollisia muuttujan nimiä.</p>
     
     <h4>Muuttujan nimeäminen</h4>
@@ -39,15 +38,20 @@ while (a != 0) {
     <p style="font-size: 20px;">Kun olet kirjautunut sisään, pääset lähettämään ratkaisun tehtävään. Tehtäväsivulla on tekstikenttä, johon voit liittää tekemäsi ratkaisun. Tekstikenttään voi myös suoraan kirjoittaa vastauksen, mutta voi olla mukavampi koodata ratkaisu ensin tekstieditoriin.</p>
     
     <h4 style="padding: padding-bottom: 30px;">Esimerkkiohjelma</h2>
-    <p style="font-size: 20px;">Esimerkkiohjelma saa syötteenä kaksi lukua, jotka on nimetty x ja y. Ohjelma ei tee mitään järkevää, vaan esittelee syntaksin käyttöä käytännössä. <pre style="font-size: 18px;"><code style="color: #ffa200;">input: x, y;
+    <p style="font-size: 20px;">Esimerkkiohjelma saa syötteenä kaksi lukua, jotka on nimetty x ja y. Ohjelma ei tee mitään järkevää (se itseasiassa jää ikuiseen silmukkaan), vaan esittelee syntaksin käyttöä käytännössä. Huomaa erityisesti kaksi erilaista tapaa luoda uusi muuttuja, ensin jo olemassa olevan muuttujan avulla <code>a = x + 13;</code> ja sitten itsensä avulla <code>b = b + 4;</code>.<pre style="font-size: 18px;"><code style="color: #ffa200;">input: x, y;
 a = x + 13;
 while (a != 0) {
-    y = y + 2;
-    b = y - 4;
+    y = y - 2;
+    b = b + 4;
     while (b != 0) {
         ans = ans + 1;
     }
     a = a - 1;
 }
 ans = x + 1;</code></pre></p>
+
+    <h4>Sudenkuoppia</h2>
+    <ul style="font-size: 20px;">
+        <li>Typot muuttujien nimissä voivat aiheuttaa sen, että kääntäjä tulkitsee väärin kirjoitetun muuttujan uudeksi muuttujaksi, ja alustaa sen arvon nollaan. Jos ohjelma käyttäytyy oudosti, voi olla hyvä idea varmistaa, että kaikki muuttujien nimet on kirjoitettu oikein.</li>
+    </ul>
 {% endblock %}
