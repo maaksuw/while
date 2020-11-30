@@ -1,10 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="instructions">
-        <h2>Tulostaulukko</h2>
-        <p>Käyttäjänimi | Ratkaistuja tehtäviä</p>
+    <h1 style="padding: 1em 1em; text-align: center;">Tulostaulukko</h1>
+    <center>
+        <table style="border: 1px solid black; border-collapse: collapse; background-color: #ebebeb;">
+        <tr>
+            <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">Käyttäjänimi</th>
+            <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">Tehtäviä ratkaistu</th>
+        </tr>
         {% for entry in leaderboard %}
-        <p>{{ entry[0] }} | {{ entry[1] }}</p>
+        <tr>
+            <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">{{ entry[0] }}</td>
+            <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">{{ entry[1] }}</td>
+        </tr>
         {% endfor %}
-    </div>
+        </table>
+    </center>
 {% endblock %}

@@ -5,6 +5,9 @@
         <a href="/exerciselist" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em;">
         Tehtävälista
         </a>
+        <a href="/exercise/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Tehtävänanto
+        </a>
         {% if session.username %}
         <a href="/submissions/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
         Omat lähetykset

@@ -26,6 +26,6 @@
 - [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
 - [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella
-- [ ] Piilota Tuloslista-sivu kirjautumattomilta
+- [x] Piilota Tuloslista-sivu kirjautumattomilta
 - [ ] Toteuta default 404/403-error sivu, joka näytetään huonojen pyyntöjen jälkeen
 - [ ] Toteuta confirm-password kirjautumissivulle
