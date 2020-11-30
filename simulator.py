@@ -32,18 +32,20 @@ def simulate(commands, variable_cnt, input):
         var += 1
     n = len(commands)
     while(pc < n):
-        steps += 1
         if steps >= max_steplimit:
             steplimit_exceeded = True
             return
         command = commands[pc]
         if command[0] == 1:
+            steps += 1
             variables[command[1]] = variables[command[2]] + command[3]
         elif command[0] == 2:
+            steps += 1
             value = variables[command[2]] - command[3]
             if value < 0: variables[command[1]] = 0 
             else: variables[command[1]] = value
         elif command[0] == 3:
+            steps += 1
             if variables[command[1]] == 0:
                 pc = command[2]
                 continue
