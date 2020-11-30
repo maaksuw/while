@@ -1,23 +1,29 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ heading }}</h1>
-    <div class="menu">
-        <a href="/exerciselist">Tehtävälista</a>
+    <h1 style="padding: 1em 1em; text-align: center;">{{ heading }}</h1>
+    <div class="container" style="font-size: 20px;">
+        <a href="/exerciselist" style="background-color: #ebebeb; color: black; padding: 5px; margin-right: 10px; border-radius: .2em;">
+        Tehtävälista
+        </a>
         {% if session.username %}
-        <a href="/submissions/{{ id }}">Omat lähetykset</a>
+        <a href="/submissions/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Omat lähetykset
+        </a>
         {% endif %}
         {% if solved %}
-        <a href="/comments/{{ id }}/normal">Kommentit</a>
+        <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kommentit
+        </a>
         {% endif %}
     </div>
-    <div class="container">
-        <p style="white-space: pre-line">{{ description }}</p>
+    <div class="container" style="padding: 10px;">
+        <p style="white-space: pre-line; font-size: 20px;">{{ description }}</p>
         <small class="form-text text-danger">{{ error }}</small>
         <form action="/exercise/{{ id }}" method="POST">
             <textarea name="answer" rows="10" cols="50" maxlength="10000"></textarea>
             <p>
             {% if session.username %}
-            <button type="submit">Lähetä</button>
+            <button class="btn" type="submit" style="background-color: #666666; border-color: #666666; margin: 10px 10px 10px 0px;">Lähetä</button>
             {% endif %}
         </form>
     </div>

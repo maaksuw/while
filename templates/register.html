@@ -1,28 +1,35 @@
 {% extends "layout.html" %}
 {% block content %}
+<div style="height: 400px;
+    width: 400px; position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;">
     <h2>Luo uusi käyttäjätunnus</h2>
     <form action="/register" method="POST">
         <div class="row">
-            <div class="form-group col-lg-3">
-                <label>Käyttäjätunnus</label>
+            <div class="form-group col-lg-10">
+                <label style="font-size: 20px;">Käyttäjätunnus</label>
                 <input class="form-control" type="text" name="username">
                 <small class="form-text text-danger">{{ usernameError }}</small>
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-lg-4">
-                <label>Salasana</label>
+            <div class="form-group col-lg-10">
+                <label style="font-size: 20px;">Salasana</label>
                 <input class="form-control" type="password" name="password">
                 <small class="form-text text-danger">{{ passwordError }}</small>
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-lg-4">
-                <label>Vahvista salasana</label>
+            <div class="form-group col-lg-10">
+                <label style="font-size: 20px;">Vahvista salasana</label>
                 <input class="form-control" type="password" name="confirm_password">
                 <small class="form-text text-danger">{{ confirm_password_error }}</small>
             </div>
         </div>
         <button type="submit" class="btn" style="background-color: #666666; border-color: #666666;">Valmis</button>
     </form>
+</div>
 {% endblock %}

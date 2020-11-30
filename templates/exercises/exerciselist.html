@@ -1,17 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="exercises">
-        <h1>Tehtävät</h1>
-        
-        <p>1. Laskutoimitukset</p>
-        {% for exercise in topic1 %}
-        <p><a href="/exercise/{{ exercise[0] }}"> {{ exercise[1] }} </a></p>
-        {% endfor %}
-        
-        <p>2. Yksinkertaisia algoritmeja</p>
-        {% for exercise in topic2 %}
-        <p><a href="/exercise/{{ exercise[1] }}"> {{ exercise[1] }} </a></p>
-        {% endfor %}
-        
+    <h1 style="padding: 1em 1em; text-align: center;">Tehtävät</h1>
+    <div class="row">
+        <div class="col-6">
+            <h3>1. Laskutoimitukset</h3>
+            {% for exercise in topic1 %}
+            <p style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></p>
+            {% endfor %}
+        </div>
+        <div class="col-6">
+            <h3>2. Yksinkertaisia algoritmeja</h3>
+            {% for exercise in topic2 %}
+            <p style="font-size: 20px;"><a href="/exercise/{{ exercise[1] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

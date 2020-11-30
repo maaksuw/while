@@ -28,7 +28,6 @@ while (a != 0) {
     <p style="font-size: 20px;">Jokainen muuttujan asetus tulee kirjoittaa omalle rivilleen ja päättää puolipisteeseen. Erillistä muuttujan alustuskäskyä ei ole. Kaikki uudet muuttujat alustetaan automaattisesti nollaan. Jos esimerkissä <code style="color: #ffa200;">b = b + 4;</code> b on uusi muuttuja, tulee muuttujan b arvoksi kutsun suorittamisen jälkeen 0 + 4 eli 4. Jos taas esimerkissä <code style="color: #ffa200;">a = x + 13;</code> a on uusi muuttuja, kutsun suorittamisen jälkeen muuttujan a arvo on odotetusti muuttujan x arvon ja luvun 13 summa.</p>
     <p style="font-size: 20px;">While-silmukassa kaarisulkeet eivät saa olla samalla rivillä, eli seuraava esimerkki ei ole kelvollinen.
     <br><code style="color: #ffa200;">while (a != 0) { a = a - 1; }</code></p>
-    
     <p>
     
     <h4>Vastauksen palauttaminen</h4>
@@ -37,8 +36,10 @@ while (a != 0) {
     <h4>Ratkaisun lähettäminen</h2>
     <p style="font-size: 20px;">Kun olet kirjautunut sisään, pääset lähettämään ratkaisun tehtävään. Tehtäväsivulla on tekstikenttä, johon voit liittää tekemäsi ratkaisun. Tekstikenttään voi myös suoraan kirjoittaa vastauksen, mutta voi olla mukavampi koodata ratkaisu ensin tekstieditoriin.</p>
     
-    <h4 style="padding: padding-bottom: 30px;">Esimerkkiohjelma</h2>
-    <p style="font-size: 20px;">Esimerkkiohjelma saa syötteenä kaksi lukua, jotka on nimetty x ja y. Ohjelma ei tee mitään järkevää (se itseasiassa jää ikuiseen silmukkaan), vaan esittelee syntaksin käyttöä käytännössä. Huomaa erityisesti kaksi erilaista tapaa luoda uusi muuttuja, ensin jo olemassa olevan muuttujan avulla <code style="color: #ffa200;">a = x + 13;</code> ja sitten itsensä avulla <code style="color: #ffa200;">b = b + 4;</code>. Myös rivi <code style="color: #ffa200;">ans = c + 5;</code> on mielenkiintoinen. Muuttujan c arvo on alustettu nollaan, joten käsky asettaa ans-muuttujaan arvon viisi.<pre style="font-size: 18px;"><code style="color: #ffa200;">input: x, y;
+    <h4>Esimerkkiohjelma</h2>
+    <p style="font-size: 20px;">Esimerkkiohjelma saa syötteenä kaksi lukua, jotka on nimetty x ja y. Ohjelma ei tee mitään järkevää (se itseasiassa jää ikuiseen silmukkaan), vaan esittelee syntaksin käyttöä käytännössä. Huomaa erityisesti kaksi erilaista tapaa luoda uusi muuttuja, ensin jo olemassa olevan muuttujan avulla <code style="color: #ffa200;">a = x + 13;</code> ja sitten itsensä avulla <code style="color: #ffa200;">b = b + 4;</code>. 
+    <br>Myös rivi <code style="color: #ffa200;">ans = c + 5;</code> on mielenkiintoinen. Muuttujan c arvo on alustettu nollaan, joten käsky asettaa ans-muuttujaan arvon viisi.
+<pre style="font-size: 18px;"><code style="color: #ffa200;">input: x, y;
 a = x + 13;
 while (a != 0) {
     y = y - 2;
@@ -51,7 +52,7 @@ while (a != 0) {
 ans = x + 1;</code></pre></p>
 
     <h4>Sudenkuoppia</h2>
-    <ul style="font-size: 20px;">
-        <li>Typot muuttujien nimissä voivat aiheuttaa sen, että kääntäjä tulkitsee väärin kirjoitetun muuttujan uudeksi muuttujaksi, ja alustaa sen arvon nollaan. Jos ohjelma käyttäytyy oudosti, voi olla hyvä idea varmistaa, että kaikki muuttujien nimet on kirjoitettu oikein.</li>
-    </ul>
+    <p style="font-size: 20px; background-color: #ebebeb; padding: 1em 1em; border-radius: .5em;">
+    Typot muuttujien nimissä voivat aiheuttaa sen, että kääntäjä tulkitsee väärin kirjoitetun muuttujan uudeksi muuttujaksi, ja alustaa sen arvon nollaan. Jos ohjelma käyttäytyy oudosti, voi olla hyvä idea varmistaa, että kaikki muuttujien nimet on kirjoitettu oikein.
+    </p>
 {% endblock %}
