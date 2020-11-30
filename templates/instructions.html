@@ -3,32 +3,50 @@
     <h1 style="padding: 1em 1em; text-align: center;">Ohjeet</h1>
     
     <h4>Syötteen lukeminen</h4>
-    <p style="font-size: 20px;">Ohjelman ensimmäisellä rivillä tulee määritellä parametrien nimet seuraavaan tyyliin:</p>
-    <code style="font-size: 20px; color: #ffa200;">input: x, y;</code>
+    <p style="font-size: 20px;">Ohjelman ensimmäisellä rivillä tulee määritellä syötemuuttujien nimet pilkulla erotettuna seuraavaan tyyliin:
+    <br><code style="color: #ffa200;">input: x, y;</code></p>
+    
     <p style="font-size: 20px;">Syötemuuttujien nimet saa itse päättää, joten voit käyttää eri nimiä kuin tehtävänannossa on käytetty. Oleellista on vain parametrien määrä ja se, että nimet ovat kelvollisia muuttujan nimiä.</p>
     
     <h4>Muuttujan nimeäminen</h4>
     <p style="font-size: 20px;">Muuttujan nimen tulee alkaa pienellä kirjaimella ja nimessä saa käyttää englannin kielen aakkosten pieniä ja isoja kirjaimia ja numeroita.</p>
     
     <h4>Käskyt</h4>
-    <p style="font-size: 20px;">Muuttujan arvon asettaminen onnistuu seuraavasti. Esimerkissä a ja b ovat muuttujia.</p>
-    <code style="font-size: 20px; color: #ffa200;">a = b + 2;</code>
-    <p style="font-size: 20px;">Jokainen muuttujan asetus tulee kirjoittaa omalle rivilleen ja päättää puolipisteeseen. Erillistä muuttujan alustuskutsua ei ole. Kaikki uudet muuttujat alustetaan automaattisesti nollaan. Jos edellisessä esimerkissä b on uusi muuttuja, tulee muuttujan a arvoksi kutsun suorittamisen jälkeen 0 + 2 eli 2. Jos taas edellisessä esimerkissä a on uusi muuttuja, kutsun suorittamisen jälkeen muuttujan a arvo on odotetusti muuttujan b arvon ja luvun 2 summa.</p>
-    <p style="font-size: 20px;">While-silmukassa kaarisulkeet eivät saa olla samalla rivillä, eli seuraava esimerkki ei ole kelvollinen.</p>
-    <code style="font-size: 20px; color: #ffa200;">while (a != 0) { a = a - 1; }</code>
+    <p style="font-size: 20px;">WHILE-ohjelmassa on kolme erilaista käskyä. Esimerkissä a ja b ovat muuttujia.</p> 
+    <ul style="font-size: 20px;">
+        <li>Muuttujaan a asetetaan muuttujan b arvon ja jonkin luonnollisen luvun summa.</li>
+        <code style="color: #ffa200;">a = b + 2;</code>
+        <li>Muuttujaan a asetetaan muuttujan b arvon ja jonkin luonnollisen luvun erotus. Mikäli erotuksen arvo on negatiivinen, muuttujaan a asetetaan arvo nolla.</li>
+        <code style="color: #ffa200;">a = b - 3;</code>
+        <li>
+        Monista nykyaikaisista ohjelmointikielistä tuttu while-silmukka, jossa toistetaan jotain ohjelman osaa kunnes ehtolause ei ole enää tosi. WHILE-ohjelmissa ehtolause on muotoa <em>muuttuja a on erisuuri kuin nolla</em>. Annettua ohjelman osaa siis toistetaan kunnes silmukkamuuttujan arvo ei ole nolla.
+        </li>
+        <pre><code style="color: #ffa200;">
+while (a != 0) {
+    toistettava ohjelman osa
+}</code></pre>
+    </ul>
+    <p style="font-size: 20px;">Jokainen muuttujan asetus tulee kirjoittaa omalle rivilleen ja päättää puolipisteeseen. Erillistä muuttujan alustuskäskyä ei ole. Kaikki uudet muuttujat alustetaan automaattisesti nollaan. Jos edellisessä esimerkissä b on uusi muuttuja, tulee muuttujan a arvoksi kutsun suorittamisen jälkeen 0 + 2 eli 2. Jos taas edellisessä esimerkissä a on uusi muuttuja, kutsun suorittamisen jälkeen muuttujan a arvo on odotetusti muuttujan b arvon ja luvun 2 summa.</p>
+    <p style="font-size: 20px;">While-silmukassa kaarisulkeet eivät saa olla samalla rivillä, eli seuraava esimerkki ei ole kelvollinen.
+    <br><code style="color: #ffa200;">while (a != 0) { a = a - 1; }</code></p>
+    
     <p>
     
     <h4>Vastauksen palauttaminen</h4>
     <p style="font-size: 20px;">Ratkaisun tuottama vastaus luetaan ohjelman suorituksen loputtua <b>ans</b>-nimisestä muuttujasta. Ohjelman antama vastaus pitää siis suorituksen loputtua olla kirjoitettuna ans-muuttujaan. ans-muuttuja on muiden muuttujien tapaan alustettu ensin arvoon nolla ja sitä voi käyttää laskennassa niin kuin mitä tahansa muuta muuttujaa.</p>
     
-    <h2>Ratkaisun lähettäminen</h2>
+    <h4>Ratkaisun lähettäminen</h2>
     <p style="font-size: 20px;">Kun olet kirjautunut sisään, pääset lähettämään ratkaisun tehtävään. Tehtäväsivulla on tekstikenttä, johon voit liittää tekemäsi ratkaisun. Tekstikenttään voi myös suoraan kirjoittaa vastauksen, mutta voi olla mukavampi koodata ratkaisu ensin tekstieditoriin.</p>
     
-    <h2 style="padding: padding-bottom: 30px;">Esimerkkiohjelma</h2>
-    <p style="font-size: 20px;"><pre><code style="font-size: 20px; color: #ffa200;">input: x, y;
+    <h4 style="padding: padding-bottom: 30px;">Esimerkkiohjelma</h2>
+    <p style="font-size: 20px;">Esimerkkiohjelma saa syötteenä kaksi lukua, jotka on nimetty x ja y. Ohjelma ei tee mitään järkevää, vaan esittelee syntaksin käyttöä käytännössä. <pre style="font-size: 18px;"><code style="color: #ffa200;">input: x, y;
 a = x + 13;
 while (a != 0) {
     y = y + 2;
+    b = y - 4;
+    while (b != 0) {
+        ans = ans + 1;
+    }
     a = a - 1;
 }
 ans = x + 1;</code></pre></p>
