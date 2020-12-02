@@ -13,6 +13,11 @@
             {% for exercise in topic2 %}
             <p style="font-size: 20px;"><a href="/exercise/{{ exercise[1] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></p>
             {% endfor %}
+            {% if admin %}
+                <a class="btn btn-light my-2 my-sm-0" href="/newexercise" role="button" style="background-color: #666666; border-color: #666666;">
+                Uusi tehtävä
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

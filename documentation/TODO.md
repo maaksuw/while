@@ -16,16 +16,17 @@
 - [x] Luo tehtävän ratkaisemisen jälkeinen sivu
 - [x] Luo tuloslistaus-sivu
 - [ ] Toteuta profiilisivu
-- [ ] Toteuta parempi ulkoasu
-- [ ] Siisti sivut tähän asti toteutettujen toimintojen osalta
-- [ ] Luo eri käyttäjäroolit, tavallinen ja admin
+- [x] Toteuta parempi ulkoasu
+- [x] Siisti sivut tähän asti toteutettujen toimintojen osalta
+- [x] Luo eri käyttäjäroolit, tavallinen ja admin
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
+- [ ] input-tiedostosta
 
 - [ ] Korjaa Internal Server Error, jos käyttäjä antaa väärän määrän syötemuuttujia
 - [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
 - [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella
 - [x] Piilota Tuloslista-sivu kirjautumattomilta
-- [ ] Toteuta default 404/403-error sivu, joka näytetään huonojen pyyntöjen jälkeen
-- [ ] Toteuta confirm-password kirjautumissivulle
+- [x] Toteuta default 404/403-error sivu, joka näytetään huonojen pyyntöjen jälkeen
+- [x] Toteuta confirm-password kirjautumissivulle

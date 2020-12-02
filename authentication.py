@@ -9,27 +9,30 @@ import messages
 app.secret_key = getenv("SECRET_KEY")
 
 @app.route("/signin")
-def signinget():
-    return render_template("register.html", error="")
+def sign_up_form():
+    return render_template("register.html")
 
 @app.route("/register", methods=["POST"])
-def signinpost():
+def register():
     username = request.form["username"]
     if userDAO.invalidUsername(username):
-        return render_template("register.html", usernameError=messages.invalid_username())
+        return render_template("register.html", username_error=messages.invalid_username())
     password = request.form["password"]
+    confirm_password = request.form["confirm_password"]
     if userDAO.invalidPassword(password):
-        return render_template("register.html", passwordError=messages.invalid_password())
+        return render_template("register.html", password_error=messages.invalid_password())
+    if confirm_password != password:
+        return render_template("register.html", confirm_password_error=messages.mismatch_confirm_password())
     if not userDAO.create_user(username, password):
-        return render_template("register.html", usernameError=messages.username_taken())
+        return render_template("register.html", username_error=messages.username_taken())
     return redirect("/login")
 
 @app.route("/login")
-def loginget():
+def get_login_page():
     return render_template("login.html")
 
 @app.route("/login", methods=["POST"])
-def loginpost():
+def login():
     username = request.form["username"]
     password = request.form["password"]  
     actualPassword = userDAO.get_password(username)
@@ -47,5 +50,13 @@ def logout():
     del session["username"]
     return redirect("/")
 
-def get_session():
-    return session
+def get_logged_user():
+    if "username" in session:
+        return session["username"]
+    else: return None
+
+def is_admin():
+    if "username" in session:
+        username = session["username"]
+        return userDAO.is_admin(username)
+    return False

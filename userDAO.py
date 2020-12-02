@@ -32,3 +32,11 @@ def invalidPassword(password):
     regex = messages.valid_password()
     if regex.fullmatch(password): return False
     return True
+
+def is_admin(username):
+    sql = "SELECT admin FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username":username})
+    admin = result.fetchone() 
+    if admin == None:
+        return False
+    return admin[0]

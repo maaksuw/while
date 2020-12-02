@@ -1,28 +1,36 @@
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, abort
 from app import app 
+
 import exerciseDAO
 import submissions
+import authentication
 import messages
     
 @app.route("/exerciselist")
 def list_exercises():
+    admin = authentication.is_admin()
     topic1 = exerciseDAO.get_exercises_by_topic_order_by_heading(1)
     topic2 = exerciseDAO.get_exercises_by_topic_order_by_heading(2)
-    return render_template("exercises/exerciselist.html", topic1=topic1, topic2=topic2)
+    return render_template("exercises/exerciselist.html", topic1=topic1, topic2=topic2, admin=admin)
 
 @app.route("/exercise/<int:id>")
 def show_exercise(id):
     exercise = exerciseDAO.get_exercise(id)
-    solved = submissions.get_solved(id)
-    return render_template("exercises/exercise.html", heading=exercise[0], id=id, solved=solved, description=exercise[1], error="")    
+    solved = submissions.is_solved(id)
+    admin = authentication.is_admin()
+    return render_template("exercises/exercise.html", id=id, heading=exercise[0], solved=solved, admin=admin, description=exercise[1], error="")
     
 @app.route("/newexercise")
 def show_new_exercise():
+    if not authentication.is_admin():
+        abort(403)
     return render_template("exercises/admin/newexercise.html")
-
+    
 @app.route("/newexercise", methods=["POST"])
 def submit_new_exercise():
+    if not authentication.is_admin():
+        abort(403)
     heading = request.form["heading"]
     description = request.form["description"]
     topic = request.form["topic"]
@@ -58,11 +66,15 @@ def create_new_test(exercise_id, input, output, input_size):
 
 @app.route("/modifyexercise/<int:id>")
 def show_modify_exercise(id):
+    if not authentication.is_admin():
+        abort(403)
     exercise = exerciseDAO.get_exercise(id)
     return render_template("exercises/admin/modifyexercise.html", id=id, current_heading=exercise[0], current_description=exercise[1], current_topic=exercise[2], current_input_size=exercise[3])
 
 @app.route("/modifyexercise/<int:id>", methods=["POST"])
 def modify_exercise(id):
+    if not authentication.is_admin():
+        abort(403)
     heading = request.form["heading"]
     description = request.form["description"]
     topic = request.form["topic"]
@@ -82,12 +94,16 @@ def modify_exercise(id):
 
 @app.route("/modifyexercise/<int:id>/tests")
 def list_tests(id):
+    if not authentication.is_admin():
+        abort(403)
     heading = exerciseDAO.get_heading(id)
     tests = exerciseDAO.get_tests(id)
     return render_template("exercises/admin/modifytests.html", heading=heading, id=id, tests=tests)
 
 @app.route("/modifyexercise/<int:id>/tests", methods=["POST"])
 def modify_test(id):
+    if not authentication.is_admin():
+        abort(403)
     input = request.form["input"]
     output = request.form["output"]
     if request.form["modbutton"] == "modify":

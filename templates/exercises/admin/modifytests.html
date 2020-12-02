@@ -1,29 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Muokkaa testejä</h1>
-    <h2>{{ heading }}</h2>
-    <a href="/modifyexercise/{{ id }}">Muokkaa tehtävää</a>
-    {% for test in tests %}
-    <form action="/modifyexercise/{{ id }}/tests" method="POST">
-        <div class="form-group">
-            <label>Input: </label>
-            <input class="form-control" type="text" name="input" value="{{ test[0] }}">
-            <label>Output: </label>
-            <input class="form-control" type="text" name="output" value="{{ test[1] }}">
-            <button type="submit" class="btn btn-primary" name="modbutton" value="modify">Tallenna muutokset</button>
-            <button type="submit" class="btn btn-primary" name="modbutton" value="delete">Poista testi</button>
-            <input type="hidden" name="id" value="{{ test[2] }}">
-        </div>
-    </form>
-    {% endfor %}
-    <h4>Lisää uusi testi</h4>
-    <form action="/modifyexercise/{{ id }}/tests" method="POST">
-        <div class="form-group">
-            <label>Input: </label>
-            <input class="form-control" type="text" name="input">
-            <label>Output: </label>
-            <input class="form-control" type="text" name="output">
-            <button type="submit" class="btn btn-primary" name="modbutton" value="new">Lisää</button>
-        </div>
-    </form>
+    <h1 style="padding: 1em 1em; text-align: center;">Muokkaa tehtävän {{ heading }} testejä</h1>
+    <a href="/modifyexercise/{{ id }}" href="/modifyexercise/{{ id }}/tests" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em; font-size: 20px;">
+    Muokkaa tehtävää
+    </a>
+    <div style="padding-top: 10px; font-size: 20px;">
+        {% for test in tests %}
+        <form action="/modifyexercise/{{ id }}/tests" method="POST">
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <label>Input: </label>
+                    <input class="form-control" type="text" name="input" value="{{ test[0] }}" style="font-size: 20px;">
+                    <label>Output: </label>
+                    <input class="form-control" type="text" name="output" value="{{ test[1] }}" style="font-size: 20px;">
+                    <input type="hidden" name="id" value="{{ test[2] }}">
+                </div>
+            </div>
+            <button type="submit" class="btn" name="modbutton" value="modify" style="background-color: #666666; border-color: #666666;">Tallenna muutokset</button>
+            <button type="submit" class="btn" name="modbutton" value="delete" style="background-color: #666666; border-color: #666666;">Poista testi</button>
+            <p>
+        </form>
+        {% endfor %}
+        
+        <h4 style="padding-top: 10px;">Lisää uusi testi</h4>
+        <form action="/modifyexercise/{{ id }}/tests" method="POST">
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <label>Input: </label>
+                    <input class="form-control" type="text" name="input">
+                    <label>Output: </label>
+                    <input class="form-control" type="text" name="output">
+                </div>
+            </div>
+            <button type="submit" class="btn" name="modbutton" value="new" style="background-color: #666666; border-color: #666666;">Lisää</button>
+        </form>
+    </div>
+    
 {% endblock %}

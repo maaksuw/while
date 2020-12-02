@@ -18,6 +18,11 @@
         Kommentit
         </a>
         {% endif %}
+        {% if admin %}
+        <a href="/modifyexercise/{{ id }}" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Muokkaa tehtävää
+        </a>
+        {% endif %}
     </div>
     <div class="container" style="padding: 20px; font-size: 20px;">
         <h3>{{ message }}</h3>

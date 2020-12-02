@@ -1,30 +1,38 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Muokkaa tehtävää</h1>
-    <h2>{{ current_heading }}</h2>
-    <a href="/modifyexercise/{{ id }}/tests">Muokkaa testejä</a>
-    <form action="/modifyexercise/{{ id }}" method="POST">
-        <div class="form-group">
-            <label>Otsikko</label>
-            <input class="form-control" type="text" name="heading" value="{{ current_heading }}">
-            <small class="form-text text-danger">{{ headingError }}</small>
+    <h1 style="padding: 1em 1em; text-align: center;">Muokkaa tehtävää {{ current_heading }}</h1>
+    <a href="/modifyexercise/{{ id }}/tests" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px 10px 10px -5px; border-radius: .2em; font-size: 20px;">
+    Muokkaa testejä
+    </a>
+    
+    <form action="/modifyexercise/{{ id }}" method="POST" style="font-size: 20px; padding-top: 10px;">
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label>Otsikko</label>
+                <input class="form-control" type="text" name="heading" value="{{ current_heading }}" style="font-size: 20px;">
+                <small class="form-text text-danger">{{ headingError }}</small>
+            </div>
         </div>
         <div class="form-group">
             <label>Tehtävänanto</label>
             <p>
-            <textarea rows="10" cols="50" name="description">{{ current_description }}</textarea>
+            <textarea class="form-control" rows="10" cols="50" name="description" style="font-size: 20px; width: 50%;">{{ current_description }}</textarea>
             <small class="form-text text-danger">{{ descriptionError }}</small>
         </div>
-        <div class="form-group">
-            <label>Aihealue</label>
-            <input class="form-control" type="text" name="topic" value="{{ current_topic }}">
-            <small class="form-text text-danger">{{ topicError }}</small>
+        <div class="row col-lg-2">
+            <div class="form-group">
+                <label>Aihealue</label>
+                <input class="form-control" type="text" name="topic" value="{{ current_topic }}" style="font-size: 20px;">
+                <small class="form-text text-danger">{{ topicError }}</small>
+            </div>
         </div>
-        <div class="form-group">
-            <label>Syötteen koko</label>
-            <input class="form-control" type="text" name="input_size" value="{{ current_input_size }}">
-            <small class="form-text text-danger">{{ inputError }}</small>
+        <div class="row">
+            <div class="form-group col-lg-2">
+                <label>Syötteen koko</label>
+                <input class="form-control" type="text" name="input_size" value="{{ current_input_size }}" style="font-size: 20px;">
+                <small class="form-text text-danger">{{ inputError }}</small>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Päivitä tehtävää</button>
+        <button type="submit" class="btn" style="background-color: #666666; border-color: #666666;">Päivitä tehtävää</button>
     </form>
 {% endblock %}

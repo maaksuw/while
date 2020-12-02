@@ -6,6 +6,9 @@ def invalid_username():
 def invalid_password():
     return "Salasanassa tulee olla vähintään 8 merkkiä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero."
 
+def mismatch_confirm_password():
+    return "Salasanan vahvistus ei täsmää salasanaan."
+
 def username_taken():
     return "Käyttäjänimi on jo varattu."
 
