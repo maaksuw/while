@@ -15,18 +15,18 @@
 - [x] Tallenna tietoja käyttäjien lähetyksistä ja tee "Omat lähetykset"-sivu
 - [x] Luo tehtävän ratkaisemisen jälkeinen sivu
 - [x] Luo tuloslistaus-sivu
-- [ ] Toteuta profiilisivu
 - [x] Toteuta parempi ulkoasu
 - [x] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Luo eri käyttäjäroolit, tavallinen ja admin
+- [ ] Ylläpitäjälle sivu, mistä näkee lähetykset
+- [ ] Input tiedostosta
+- [ ] Refaktoroi ja siisti taas
+- [ ] Toteuta profiilisivu
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
-- [ ] input-tiedostosta
 
 - [ ] Korjaa Internal Server Error, jos käyttäjä antaa väärän määrän syötemuuttujia
+- [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella (käyttäjänimi, muitakin oli, syötteiden pituuksia palvelin puolella jne.)
 - [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
-- [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella
-- [x] Piilota Tuloslista-sivu kirjautumattomilta
-- [x] Toteuta default 404/403-error sivu, joka näytetään huonojen pyyntöjen jälkeen
-- [x] Toteuta confirm-password kirjautumissivulle
+- [ ] Admin saa nähdä kommentit vaikka ei ole tehnyt tehtävää
