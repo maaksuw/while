@@ -48,7 +48,6 @@ def get_newest_submission_time(exercise_id):
     print(ans)
     if ans == None:
         return None
-    print(newest)
     newest = result.fetchone()[0]
     return newest
 
