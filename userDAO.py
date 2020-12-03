@@ -24,11 +24,13 @@ def get_user_id(username):
     return result.fetchone()[0]
 
 def invalidUsername(username):
-    if len(username) < 3: return True
-    return False
+    if len(username) < 3 or len(username) > 100: return True
+    regex = messages.valid_username()
+    if regex.fullmatch(username): return False
+    return True
 
 def invalidPassword(password):
-    if len(password) < 8: return True
+    if len(password) < 8 or len(password) > 100: return True
     regex = messages.valid_password()
     if regex.fullmatch(password): return False
     return True

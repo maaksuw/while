@@ -13,7 +13,12 @@
         Omat lähetykset
         </a>
         {% endif %}
-        {% if solved %}
+        {% if admin %}
+        <a href="/submissions/{{ id }}/all" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kaikki lähetykset
+        </a>
+        {% endif %}
+        {% if solved or admin %}
         <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
         Kommentit
         </a>
@@ -26,7 +31,7 @@
     </div>
     <div class="container" style="padding: 20px; font-size: 20px;">
         {% for submission in submissions %}
-        <p>{{ submission[1].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+        <p><b>{{ submission[3] }}</b> at {{ submission[1].strftime("%Y-%m-%d %H:%M:%S") }}</p>
         <p><b>{{ submission[2] }}</b></p>
         <pre><code style="color: #ffa200;">{{ submission[0] }}</code></pre>
         <hr class="rounded">

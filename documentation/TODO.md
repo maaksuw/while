@@ -18,15 +18,13 @@
 - [x] Toteuta parempi ulkoasu
 - [x] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Luo eri käyttäjäroolit, tavallinen ja admin
-- [ ] Ylläpitäjälle sivu, mistä näkee lähetykset
+- [x] Ylläpitäjälle sivu, mistä näkee kaikki tehtävän lähetykset
 - [ ] Input tiedostosta
 - [ ] Refaktoroi ja siisti taas
 - [ ] Toteuta profiilisivu
 - [ ] Mahdollista muiden käyttäjien etsiminen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
-- [ ] Korjaa Internal Server Error, jos käyttäjä antaa väärän määrän syötemuuttujia
-- [ ] Lisää syötteiden tarkistusta vielä palvelinpuolella (käyttäjänimi, muitakin oli, syötteiden pituuksia palvelin puolella jne.)
+
 - [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
-- [ ] Admin saa nähdä kommentit vaikka ei ole tehnyt tehtävää

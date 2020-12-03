@@ -13,7 +13,12 @@
         Omat lähetykset
         </a>
         {% endif %}
-        {% if solved %}
+        {% if admin %}
+        <a href="/submissions/{{ id }}/all" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        Kaikki lähetykset
+        </a>
+        {% endif %}
+        {% if solved or admin%}
         <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
         Kommentit
         </a>
@@ -29,7 +34,11 @@
         <label><b>Tehtävän ratkaisseet käyttäjät / tehtävää yrittäneet käyttäjät:</b></label>
         <p>{{ successful_submissions }}/{{ all_submissions }}</p>
         <label><b>Viimeisin lähetys vastaanotettu:</b></label>
+        {% if newest_submission_date != None %}
         <p>{{ newest_submission_date.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+        {% else %}
+        <p> Ei lähetyksiä.</p>
+        {% endif %}
     </div>
     <hr class="rounded">
     <div class="comments" style="padding: 20px; font-size: 20px;">
@@ -43,7 +52,7 @@
         <form action="/comments/{{ id }}" method="POST">
             <div class="form-group">
                 <h4>Uusi kommentti</h4>
-                <textarea name="comment" rows="5" cols="50" maxlength="500"></textarea>
+                <textarea class="form-control" name="comment" rows="5" cols="50" maxlength="1000"></textarea>
             </div>
             <button type="submit" class="btn" style="background-color: #666666; border-color: #666666;">Lähetä</button>
         </form>

@@ -1,10 +1,10 @@
 import re
 
 def invalid_username():
-    return "Käyttäjänimen tulee olla vähintään 3 merkkiä pitkä."
+    return "Käyttäjänimen tulee olla vähintään 3 merkkiä pitkä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia ja numeroita."
 
 def invalid_password():
-    return "Salasanassa tulee olla vähintään 8 merkkiä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero."
+    return "Salasanan tulee olla vähintään 8 merkkiä ja siinä saa käyttää suomalaisen aakkoston isoja ja pieniä kirjaimia. Salasanassa pitää olla vähintään yksi numero."
 
 def mismatch_confirm_password():
     return "Salasanan vahvistus ei täsmää salasanaan."
@@ -26,6 +26,12 @@ def steplimit_exceeded():
 
 def not_WHILEprogram():
     return "Ohjelma ei ole WHILE-ohjelma tai se ei ole annettu oikeassa syntaksissa."
+
+def wrong_input_size():
+    return "Ohjelmasi lukee väärän määrän syötemuuttujia."
+
+def long_submission():
+    return "Ohjelma on yli 100 000 merkkiä pitkä."
 
 def bracket_missing():
     return "Kaarisulje puuttuu."
@@ -65,3 +71,6 @@ def input_formatter():
 
 def valid_password():
     return re.compile("([a-zA-Z]|[öäå]|[ÖÄÅ])*[0-9]([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])*")
+
+def valid_username():
+    return re.compile("(([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])+[ ])*([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])+")

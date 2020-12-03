@@ -11,8 +11,13 @@ def save_submission(username, submission, exercise_id, verdict):
     
 def get_submissions_by_user_id_and_exercise_id(username, exercise_id):
     user_id = userDAO.get_user_id(username)
-    sql = "SELECT submission, date, verdict FROM submissions WHERE user_id=:user_id AND exercise_id=:exercise_id ORDER BY date DESC"
+    sql = "SELECT S.submission, S.date, S.verdict, U.username FROM submissions S, users U WHERE S.user_id=:user_id AND S.exercise_id=:exercise_id AND U.id=:user_id ORDER BY date DESC"
     result = db.session.execute(sql, {"user_id":user_id, "exercise_id":exercise_id})
+    return result.fetchall()
+
+def get_submissions_by_exercise_id(exercise_id):
+    sql = "SELECT S.submission, S.date, S.verdict, U.username FROM submissions S, users U WHERE S.exercise_id=:exercise_id AND U.id=S.user_id ORDER BY date DESC"
+    result = db.session.execute(sql, {"exercise_id":exercise_id})
     return result.fetchall()
 
 def is_exercise_solved(username, exercise_id):
@@ -39,6 +44,9 @@ def get_all_submissions_count(exercise_id):
 def get_newest_submission_time(exercise_id):
     sql = "SELECT date FROM submissions WHERE exercise_id=:exercise_id ORDER BY date DESC"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
+    ans = result.fetchone()
+    if ans == None:
+        return None
     newest = result.fetchone()[0]
     return newest
 

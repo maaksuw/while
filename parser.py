@@ -19,7 +19,7 @@ def remove_whitespace(program):
         if line != "": ans.append(line)
     return ans
         
-def is_WHILEprogram(program):
+def is_WHILEprogram(program, input_size):
     global error
     global error_msg
     global cnt
@@ -30,13 +30,13 @@ def is_WHILEprogram(program):
     variables = {}
     variables["ans"] = 0
     cnt = 1
-    if parse_input(program, variables):
+    if parse_input(program, variables, input_size):
         parse_WHILEprogram(1, program, variables, commands, 0)
         if not error:
             return (True, commands, len(variables))
     return (False, error_msg)
 
-def parse_input(program, variables):
+def parse_input(program, variables, input_size):
     global cnt
     inputrow = program[0]
     if not messages.inputvariables().fullmatch(inputrow):
@@ -51,6 +51,8 @@ def parse_input(program, variables):
         varname = inputvars[dots[i - 1] + 1 : dots[i]]
         variables[varname] = cnt
         cnt += 1
+    if (cnt - 1) != input_size:
+        raise_error(messages.wrong_input_size())
     return True
     
         

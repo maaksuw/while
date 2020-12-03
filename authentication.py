@@ -14,7 +14,7 @@ def sign_up_form():
 
 @app.route("/register", methods=["POST"])
 def register():
-    username = request.form["username"]
+    username = request.form["username"].strip()
     if userDAO.invalidUsername(username):
         return render_template("register.html", username_error=messages.invalid_username())
     password = request.form["password"]
@@ -34,7 +34,7 @@ def get_login_page():
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
-    password = request.form["password"]  
+    password = request.form["password"]
     actualPassword = userDAO.get_password(username)
     if actualPassword == None:
         return render_template("login.html", error=messages.wrong_credentials())
@@ -47,7 +47,8 @@ def login():
 
 @app.route("/logout")
 def logout():
-    del session["username"]
+    if "username" in session:
+        del session["username"]
     return redirect("/")
 
 def get_logged_user():
