@@ -43,12 +43,14 @@ def login():
         if not check_password_hash(hash_value, password):
             return render_template("login.html", error=messages.wrong_credentials())
     session["username"] = username
+    session["csrf_token"] = os.urandom(16).hex()
     return redirect("/")
 
 @app.route("/logout")
 def logout():
     if "username" in session:
         del session["username"]
+        del session["csrf_token"]
     return redirect("/")
 
 def get_logged_user():

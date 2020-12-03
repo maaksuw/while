@@ -45,8 +45,10 @@ def get_newest_submission_time(exercise_id):
     sql = "SELECT date FROM submissions WHERE exercise_id=:exercise_id ORDER BY date DESC"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
     ans = result.fetchone()
+    print(ans)
     if ans == None:
         return None
+    print(newest)
     newest = result.fetchone()[0]
     return newest
 
