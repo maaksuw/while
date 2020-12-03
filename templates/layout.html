@@ -37,17 +37,17 @@
                 </ul>
                 {% if session.username %}
                 <div class="btn-group px-3" role="group">
-                    <a class="btn btn-light mr-sm-2" href="/profile/{{ session.username }}">
+                    <a class="btn mr-sm-2" href="/profile/{{ session.username }}" style="background-color: white; border-color: #a1a1a1;">
                     {{ session.username }}
                     </a>
-                    <a class="btn btn-light my-2 my-sm-0" href="/logout" role="button" style="background-color: #666666; border-color: #666666;">
+                    <a class="btn my-2 my-sm-0" href="/logout" role="button" style="background-color: #757575; border-color: #666666;">
                     Kirjaudu ulos
                     </a>
                 </div>
                 {% else %}
                 <div class="btn-group px-3" role="group">
-                    <a class="btn btn-light mr-sm-2" href="/signin" role="button">Luo käyttäjätunnus</a>
-                    <a class="btn my-2 my-sm-0" href="/login" role="button" style="background-color: #666666; border-color: #666666;">Kirjaudu sisään</a>
+                    <a class="btn mr-sm-2" href="/signin" role="button" style="background-color: white; border-color: #a1a1a1;">Luo käyttäjätunnus</a>
+                    <a class="btn my-2 my-sm-0" href="/login" role="button" style="background-color: #757575; border-color: #666666;">Kirjaudu sisään</a>
                 </div>
                 {% endif %}
             </div>

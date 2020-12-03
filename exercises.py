@@ -45,24 +45,11 @@ def submit_new_exercise():
         return render_template("exercises/admin/newexercise.html", inputError=messages.invalid_input_size())
     topic = int(topic)
     input_size = int(input_size)
-    tests = request.form["tests"]
-    create_new_exercise(heading, description, topic, input_size, tests)
+    create_new_exercise(heading, description, topic, input_size)
     return redirect("/exerciselist")
 
-def create_new_exercise(heading, description, topic, input_size, tests):
+def create_new_exercise(heading, description, topic, input_size):
     exercise_id = exerciseDAO.create_exercise(heading, description, topic, input_size)
-    if tests:
-        lines = tests.splitlines()
-        for i in range(len(lines)):
-            if i%2 == 0:
-                input = lines[i]
-                output = lines[i+1]
-                create_new_test(exercise_id, input, output, input_size)
-                
-def create_new_test(exercise_id, input, output, input_size):
-    if messages.input_formatter().fullmatch(input) and output.isnumeric() and len(input.split()) == input_size:
-        output = int(output)
-        exerciseDAO.create_test(exercise_id, input, output)
 
 @app.route("/modifyexercise/<int:id>")
 def show_modify_exercise(id):
@@ -118,3 +105,9 @@ def modify_test(id):
         input_size = exerciseDAO.get_input_size(id)
         create_new_test(id, input, output, input_size)
     return redirect("/modifyexercise/" + str(id) + "/tests")
+
+def create_new_test(exercise_id, input, output, input_size):
+    if messages.input_formatter().fullmatch(input) and output.isnumeric() and len(input.split()) == input_size:
+        output = int(output)
+        exerciseDAO.create_test(exercise_id, input, output)
+        
