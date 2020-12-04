@@ -29,7 +29,7 @@ def show_new_exercise():
     
 @app.route("/newexercise", methods=["POST"])
 def submit_new_exercise():
-    if not authentication.is_admin():
+    if not authentication.is_admin() or authentication.get_csrf_token() != request.form["csrf_token"]:
         abort(403)
     heading = request.form["heading"]
     description = request.form["description"]
@@ -60,7 +60,7 @@ def show_modify_exercise(id):
 
 @app.route("/modifyexercise/<int:id>", methods=["POST"])
 def modify_exercise(id):
-    if not authentication.is_admin():
+    if not authentication.is_admin() or authentication.get_csrf_token() != request.form["csrf_token"]:
         abort(403)
     heading = request.form["heading"]
     description = request.form["description"]
@@ -89,7 +89,7 @@ def list_tests(id):
 
 @app.route("/modifyexercise/<int:id>/tests", methods=["POST"])
 def modify_test(id):
-    if not authentication.is_admin():
+    if not authentication.is_admin() or authentication.get_csrf_token() != request.form["csrf_token"]:
         abort(403)
     input = request.form["input"]
     output = request.form["output"]

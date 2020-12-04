@@ -34,6 +34,7 @@
             </div>
         </div>
         <button type="submit" class="btn" style="background-color: #757575; border-color: #666666;">Päivitä tehtävää</button>
+        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         <a class="btn btn-light my-2 my-sm-0" href="/exercise/{{ id }}" role="button" style="background-color: #757575; border-color: #666666;">
         Peruuta
         </a>

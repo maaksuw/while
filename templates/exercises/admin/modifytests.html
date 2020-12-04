@@ -33,6 +33,7 @@
                 </div>
             </div>
             <button type="submit" class="btn" name="modbutton" value="new" style="background-color: #757575; border-color: #666666;">Lisää</button>
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         </form>
     </div>
     

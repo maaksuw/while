@@ -59,6 +59,11 @@ def get_logged_user():
         return session["username"]
     else: return None
 
+def get_csrf_token():
+    if "csrf_token" in session:
+        return session["csrf_token"]
+    else: return None
+
 def is_admin():
     if "username" in session:
         username = session["username"]

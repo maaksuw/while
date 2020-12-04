@@ -10,6 +10,8 @@ import messages
 
 @app.route("/exercise/<int:id>", methods=["POST"])
 def submit_exercise(id):
+    if authentication.get_logged_user == None or authentication.get_csrf_token() != request.form["csrf_token"]:
+        abort(403)
     submission = request.form["answer"]
     print(len(submission))
     if len(submission) > 100000:
@@ -105,6 +107,8 @@ def show_comments(id, message):
 
 @app.route("/comments/<int:id>", methods=["POST"])
 def post_comment(id):
+    if authentication.get_logged_user == None or authentication.get_csrf_token() != request.form["csrf_token"]:
+        abort(403)
     username = authentication.get_logged_user()
     comment = request.form["comment"]
     if len(comment) > 10000:
