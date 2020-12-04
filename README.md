@@ -10,6 +10,8 @@ Linkki sovellukseen [Johdatus WHILE-ohjelmointiin](https://whileohjelmointi.hero
 Projektin nimi tulee mahdollisesti muuttumaan vielä harjoitustyön edetessä.
 Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
 
+!! Ratkaisua ei voi vielä lähettää tiedostona !!
+
 ## Tilannekatsaus: välipalautus 3
 Iso osa oleellisista toiminnallisuuksista pitäisi olla nyt käytettävissä ja toimia Herokussa. Repon documentation-kansiossa on TODO-lista, johon olen kirjoittanut tällä hetkellä tiedossa olevia virheitä ja puutteita, sekä mitä ainakin on vielä suunnitteilla tehdä. Lyhyesti, käyttäjätunnuksen tekemisen ja sisään kirjautumisen pitäisi toimia, tehtävään pitäisi voida lähettää vastaus ja sivuilla pitäisi olla ohjeet siihen, miten ratkaisu lähetetään johonkin tehtävään. Etusivu, perusteet- ja ohjeet sivut ovat ainoat, jotka on siistitty ja muissa on vielä tekemistä. Sovelluksen pitäisi antaa käyttäjälle palautetta, jos ratkaisu ei toimi ja kertoa jotain siitä, miksi ratkaisu on väärin. Kun tehtävän saa onnistuneesti tehtyä, pääsee kommentti-sivulle, jossa näkee tehtävän ratkaisseiden käyttäjien määrän sekä voi lähettää kommenttia tehtävään. Sivuilla on myös leaderboard-sivu, joka on tarkoitus piilottaa kirjautumattomilta, mutta on nyt toistaiseksi vielä koko maailman katseltavana.
 
