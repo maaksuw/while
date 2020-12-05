@@ -29,17 +29,14 @@ def is_exercise_solved(username, exercise_id):
         return True
     return False
 
-def get_successful_submissions_count(exercise_id):
+def get_success_ratio(exercise_id):
     sql = "SELECT COUNT(DISTINCT user_id) FROM submissions WHERE exercise_id=:exercise_id AND verdict = 'OK'"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
-    cnt = result.fetchone()[0]
-    return cnt
-
-def get_all_submissions_count(exercise_id):
+    cnt1 = result.fetchone()[0]
     sql = "SELECT COUNT(DISTINCT user_id) FROM submissions WHERE exercise_id=:exercise_id"
     result = db.session.execute(sql, {"exercise_id":exercise_id})
-    cnt = result.fetchone()[0]
-    return cnt
+    cnt2 = result.fetchone()[0]
+    return (cnt1, cnt2)
 
 def get_newest_submission_time(exercise_id):
     sql = "SELECT date FROM submissions WHERE exercise_id=:exercise_id ORDER BY date DESC"

@@ -18,6 +18,9 @@ def wrong_credentials():
 def successful_submission():
     return "Onneksi olkoon, ohjelma toimii oikein!"
 
+def inproper_submission():
+    return "Lähetyksessäsi on jotain vikaa."
+
 def wrong_answer():
     return "Ohjelma antoi väärän vastauksen."
 
@@ -35,6 +38,9 @@ def long_submission():
 
 def bracket_missing():
     return "Kaarisulje puuttuu."
+
+def wrong_file_extension():
+    return "Annetun tiedoston pääte ei ole .while."
 
 def explain_incorrect_answer(input, user_output, correct_output):
     return "Ohjelmasi antoi syötteellä " + input + " tuloksen " + user_output + ".\n" + "Oikea tulos oli " + correct_output + "."

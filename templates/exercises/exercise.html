@@ -19,7 +19,7 @@
         </a>
         {% endif %}
         {% if solved or admin %}
-        <a href="/comments/{{ id }}/normal" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
+        <a href="/comments/{{ id }}/ok" style="background-color: #ebebeb; color: black; padding: 5px; margin: 10px; border-radius: .2em;">
         Kommentit
         </a>
         {% endif %}
@@ -32,12 +32,12 @@
     <div class="container" style="padding: 10px; font-size: 18px;">
         <p style="white-space: pre-line; font-size: 20px;">{{ description }}</p>
         <small class="form-text text-danger">{{ error }}</small>
-        <form action="/exercise/{{ id }}" method="POST">
-            <textarea class="form-control" name="answer" rows="10" cols="20" maxlength="100000" style="width: 50%;"></textarea>
+        <form action="/exercise/{{ id }}" method="POST" enctype="multipart/form-data">
+            <textarea class="form-control" name="answer" rows="10" cols="20" maxlength="100000" style="width: 50%; font-size: 20px; font-family: Lucida Console, Courier, monospace;"></textarea>
             <p>
              <div class="form-group">
                 <label for="file">Valitse tiedosto</label>
-                <input type="file" class="form-control-file" id="file">
+                <input type="file" class="form-control-file" name="answer_file" id="file" accept=".while">
             </div>
             {% if session.username %}
             <button class="btn" type="submit" style="background-color: #757575; border-color: #666666; margin: 10px 10px 10px 0px;">Lähetä</button>

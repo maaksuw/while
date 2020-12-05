@@ -57,15 +57,28 @@ def logout():
 def get_logged_user():
     if "username" in session:
         return session["username"]
-    else: return None
+    return None
 
 def get_csrf_token():
     if "csrf_token" in session:
         return session["csrf_token"]
-    else: return None
+    return None
 
 def is_admin():
     if "username" in session:
         username = session["username"]
         return userDAO.is_admin(username)
+    return False
+
+def user_is_logged_in():
+    if "username" in session:
+        return True
+    return False
+
+def logged_in_and_csrf_token_correct(token):
+    if user_is_logged_in():
+        actual_token = get_csrf_token()
+        if actual_token != None:
+            return actual_token == token
+        return False
     return False
