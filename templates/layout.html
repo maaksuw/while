@@ -27,10 +27,8 @@
                             <a class="dropdown-item" href="/instructions">Ohjeet</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/exerciselist">Tehtävälista</a>
-                            {% if session.username %}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/leaderboard">Tuloslista</a>
-                            {% endif %}
                         </div>
                     </li>
                 </ul>
@@ -58,10 +56,12 @@
         </div>
         
         <nav class="navbar fixed-bottom navbar-dark" style="background-color: #ffa200;">
+            {% if session.username %}
             <form action="/search" method="GET" class="form-inline my-2 my-lg-0 mx-auto">
                 <input class="form-control mr-sm-2" name="keyword" placeholder="Käyttäjätunnus" style="border-color: #a1a1a1;">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Etsi</button>
             </form>
+            {% endif %}
         </nav>
         
         <script 
