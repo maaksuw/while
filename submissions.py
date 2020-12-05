@@ -16,7 +16,7 @@ app.config['UPLOAD_EXTENSIONS'] = ['.while']
 @app.route("/exercise/<int:id>", methods=["POST"])
 def submit_exercise(id):
     token = request.form["csrf_token"]
-    if not authentication.logged_in_and_csrf_token_correct(token):
+    if not (authentication.user_is_logged_in() and authentication.correct_csrf_token(token)):
         abort(403)
     submission = request.form["answer"]
     if len(submission) > 100000:
@@ -134,7 +134,7 @@ def show_comments(id, message):
 @app.route("/comments/<int:id>", methods=["POST"])
 def post_comment(id):
     token = request.form["csrf_token"]
-    if not authentication.logged_in_and_csrf_token_correct(token):
+    if not (authentication.user_is_logged_in() and authentication.correct_csrf_token(token)):
         abort(403)
     if not(is_solved or authentication.is_admin()):
         abort(403)

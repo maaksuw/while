@@ -20,12 +20,17 @@
 - [x] Luo eri käyttäjäroolit, tavallinen ja admin
 - [x] Ylläpitäjälle sivu, mistä näkee kaikki tehtävän lähetykset
 - [x] Input tiedostosta
+- [x] Mahdollista muiden käyttäjien etsiminen ja profiilisivujen katsominen
+
 
 - [ ] Refaktoroi ja siisti taas
 - [ ] Toteuta profiilisivu
-- [ ] Mahdollista muiden käyttäjien etsiminen ja profiilisivujen katsominen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
 
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
-- [ ] Vaihda comments-taulu käyttämään user_idtä
+- [ ] Merkit tehtävien listaukseen, onko tehtävä ratkaistu vai ei
+- [ ] Profiilisivulle pitää suunnitella joku yhteenveto siitä, mitä tehtäviä on tehty
+- [x] Käyttäjien hakutoiminnallisuus
+- [ ] Koita saada css-overridaukset toimimaan, niin että pääset eroon inline-styleistä
+- [ ] Jos käyttäjänimeä voi muuttaa joskus, niin pitää muuttaa commentit käyttämään user_idtä

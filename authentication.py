@@ -64,6 +64,20 @@ def get_csrf_token():
         return session["csrf_token"]
     return None
 
+def is_current_user(username):
+    if "username" in session:
+        current_user = session["username"]
+        if username == current_user:
+            return True
+        return False
+    return False
+    
+def correct_csrf_token(token):
+    actual_token = get_csrf_token()
+    if actual_token == None:
+        return False
+    return token == actual_token
+
 def is_admin():
     if "username" in session:
         username = session["username"]

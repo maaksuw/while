@@ -20,6 +20,10 @@ def get_submissions_by_exercise_id(exercise_id):
     result = db.session.execute(sql, {"exercise_id":exercise_id})
     return result.fetchall()
 
+def submissions_status_for_user(username):
+    #Pitäisi kai ensin ratkaista se järjestämisongelma
+    pass
+
 def is_exercise_solved(username, exercise_id):
     user_id = userDAO.get_user_id(username)
     sql = "SELECT COUNT(*) FROM submissions WHERE user_id=:user_id AND exercise_id=:exercise_id AND verdict = 'OK'"

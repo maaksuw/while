@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     
-    <body>
+    <body style="padding-bottom: 70px;">
     
         <title>Johdatus WHILE-ohjelmointiin</title>
         
@@ -56,6 +56,13 @@
             {% block content %}
             {% endblock %}
         </div>
+        
+        <nav class="navbar fixed-bottom navbar-dark" style="background-color: #ffa200;">
+            <form action="/search" method="GET" class="form-inline my-2 my-lg-0 mx-auto">
+                <input class="form-control mr-sm-2" name="keyword" placeholder="Käyttäjätunnus" style="border-color: #a1a1a1;">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Etsi</button>
+            </form>
+        </nav>
         
         <script 
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

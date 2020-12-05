@@ -11,12 +11,22 @@ def get_password(username):
 def create_user(username, password):
     hash_value = generate_password_hash(password)
     try:
-        sql = "INSERT INTO users (username, password, admin) VALUES (:username, :password, FALSE)"
-        db.session.execute(sql, {"username":username, "password":hash_value})
+        sql = "INSERT INTO users (username, password, admin) VALUES (:username, :password, FALSE) RETURNING id"
+        result = db.session.execute(sql, {"username":username, "password":hash_value})
+        user_id = result.fetchone()[0]
+        sql = "INSERT INTO profiles (user_id, introduction, joined) VALUES (:user_id, ' ', NOW())"
+        db.session.execute(sql, {"user_id":user_id})
         db.session.commit()
         return True
     except:
         return False
+    
+def existing_user(username):
+    sql = "SELECT 1 FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username":username})
+    if result.fetchone() == None:
+        return False
+    return True
     
 def get_user_id(username):
     sql = "SELECT id FROM users WHERE username=:username"
@@ -42,3 +52,15 @@ def is_admin(username):
     if admin == None:
         return False
     return admin[0]
+
+def get_profile(username):
+    user_id = get_user_id(username)
+    sql = "SELECT introduction, joined FROM profiles WHERE user_id=:user_id"
+    result = db.session.execute(sql, {"user_id":user_id})
+    return result.fetchone()
+
+def update_introduction(username, introduction):
+    user_id = get_user_id(username)
+    sql = "UPDATE profiles SET introduction=:introduction WHERE user_id=:user_id"
+    db.session.execute(sql, {"introduction":introduction, "user_id":user_id})
+    db.session.commit()

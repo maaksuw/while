@@ -80,3 +80,6 @@ def valid_password():
 
 def valid_username():
     return re.compile("(([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])+[ ])*([a-zA-Z]|[öäå]|[ÖÄÅ]|[0-9])+")
+
+def user_not_found():
+    return "Käyttäjää ei löydy."

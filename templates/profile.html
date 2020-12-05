@@ -1,5 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1 style="padding: 1em 1em; text-align: center;">{{ username }}</h1>
-    <p>{{ introduction }}</p>
+    <div style="font-size: 20px;">
+        <label><b>Esittely</b></label>
+        <p>{{ introduction }}</p>
+        <label><b>Liittynyt:</b></label>
+        <p>{{ joined.strftime("%Y-%m-%d") }}</p>
+        {% if session.username and session.username == username %}
+            <a href="/modifyprofile/{{ username }}" style="background-color: #ebebeb; color: black; padding: 5px; border-radius: .2em;">
+            Muokkaa profiilia
+            </a>
+        {% endif %}
+    </div>
+    <hr class="rounded">
+    
 {% endblock %}
