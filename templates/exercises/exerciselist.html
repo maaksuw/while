@@ -4,20 +4,25 @@
     <div class="row">
         <div class="col-6">
             <h3>1. Laskutoimitukset</h3>
-            {% for exercise in topic1 %}
-            <p style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></p>
-            {% endfor %}
+            <ul id="sortable" class="list-group">
+                {% for exercise in topic1 %}
+                 <li class="list-group-item" style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="col-6">
             <h3>2. Yksinkertaisia algoritmeja</h3>
-            {% for exercise in topic2 %}
-            <p style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></p>
-            {% endfor %}
-            {% if admin %}
-                <a class="btn btn-light my-2 my-sm-0" href="/newexercise" role="button" style="background-color: #757575; border-color: #666666;">
-                Uusi tehtävä
-                </a>
-            {% endif %}
+            <ul id="sortable" class="list-group">
+                {% for exercise in topic2 %}
+                <li class="list-group-item" style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;">{{ exercise[1] }}</a></li>
+                {% endfor %}
+                {% if admin %}
+                    <a class="btn my-2 my-sm-0" href="/newexercise" role="button" style="background-color: #757575; border-color: #666666;">
+                    Uusi tehtävä
+                    </a>
+                {% endif %}
+            </ul>
+            
         </div>
     </div>
 {% endblock %}

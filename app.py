@@ -20,6 +20,10 @@ def basics():
 def profile(username):
     return render_template("profile.html", username=username)
 
+@app.route("/modifyprofile/<string:username>")
+def show_modify_profile(username):
+    return render_template("modifyprofile.html", username=username)
+
 @app.route("/instructions")
 def instructions():
     return render_template("instructions.html")

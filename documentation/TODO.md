@@ -19,12 +19,13 @@
 - [x] Siisti sivut tähän asti toteutettujen toimintojen osalta
 - [x] Luo eri käyttäjäroolit, tavallinen ja admin
 - [x] Ylläpitäjälle sivu, mistä näkee kaikki tehtävän lähetykset
-- [ ] Input tiedostosta
+- [x] Input tiedostosta
+
 - [ ] Refaktoroi ja siisti taas
 - [ ] Toteuta profiilisivu
-- [ ] Mahdollista muiden käyttäjien etsiminen
+- [ ] Mahdollista muiden käyttäjien etsiminen ja profiilisivujen katsominen
 - [ ] Muiden käyttäjien lisääminen kaverilistalle
 
 
-- [ ] Korjaa CSRF-haavoittuvuudet
 - [ ] Mieti järkevä keino järjestää tehtävät listassa
+- [ ] Vaihda comments-taulu käyttämään user_idtä
