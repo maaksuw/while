@@ -35,7 +35,7 @@
         <p>{{ ratio[0] }}/{{ ratio[1] }}</p>
         <label><b>Viimeisin lähetys vastaanotettu:</b></label>
         {% if newest_submission_date != None %}
-        <p>{{ newest_submission_date.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+        <p>{{ newest_submission_date.strftime("%d.%m.%Y %H:%M:%S") }}</p>
         {% else %}
         <p> Ei lähetyksiä.</p>
         {% endif %}
@@ -45,7 +45,7 @@
         <h3>Kommentit</h3>
         {% for comment in comments %}
         <div style="font-size: 20px; background-color: #ebebeb; padding: 1em 1em; border-radius: .5em; margin: 20px 0px;">
-            <p><b>{{ comment[1] }}</b> at {{ comment[2].strftime("%Y-%m-%d %H:%M:%S") }}</p>
+            <p><b>{{ comment[1] }}</b> at {{ comment[2].strftime("%d.%m.%Y %H:%M:%S") }}</p>
             <p>{{ comment[0] }}</p>
         </div>
         {% endfor %}

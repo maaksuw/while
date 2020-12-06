@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, abort
 
 app = Flask(__name__)
 
@@ -35,6 +35,8 @@ def profile(username):
 
 @app.route("/modifyprofile/<string:username>")
 def show_modify_profile(username):
+    if not authentication.is_current_user(username):
+        abort(403)
     introduction = userDAO.get_profile(username)[0]
     return render_template("modifyprofile.html", username=username, current_introduction=introduction)
 
