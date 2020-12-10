@@ -14,13 +14,13 @@
     </div>
     <hr class="rounded">
     <div class="col-md-9 mx-auto" style="font-size: 20px; margin-top: 50px;">
-        <table style="border: 1px solid black; border-collapse: collapse; background-color: #ebebeb;">
+        <table style="border: 1px solid black; border-collapse: collapse;">
             <tr>
-                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px; background-color: #ebebeb;">
                 Laskutoimitukset
                 </th>
                 {% for solved in topic1 %}
-                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px; background-color: #ebebeb;">
                 {% if solved[2] %}
                 ☒
                 {% else %}
@@ -31,11 +31,11 @@
             </tr>
             
             <tr>
-                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px; background-color: #ebebeb;">
                 Yksinkertaisia algoritmeja
                 </th>
                 {% for solved in topic2 %}
-                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px; background-color: #ebebeb;">
                 {% if solved[2] %}
                 ☒
                 {% else %}
