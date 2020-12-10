@@ -8,3 +8,12 @@ PDF, jossa kerrotaan WHILE-kielestä: [Theory of Computer Science - LOOP- and WH
 **Linkki sovellukseen:** [Johdatus WHILE-ohjelmointiin](https://whileohjelmointi.herokuapp.com).
 
 Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
+
+## Sovelluksen käyttö Herokussa
+Muutama rivi ylempänä on linkki sovelluksen Herokussa toimivaan versioon. Etusivulla kerrotaan lyhyesti sovelluksesta ja mitä varten se on tehty ja tämän lisäksi sivustolla on kaksi sivua, joista toinen kertoo yleisesti WHILE-ohjelmista ja toisella on ohjeet tehtävien lähettämiseen. Sovellukseen voi luoda käyttäjätilin ja kirjautua antamillaan tunnuksilla sisään. Kun on kirjautunut sisään, tehtäviin voi lähettää ratkaisuja ja tehtävän ratkaistua pääsee näkemään tehtävän kommentti-sivun, johon voi jättää viestin. Omat lähetykset tehtävään näkyvät "Omat lähetykset" välilehdellä. Omalle profiilisivulle pääsee yläosan navigointibaarista omaa nimeä klikkaamalla ja muita käyttäjiä voi hakea alaosan navigointibaarin hakutoiminnallisuudella. Tuloslistalta näkee tilanteen, kuka on ratkaissut minkä verran tehtäviä.
+
+Näiden toiminnallisuuksien lisäksi ylläpitäjä pystyy muokkaamaan olemassa olevia tehtäviä ja lisäämään uuden tehtävän.
+
+## Linkkejä
+[Jatkokehitysideoita](https://github.com/pinjaw/while/documentation/futurefeatures.md)  
+[Sovellukseen jääneet ongelmat](https://github.com/pinjaw/while/documentation/knownproblems.md)
