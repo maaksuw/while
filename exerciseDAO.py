@@ -1,16 +1,22 @@
 from flask import Flask
 from db import db
 import messages
+import userDAO
 
 def get_exercise(id):
-    sql = "SELECT heading, description, topic, input_size FROM exercises WHERE id=:id"
+    sql = "SELECT heading, description, topic, input_size, exercise_order FROM exercises WHERE id=:id"
     result = db.session.execute(sql, {"id":id})
     exercise = result.fetchone()
     return exercise
 
-def get_exercises_by_topic_order_by_heading(topic):
-    sql = "SELECT id, heading FROM exercises WHERE topic=:topic ORDER BY heading"
-    result = db.session.execute(sql, {"topic":topic})
+def get_exercises_by_topic_in_order(topic, username):
+    if username == None:
+        sql = "SELECT id, heading, FALSE FROM exercises WHERE topic=:topic ORDER BY exercise_order"
+        result = db.session.execute(sql, {"topic":topic})
+    else:
+        user_id = userDAO.get_user_id(username)
+        sql = "SELECT id, heading, CASE WHEN id IN(SELECT DISTINCT exercise_id FROM submissions WHERE user_id=:user_id AND verdict='OK') THEN TRUE ELSE FALSE END FROM exercises WHERE topic=:topic ORDER BY exercise_order"
+        result = db.session.execute(sql, {"topic":topic, "user_id":user_id})
     return result.fetchall()
 
 def get_heading(id):
@@ -25,10 +31,10 @@ def create_exercise(heading, description, topic, input_size):
     db.session.commit()
     return exercise_id
     
-def update_exercise(heading, description, topic, input_size, id):
-    sql = "UPDATE exercises SET heading=:heading, description=:description, topic=:topic, input_size=:input_size WHERE id=:id"
-    db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size, "id":id})
-    db.session.commit()    
+def update_exercise(heading, description, topic, input_size, exercise_order, id):
+    sql = "UPDATE exercises SET heading=:heading, description=:description, topic=:topic, input_size=:input_size, exercise_order=:exercise_order WHERE id=:id"
+    db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size, "exercise_order":exercise_order, "id":id})
+    db.session.commit()
 
 def get_input_size(id):
     sql = "SELECT input_size FROM exercises WHERE id=:id"

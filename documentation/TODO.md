@@ -23,9 +23,9 @@
 - [x] Mahdollista muiden käyttäjien etsiminen ja profiilisivujen katsominen
 - [x] Toteuta profiilisivu
 
-- [ ] Mieti järkevä keino järjestää tehtävät listassa
-- [ ] Merkit tehtävien listaukseen, onko tehtävä ratkaistu vai ei
-- [ ] Profiilisivulle pitää suunnitella yhteenveto siitä, mitä tehtäviä on tehty
+- [x] Mieti (järkevä) keino järjestää tehtävät listassa
+- [x] Merkit tehtävien listaukseen, onko tehtävä ratkaistu vai ei
+- [x] Profiilisivulle pitää suunnitella yhteenveto siitä, mitä tehtäviä on tehty
 - [ ] Suunnittele ja lisää loput tehtävät
 - [ ] Etusivulle kuva
 - [ ] Muiden käyttäjien lisääminen kaverilistalle

@@ -27,6 +27,13 @@
         </div>
         <div class="row">
             <div class="form-group col-lg-2">
+                <label>Järjestys</label>
+                <input class="form-control" type="text" name="order" value="{{ current_order }}" style="font-size: 20px;">
+                <small class="form-text text-danger">{{ orderError }}</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-2">
                 <label>Syötteen koko</label>
                 <input class="form-control" type="text" name="input_size" value="{{ current_input_size }}" style="font-size: 20px;">
                 <small class="form-text text-danger">{{ inputError }}</small>

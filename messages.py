@@ -57,6 +57,9 @@ def invalid_topic():
 def invalid_input_size():
     return "Syötteen koko pitää määritellä ja sen pitää olla numero"
 
+def invalid_order():
+    return "Mones tehtävä on aihealueessaan? Järjestys pitää määritellä ja sen pitää olla numero"
+
 def variablename():
     return "[a-zA-Z]([a-zA-Z]|[0-9])*"
 

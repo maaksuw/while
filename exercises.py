@@ -2,16 +2,18 @@ from flask import Flask
 from flask import render_template, request, redirect, abort
 from app import app 
 
-import exerciseDAO
 import submissions
-import authentication
 import messages
+import exerciseDAO
+import authentication
+
     
 @app.route("/exerciselist")
 def list_exercises():
     admin = authentication.is_admin()
-    topic1 = exerciseDAO.get_exercises_by_topic_order_by_heading(1)
-    topic2 = exerciseDAO.get_exercises_by_topic_order_by_heading(2)
+    username = authentication.get_logged_user()
+    topic1 = exerciseDAO.get_exercises_by_topic_in_order(1, username)
+    topic2 = exerciseDAO.get_exercises_by_topic_in_order(2, username)
     return render_template("exercises/exerciselist.html", topic1=topic1, topic2=topic2, admin=admin)
 
 @app.route("/exercise/<int:id>")
@@ -35,6 +37,7 @@ def submit_new_exercise():
     description = request.form["description"]
     topic = request.form["topic"]
     input_size = request.form["input_size"]
+    order = request.form["order"]
     if not heading:
         return render_template("exercises/admin/newexercise.html", headingError=messages.empty_heading())
     if not description:
@@ -43,8 +46,11 @@ def submit_new_exercise():
         return render_template("exercises/admin/newexercise.html", topicError=messages.invalid_topic())
     if not input_size or not input_size.isnumeric():
         return render_template("exercises/admin/newexercise.html", inputError=messages.invalid_input_size())
+    if not order or not order.isnumeric():
+        return render_template("exercises/admin/newexercise.html", orderError=messages.invalid_order())
     topic = int(topic)
     input_size = int(input_size)
+    order = int(order)
     create_new_exercise(heading, description, topic, input_size)
     return redirect("/exerciselist")
 
@@ -56,7 +62,7 @@ def show_modify_exercise(id):
     if not authentication.is_admin():
         abort(403)
     exercise = exerciseDAO.get_exercise(id)
-    return render_template("exercises/admin/modifyexercise.html", id=id, current_heading=exercise[0], current_description=exercise[1], current_topic=exercise[2], current_input_size=exercise[3])
+    return render_template("exercises/admin/modifyexercise.html", id=id, current_heading=exercise[0], current_description=exercise[1], current_topic=exercise[2], current_input_size=exercise[3], current_order=exercise[4])
 
 @app.route("/modifyexercise/<int:id>", methods=["POST"])
 def modify_exercise(id):
@@ -66,6 +72,7 @@ def modify_exercise(id):
     description = request.form["description"]
     topic = request.form["topic"]
     input_size = request.form["input_size"]
+    order = request.form["order"]
     if not heading:
         return render_template("exercises/admin/modifyexercise.html", headingError=messages.empty_heading(), id=id)
     if not description:
@@ -74,9 +81,12 @@ def modify_exercise(id):
         return render_template("exercises/admin/modifyexercise.html", topicError=messages.invalid_topic(), id=id)
     if not input_size or not input_size.isnumeric():
         return render_template("exercises/admin/modifyexercise.html", inputError=messages.invalid_input_size(), id=id)
+    if not order or not order.isnumeric():
+        return render_template("exercises/admin/newexercise.html", orderError=messages.invalid_order(), id=id)
     topic = int(topic)
     input_size = int(input_size)
-    exerciseDAO.update_exercise(heading, description, topic, input_size, id)
+    order = int(order)
+    exerciseDAO.update_exercise(heading, description, topic, input_size, order, id)
     return redirect("/exercise/" + str(id))
 
 @app.route("/modifyexercise/<int:id>/tests")

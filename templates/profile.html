@@ -13,5 +13,38 @@
         {% endif %}
     </div>
     <hr class="rounded">
-    
+    <div class="col-md-9 mx-auto" style="font-size: 20px; margin-top: 50px;">
+        <table style="border: 1px solid black; border-collapse: collapse; background-color: #ebebeb;">
+            <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                Laskutoimitukset
+                </th>
+                {% for solved in topic1 %}
+                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                {% if solved[2] %}
+                ☒
+                {% else %}
+                ☐
+                {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            
+            <tr>
+                <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                Yksinkertaisia algoritmeja
+                </th>
+                {% for solved in topic2 %}
+                <td style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px;">
+                {% if solved[2] %}
+                ☒
+                {% else %}
+                ☐
+                {% endif %}
+                </td>
+                {% endfor %}
+            </tr>
+            
+        </table>
+    </div>
 {% endblock %}

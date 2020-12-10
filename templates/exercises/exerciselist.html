@@ -6,7 +6,10 @@
             <h3>1. Laskutoimitukset</h3>
             <ul id="sortable" class="list-group">
                 {% for exercise in topic1 %}
-                 <li class="list-group-item" style="font-size: 20px;"><a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a></li>
+                 <li class="list-group-item" style="font-size: 20px;">
+                    <a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a>
+                    <span>{% if exercise[2] %} ☒ {% endif %}</span>
+                 </li>
                 {% endfor %}
             </ul>
         </div>
