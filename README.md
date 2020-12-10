@@ -15,5 +15,5 @@ Muutama rivi ylempänä on linkki sovelluksen Herokussa toimivaan versioon. Etus
 Näiden toiminnallisuuksien lisäksi ylläpitäjä pystyy muokkaamaan olemassa olevia tehtäviä ja lisäämään uuden tehtävän.
 
 ## Linkkejä
-[Jatkokehitysideoita](https://github.com/pinjaw/while/documentation/futurefeatures.md)  
 [Sovellukseen jääneet ongelmat](https://github.com/pinjaw/while/documentation/knownproblems.md)
+[Jatkokehitysideoita](https://github.com/pinjaw/while/documentation/futurefeatures.md)  
