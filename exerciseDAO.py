@@ -24,9 +24,9 @@ def get_heading(id):
     result = db.session.execute(sql, {"id":id})
     return result.fetchone()[0]
 
-def create_exercise(heading, description, topic, input_size):
-    sql = "INSERT INTO exercises (heading, description, topic, input_size) VALUES (:heading, :description, :topic, :input_size) RETURNING id"
-    result = db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size})
+def create_exercise(heading, description, topic, input_size, exercise_order):
+    sql = "INSERT INTO exercises (heading, description, topic, input_size, exercise_order) VALUES (:heading, :description, :topic, :input_size, :exercise_order) RETURNING id"
+    result = db.session.execute(sql, {"heading":heading, "description":description, "topic":topic, "input_size":input_size, "exercise_order":exercise_order})
     exercise_id = result.fetchone()[0]
     db.session.commit()
     return exercise_id

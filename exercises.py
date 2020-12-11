@@ -50,11 +50,11 @@ def submit_new_exercise():
     topic = int(topic)
     input_size = int(input_size)
     order = int(order)
-    create_new_exercise(heading, description, topic, input_size)
+    create_new_exercise(heading, description, topic, input_size, order)
     return redirect("/exerciselist")
 
-def create_new_exercise(heading, description, topic, input_size):
-    exercise_id = exerciseDAO.create_exercise(heading, description, topic, input_size)
+def create_new_exercise(heading, description, topic, input_size, order):
+    exercise_id = exerciseDAO.create_exercise(heading, description, topic, input_size, order)
 
 @app.route("/modifyexercise/<int:id>")
 def show_modify_exercise(id):
