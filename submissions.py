@@ -61,9 +61,9 @@ def handle_testing(submission, parsed_program, id):
         if tests_passed[0] == 1:
             return wrong_answer(id, messages.steplimit_exceeded(), submission, "SE")
         elif tests_passed[0] == 2:
-            input = result[1]
-            user_output = result[3]
-            correct_output = result[2]
+            input = tests_passed[1]
+            user_output = tests_passed[3]
+            correct_output = tests_passed[2]
             message = messages.explain_incorrect_answer(input, str(user_output), str(correct_output))
             return wrong_answer(id, message, submission, "WA")
     
