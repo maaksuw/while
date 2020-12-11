@@ -32,3 +32,4 @@
 - [x] Muiden käyttäjien lisääminen kaverilistalle
 - [ ] Refaktoroi vielä koodia
 - [ ] Koita saada css-overridaukset toimimaan, niin että pääset eroon inline-styleistä
+- [ ] Lisää rajat ja selvitä, miten matemaattiset merkit saa näkymään
