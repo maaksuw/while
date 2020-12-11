@@ -11,7 +11,11 @@ def profile(username):
     profile = userDAO.get_profile(username)
     topic1 = exerciseDAO.get_exercises_by_topic_in_order(1, username)
     topic2 = exerciseDAO.get_exercises_by_topic_in_order(2, username)
-    return render_template("profile.html", username=username, introduction=profile[0], joined=profile[1], topic1=topic1, topic2=topic2)
+    logged_in = authentication.get_logged_user()
+    friends = False
+    if logged_in != username and userDAO.are_friends(logged_in, username):
+        friends = True
+    return render_template("profile.html", username=username, introduction=profile[0], joined=profile[1], friends=friends, topic1=topic1, topic2=topic2)
 
 @app.route("/modifyprofile/<string:username>")
 def show_modify_profile(username):
@@ -28,4 +32,25 @@ def modify_profile(username):
         abort(403)
     if len(introduction) < 5000:
         userDAO.update_introduction(username, introduction)
+    return redirect("/profile/" + username)
+
+@app.route("/friends/<string:username>")
+def friends(username):
+    if authentication.get_logged_user() != username:
+        abort(403)
+    friends = userDAO.get_friends(username)
+    return render_template("friends.html", friends=friends)
+
+@app.route("/friends/<string:username>", methods=["POST"])
+def add_friends(username):
+    logged_in = authentication.get_logged_user()
+    if logged_in != None or not userDAO.are_friends(logged_in, username):
+        userDAO.add_friends(logged_in, username)
+    return redirect("/profile/" + username)
+
+@app.route("/removefriend/<string:username>", methods=["POST"])
+def delete_friend(username):
+    logged_in = authentication.get_logged_user()
+    if logged_in != None and userDAO.are_friends(logged_in, username):
+        userDAO.delete_friends(logged_in, username)
     return redirect("/profile/" + username)

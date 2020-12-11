@@ -6,7 +6,6 @@ import submissions
 import messages
 import exerciseDAO
 import authentication
-
     
 @app.route("/exerciselist")
 def list_exercises():

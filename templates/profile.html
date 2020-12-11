@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1 style="padding: 1em 1em; text-align: center;">{{ username }}</h1>
+    <span></span>
     <div style="font-size: 20px;">
         <label><b>Esittely</b></label>
         <p style="white-space: pre-line;">{{ introduction }}</p>
@@ -10,11 +11,26 @@
             <a href="/modifyprofile/{{ username }}" style="background-color: #ebebeb; color: black; padding: 5px; border-radius: .2em;">
             Muokkaa profiilia
             </a>
+            <a href="/friends/{{ username }}" style="background-color: #ebebeb; color: black; padding: 5px; border-radius: .2em; margin-left: 10px;">
+            Halikaverit
+            </a>
+        {% elif session.username %}
+            {% if friends %}
+            <form action="/removefriend/{{ username }}" method="POST">
+            <button type="submit" class="btn" style="background-color: #757575; border-color: #666666;">Poista halikavereista
+            </button>
+            </form>
+            {% else %}
+            <form action="/friends/{{ username }}" method="POST">
+            <button type="submit" class="btn" style="background-color: #757575; border-color: #666666;">Lisää halikaveriksi
+            </button>
+            </form>
+            {% endif %}
         {% endif %}
     </div>
     <hr class="rounded">
     <div class="col-md-9 mx-auto" style="font-size: 20px; margin-top: 50px;">
-        <table style="border: 1px solid black; border-collapse: collapse;">
+        <table style="border-collapse: collapse;">
             <tr>
                 <th style="border: 1px solid black; border-collapse: collapse; font-size: 20px; padding: 15px; background-color: #ebebeb;">
                 Laskutoimitukset

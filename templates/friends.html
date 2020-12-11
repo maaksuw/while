@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 style="padding: 1em 1em; text-align: center;">Halikaverit</h1>
+    <ul id="sortable" class="list-group">
+        {% for friend in friends %}
+            <li class="list-group-item col-lg-4" style="font-size: 20px;">
+            <a href="/profile/{{ friend[0] }}" style="color: #ffa200;"> {{ friend[0] }} </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

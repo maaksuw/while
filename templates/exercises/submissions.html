@@ -31,7 +31,7 @@
     </div>
     <div class="container" style="padding: 20px; font-size: 20px;">
         {% for submission in submissions %}
-        <p><b>{{ submission[3] }}</b> at {{ submission[1].strftime("%d.%m.%Y %H:%M:%S") }}</p>
+        <p><b><a href="/profile/{{ submission[3] }}" style="color: black;">{{ submission[3] }}</a></b> at {{ submission[1].strftime("%d.%m.%Y %H:%M:%S") }}</p>
         <p><b>{{ submission[2] }}</b></p>
         <pre><code style="color: #ffa200;">{{ submission[0] }}</code></pre>
         <hr class="rounded">

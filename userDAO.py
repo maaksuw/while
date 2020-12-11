@@ -64,3 +64,34 @@ def update_introduction(username, introduction):
     sql = "UPDATE profiles SET introduction=:introduction WHERE user_id=:user_id"
     db.session.execute(sql, {"introduction":introduction, "user_id":user_id})
     db.session.commit()
+    
+def add_friends(user, friend):
+    user_id = get_user_id(user)
+    friend_id = get_user_id(friend)
+    sql = "INSERT INTO friends (user_id, friend_id) VALUES(:user_id, :friend_id)"
+    db.session.execute(sql, {"user_id":user_id, "friend_id":friend_id})
+    db.session.commit()
+
+def get_friends(username):
+    user_id = get_user_id(username)
+    sql = "SELECT U.username FROM friends F, users U WHERE F.user_id=:user_id AND U.id=F.friend_id"
+    result = db.session.execute(sql, {"user_id":user_id})
+    return result.fetchall()
+
+def delete_friends(user, friend):
+    print("poistetaan", user, friend)
+    user_id = get_user_id(user)
+    friend_id = get_user_id(friend)
+    sql = "DELETE FROM friends WHERE user_id=:user_id AND friend_id=:friend_id"
+    db.session.execute(sql, {"user_id":user_id, "friend_id":friend_id})
+    db.session.commit()
+
+def are_friends(user, friend):
+    user_id = get_user_id(user)
+    friend_id = get_user_id(friend)
+    sql = "SELECT COUNT(*) FROM friends WHERE user_id=:user_id AND friend_id=:friend_id"
+    result = db.session.execute(sql, {"user_id":user_id, "friend_id":friend_id})
+    count = result.fetchone()[0]
+    if count == 0:
+        return False
+    return True

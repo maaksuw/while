@@ -10,7 +10,8 @@ CREATE TABLE exercises (
     heading TEXT,
     description TEXT,
     topic INTEGER,
-    input_size INTEGER
+    input_size INTEGER,
+    exercise_order INTEGER
 );
 
 CREATE TABLE tests (
@@ -35,4 +36,16 @@ CREATE TABLE comments (
 	username TEXT,
 	date TIMESTAMP,
 	exercise_id INTEGER REFERENCES exercises
+);
+
+CREATE TABLE profiles (
+	id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES users,
+	introduction TEXT,
+	joined TIMESTAMP
+);
+
+CREATE TABLE friends {
+	user_id INTEGER REFERENCES users,
+	friend_id INTEGER REFERENCES users
 );
