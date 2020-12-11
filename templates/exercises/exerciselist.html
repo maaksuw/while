@@ -8,7 +8,7 @@
                 {% for exercise in topic1 %}
                  <li class="list-group-item" style="font-size: 20px;">
                     <a href="/exercise/{{ exercise[0] }}" style="color: #ffa200;"> {{ exercise[1] }} </a>
-                    <span>{% if exercise[2] %} ☒ {% endif %}</span>
+                    <span>{% if exercise[2] %} ☑ {% endif %}</span>
                  </li>
                 {% endfor %}
             </ul>
