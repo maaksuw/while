@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 style="padding: 1em 1em; text-align: center;">Halikaverit</h1>
+    <div class="col-md-6 mx-auto">
+        <ul id="sortable" class="list-group">
+            {% for friend in friends %}
+                <li class="list-group-item" style="font-size: 20px;">
+                <a href="/profile/{{ friend[0] }}" style="color: #ffa200;"> {{ friend[0] }} </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn" href="/profile/{{ username }}" role="button" style="background-color: #757575; border-color: #666666; margin: 0 auto; display:block; margin-top: 10px;">
+        Takaisin profiiliin
+        </a>
+    </div>
+{% endblock %}
