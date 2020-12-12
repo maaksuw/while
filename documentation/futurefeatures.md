@@ -13,3 +13,4 @@ Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vie
 * Salasanan palautus sähköpostin kautta
 * Persoonallisemmat painikkeet
 * Sijanumerointi ja kolmen parhaan erillinen väritys tuloslistalle
+* Piilotettu Pupu-animaatio ja Missen miukaisu
