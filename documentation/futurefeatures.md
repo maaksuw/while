@@ -7,8 +7,9 @@ Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vie
 ## Lisätoiminnallisuudet ylläpitäjille
 * Ylläpitäjä voi poistaa minkä tahansa tehtävän sivulle lähetetyn viestin
 * Ylläpitäjä pystyy poistamaan tehtävän
+* Ylläpitäjän nimi näkyy boldattuna sivustolla
 * Oma sivu, jossa voi helposti drag-and-drop -tyylisesti määritellä tehtävien järjestyksen tehtävälistauksessa
 ## Lisätoiminnallisuudet sivustolle
 * Salasanan palautus sähköpostin kautta
-## Parannuksia koodiin
-* Automaattiset testit
+* Persoonallisemmat painikkeet
+* Sijanumerointi ja kolmen parhaan erillinen väritys tuloslistalle
