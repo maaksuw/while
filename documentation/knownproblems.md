@@ -9,3 +9,6 @@
 * Lähetykset kannattaisi listata "Omat lähetykset" ja "Kaikki lähetykset" -sivuilla niin, että lähetyksistä listataan indetifioiva linkki tai kuvake, jota klikkaamalla lähetyksen saa auki. Näin sivu pysyisi järkevän kokoisena, vaikka lähetyksiä tulisi paljon. Harjoitustyössä tämä ei kuitenkaan ollut vielä ongelma, enkä lopulta ehtinyt toteuttaa tätä.
 * Virheviestisivu ei ole nätti, sitä voisi parantaa paljon.
 * En ehtinyt missään välissä tehdä kaverilistasivulle kuvaa, joten se on melko tyhjä.
+## Selvittämättömiä mystisyyksiä
+* Erään kerran Herokun tietokannan sisällöt muuttuivat exercise-taulussa ilman että tein mitään, enkä tiedä miksi. Korjasin tietokannan sisällön käsin ajan tasalle, mutta toivon, että tämä ei tapahdu uudelleen.
+* 12.12 kaverilista näytti testikäyttäjällä yhden käyttäjän nimen kaksi kertaa, mutta tätä ongelmaa en onnistunut enää toistamaan. Kokeillessa kaverin lisäämistä ja poistamista kaikki toimi niin kuin pitikin. Jos tämä ongelma tulee uudelleen vastaan, siitä voi laittaa viestiä.
