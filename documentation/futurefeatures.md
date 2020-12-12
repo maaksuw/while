@@ -17,3 +17,4 @@ Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vie
 * Formaalit pikaohjeet Ohje-sivulle
 * Kuvia lisää, erityisesti kaverilistasivulle kuva
 * Lähetyksistä tallennetaan myös tiedot: kuinka monta askelta koodi suoritti ja kuinka monta riviä pitkä koodi on
+* Lisää tehtäviä, 3. aihealue
