@@ -14,6 +14,9 @@ Muutama rivi ylempänä on linkki sovelluksen Herokussa toimivaan versioon. Etus
 
 Näiden toiminnallisuuksien lisäksi ylläpitäjä pystyy muokkaamaan olemassa olevia tehtäviä ja lisäämään uuden tehtävän.
 
+## Loppupalautus
+Sovellus on nyt viimeistelty loppupalautusta varten ja toivon, että koodiin ei jäänyt kummittelemaan enää bugeja. README:n lisäksi alla on listattuna kaksi dokumenttia, joissa kerrotaan sovellukseen jääneistä parannettavista asioista ja mahdollisista tulevaisuudessa lisättävistä ominaisuuksista. Erityisesti ensimmäinen linkki on tämän kurssin kannalta tärkeä. Eipä muuta, kiitos paljon mukavasta kurssista!
+
 ## Linkkejä
 [Sovellukseen jääneet ongelmat](https://github.com/pinjaw/while/blob/main/documentation/knownproblems.md)  
 [Jatkokehitysideoita](https://github.com/pinjaw/while/blob/main/documentation/futurefeatures.md)  
