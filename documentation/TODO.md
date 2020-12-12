@@ -26,8 +26,8 @@
 - [x] Mieti (järkevä) keino järjestää tehtävät listassa
 - [x] Merkit tehtävien listaukseen, onko tehtävä ratkaistu vai ei
 - [x] Profiilisivulle pitää suunnitella yhteenveto siitä, mitä tehtäviä on tehty
-- [ ] Suunnittele ja lisää loput tehtävät
-- [ ] Etusivulle ja kaverisivulle kuva
+- [x] Suunnittele ja lisää loput tehtävät
+- [x] Etusivulle kuva
 - [x] Muiden käyttäjien lisääminen kaverilistalle
 - [x] Lisää rajat 
 - [x] Selvitä, miten matemaattiset merkit saa näkymään

@@ -15,14 +15,14 @@ def profile(username):
     friends = False
     if logged_in != username and userDAO.are_friends(logged_in, username):
         friends = True
-    return render_template("profile.html", username=username, introduction=profile[0], joined=profile[1], friends=friends, topic1=topic1, topic2=topic2)
+    return render_template("profile/profile.html", username=username, introduction=profile[0], joined=profile[1], friends=friends, topic1=topic1, topic2=topic2)
 
 @app.route("/modifyprofile/<string:username>")
 def show_modify_profile(username):
     if not authentication.is_current_user(username):
         abort(403)
     introduction = userDAO.get_profile(username)[0]
-    return render_template("modifyprofile.html", username=username, current_introduction=introduction)
+    return render_template("profile/modifyprofile.html", username=username, current_introduction=introduction)
 
 @app.route("/modifyprofile/<string:username>", methods=['POST'])
 def modify_profile(username):
@@ -39,7 +39,7 @@ def friends(username):
     if authentication.get_logged_user() != username:
         abort(403)
     friends = userDAO.get_friends(username)
-    return render_template("friends.html", friends=friends)
+    return render_template("profile/friends.html", friends=friends, username=username)
 
 @app.route("/friends/<string:username>", methods=["POST"])
 def add_friends(username):

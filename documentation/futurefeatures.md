@@ -14,3 +14,5 @@ Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vie
 * Persoonallisemmat painikkeet
 * Sijanumerointi ja kolmen parhaan erillinen väritys tuloslistalle
 * Piilotettu Pupu-animaatio ja Missen miukaisu
+* Formaalit pikaohjeet
+* Kuvia lisää, erityisesti kaverilistasivulle kuva
