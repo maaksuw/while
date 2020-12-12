@@ -12,7 +12,7 @@ Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
 ## Sovelluksen käyttö Herokussa
 Muutama rivi ylempänä on linkki sovelluksen Herokussa toimivaan versioon. Etusivulla kerrotaan lyhyesti sovelluksesta ja mitä varten se on tehty ja tämän lisäksi sivustolla on kaksi sivua, joista toinen kertoo yleisesti WHILE-ohjelmista ja toisella on ohjeet tehtävien lähettämiseen. Sovellukseen voi luoda käyttäjätilin ja kirjautua antamillaan tunnuksilla sisään. Kun on kirjautunut sisään, tehtäviin voi lähettää ratkaisuja ja tehtävän ratkaistua pääsee näkemään tehtävän kommentti-sivun, johon voi jättää viestin. Omat lähetykset tehtävään näkyvät "Omat lähetykset" välilehdellä. Omalle profiilisivulle pääsee yläosan navigointibaarista omaa nimeä klikkaamalla ja muita käyttäjiä voi hakea alaosan navigointibaarin hakutoiminnallisuudella. Tuloslistalta näkee tilanteen, kuka on ratkaissut minkä verran tehtäviä.
 
-Näiden toiminnallisuuksien lisäksi ylläpitäjä pystyy muokkaamaan olemassa olevia tehtäviä ja lisäämään uuden tehtävän.
+Näiden toiminnallisuuksien lisäksi ylläpitäjä pystyy muokkaamaan olemassa olevia tehtäviä ja lisäämään uuden tehtävän. Ylläpitäjä myös näkee kaikki lähetykset tehtäviin ja pääsee jokaisen tehtävän kommentti-sivulle.
 
 ## Loppupalautus
 Sovellus on nyt viimeistelty loppupalautusta varten ja toivon, että koodiin ei jäänyt kummittelemaan enää bugeja. README:n lisäksi alla on listattuna kaksi dokumenttia, joissa kerrotaan sovellukseen jääneistä parannettavista asioista ja mahdollisista tulevaisuudessa lisättävistä ominaisuuksista. Erityisesti ensimmäinen linkki on tämän kurssin kannalta tärkeä. Eipä muuta, kiitos paljon mukavasta kurssista!
