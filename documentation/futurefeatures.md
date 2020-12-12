@@ -1,8 +1,8 @@
 # Jatkokehitysideoita
 Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vielä tulevaisuudessa lisätä.
 ## Lisätoiminnallisuudet tavalliselle käyttäjälle
-* Käyttäjä voi määritellä profiilikuvan, joka näkyy profiilisivun yläosassa. Profiilikuva näkyisi myös pienellä yläpalkissa, kun käyttäjä on kirjautunut sisään ja mahdollisesti käyttäjän kirjoittaman kommentin vieressä.
-* Käyttäjä voi muokata ja poistaa lähettämänsä kommentin.
+* Käyttäjä voi määritellä profiilikuvan, joka näkyy profiilisivun yläosassa. Profiilikuva näkyisi myös pienellä yläpalkissa, kun käyttäjä on kirjautunut sisään ja mahdollisesti käyttäjän kirjoittaman kommentin vieressä
+* Käyttäjä voi muokata ja poistaa lähettämänsä kommentin
 * Käyttäjä voi poistaa käyttäjätilinsä
 ## Lisätoiminnallisuudet ylläpitäjille
 * Ylläpitäjä voi poistaa minkä tahansa tehtävän sivulle lähetetyn viestin
@@ -15,6 +15,6 @@ Tässä on listattuna erilaisia toiminnallisuuksia, joita sovellukseen voisi vie
 * Sijanumerointi ja kolmen parhaan erillinen väritys tuloslistalle
 * Piilotettu Pupu-animaatio ja Missen miukaisu
 * Formaalit pikaohjeet Ohje-sivulle
-* Kuvia lisää, erityisesti kaverilistasivulle kuva
+* Kuvia olisi mukava olla lisää, erityisesti kaverilistasivulle tarvitsisi yhden kuvan
 * Lähetyksistä tallennetaan myös tiedot: kuinka monta askelta koodi suoritti ja kuinka monta riviä pitkä koodi on
-* Lisää tehtäviä, 3. aihealue
+* Lisää tehtäviä ja lisätään 3. aihealue
