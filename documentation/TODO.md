@@ -26,10 +26,9 @@
 - [x] Mieti (järkevä) keino järjestää tehtävät listassa
 - [x] Merkit tehtävien listaukseen, onko tehtävä ratkaistu vai ei
 - [x] Profiilisivulle pitää suunnitella yhteenveto siitä, mitä tehtäviä on tehty
-- [ ] Korjaa lähetykset-sivut
 - [ ] Suunnittele ja lisää loput tehtävät
 - [ ] Etusivulle ja kaverisivulle kuva
 - [x] Muiden käyttäjien lisääminen kaverilistalle
-- [ ] Refaktoroi vielä koodia
-- [ ] Koita saada css-overridaukset toimimaan, niin että pääset eroon inline-styleistä
-- [ ] Lisää rajat ja selvitä, miten matemaattiset merkit saa näkymään
+- [x] Lisää rajat 
+- [x] Selvitä, miten matemaattiset merkit saa näkymään
+- [ ] Tee lopputarkastus

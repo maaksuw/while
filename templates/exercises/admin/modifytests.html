@@ -36,6 +36,10 @@
             <button type="submit" class="btn" name="modbutton" value="new" style="background-color: #757575; border-color: #666666;">Lisää</button>
             <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         </form>
+        
+        <a class="btn" href="/exercise/{{ id }}" role="button" style="background-color: #757575; border-color: #666666; margin-top: 20px;">
+        Palaa tehtävänäkymään
+        </a>
     </div>
     
 {% endblock %}
