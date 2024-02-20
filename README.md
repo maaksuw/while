@@ -7,6 +7,8 @@ PDF, jossa kerrotaan WHILE-kielestä: [Theory of Computer Science - LOOP- and WH
 
 **Linkki sovellukseen:** [Johdatus WHILE-ohjelmointiin](https://whileohjelmointi.herokuapp.com).
 
+***!! Herokusta on tullut maksullinen !!** Johdatus WHILE-ohjelmointiin käytti vanhaa ilmaisversiota, joten valitettavasti sovellusta ei voi enää käyttää Herokun kautta. Projekti on kurssityö, jota ei enää ylläpidetä, mutta säilytän repositorion silti.*
+
 Web-sovellus on harjoitustyö Helsingin yliopiston kurssille Tietokantasovellus.
 
 ## Sovelluksen käyttö Herokussa
